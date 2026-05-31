@@ -174,7 +174,22 @@ python run.py alerts
 
 ---
 
-## 7. Troubleshooting
+## 7. Kalıcı Dersler (Tekrarlanmaması Gereken Hatalar)
+
+| Ders | Kaynak | Özet |
+|------|--------|------|
+| Python `google-play-scraper`'da `list()` yok | Day 1 test | Kategori koleksiyonları sadece Node.js `facundoolano/google-play-scraper` ile çekilir |
+| `play-store-scraper-ng` kırık | Day 1 test | RankoR'un Python portu `ImportError` veriyor, kullanılamaz |
+| Node.js API `.default` export | Day 1 debug | `require('google-play-scraper').default;` kullan |
+| Ban koruma zorunlu | Day 1 design | 3–6 sn rate limit + 24 saat cache olmadan tarama yapma |
+| Detect için 2 snapshot gerekli | Day 1 test | İlk `scan` sonrası `detect` çalışmaz, veri birikmesi lazım |
+| `datetime.utcnow()` deprecated | Day 1 refactor | Python 3.12+ için `datetime.now(timezone.utc)` kullan |
+| `print_report` detector'da olmamalı | Day 1 refactor | Separation of concerns: detector = algoritma; reporter = çıktı |
+| API hard limit 200 app | Day 1 test | `num > 200` request etse de max 200 döner |
+
+---
+
+## 8. Troubleshooting
 
 | Sorun | Neden | Çözüm |
 |-------|-------|-------|
