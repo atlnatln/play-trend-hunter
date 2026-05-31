@@ -6,13 +6,17 @@
 
 ## 🎯 Durum
 
-**MVP tamamlandı.** Play Store trend tespiti için çalışan bir sistem kuruldu:
-- Scraper: Node.js `google-play-scraper` + Python wrapper
-- Database: SQLite (snapshots, app details, reviews, alerts)
-- Detector: Rank delta + newcomer + ratings + score delta
-- CLI: `scan`, `detect`, `full`, `detail <appId>`, `alerts`
+**Gün 1 tamamlandı.** MVP çalışıyor, veri kalitesi doğrulandı, strateji belirlendi.
 
-**Altyapı kurulumu aktif:** AGENTS.md, CONTEXT.md, SKILL.md, `.kimi/` dizini oluşturuluyor.
+- Scraper: Node.js `google-play-scraper` + Python wrapper ✅
+- Database: SQLite ✅
+- Detector: Rank delta + newcomer + ratings + score delta ✅
+- CLI: `scan`, `detect`, `full`, `detail <appId>`, `alerts` ✅
+- Altyapı: AGENTS.md, CONTEXT.md, SKILL.md, `.kimi/` dizini ✅
+- Ayrı repo: `main` branch, ilk commit ✅
+- ROADMAP.md: Stratejik yol haritası yazıldı ✅
+
+**Aktif Faz:** Faz 0 — Veri Birikimi ve Kalibrasyon (Hafta 1–2)
 
 ---
 
@@ -42,15 +46,23 @@
 
 ---
 
-## ⏭️ Sonraki Adımlar
+## ⏭️ Sonraki Adımlar (ROADMAP.md'ye detaylı bak)
 
-1. **SKILL.md yaz** — Teknik referans (scraping API, detector formülleri, SQLite schema)
-2. **Session log yaz** — Bu oturumun tarihçesi
-3. **Cron setup** — Günlük otomatik `run.py full` çalıştırma
-4. **Telegram alert botu** — Surge tespit edince anında bildirim
-5. **Review sentiment analizi** — 1-2 yıldız review'ları analiz edip "şikayet listesi" çıkarma
-6. **ASO keyword tracking** — Play Store arama sonuçlarında keyword rank takibi
-7. **Wiki güncelle** — Artık çalışan sistem var, `wiki/projects/play-store-trend-hunter.md` güncellenmeli
+**Faz 0: Veri Birikimi ve Kalibrasyon (Hafta 1–2)**
+1. Günlük `run.py full` çalıştır — 7–14 gün veri biriktir
+2. False positive/negative analizi yap — threshold ayarla
+3. İlk "ilginç" sinyalleri yakala — 3–5 aday app listesi oluştur
+
+**Faz 1: İlk Fast-Follow (Hafta 3 – Ay 1 Sonu)**
+4. En güçlü sinyali seç → reverse engineer → şikayet listesi
+5. Flutter MVP geliştir (3–7 gün)
+6. Soft launch + ASO
+
+**Faz 2–3: Otomasyon ve Ölçek (Ay 2–3)**
+7. Telegram alert botu
+8. Review sentiment analizi
+9. VPS cron kurulumu
+10. 3 app portfolyo hedefi
 
 ---
 
