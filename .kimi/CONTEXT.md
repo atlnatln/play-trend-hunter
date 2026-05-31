@@ -42,6 +42,6 @@ Detaylı fazlar → `ROADMAP.md`
 
 ## 📝 Oturum Sonu Checklist
 
-- [ ] CONTEXT.md güncelle (sadece aktif durum)
-- [ ] Session log yaz
-- [ ] Git commit
+- [x] CONTEXT.md güncelle (sadece aktif durum)
+- [x] Session log yaz
+- [x] Git commit
