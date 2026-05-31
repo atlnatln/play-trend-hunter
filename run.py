@@ -10,18 +10,19 @@ Usage:
     python run.py alerts        # Show recent alerts
 """
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 from database.models import init_db, save_snapshot, get_snapshots, save_app_detail, save_reviews, save_alert, get_recent_alerts
 from scraper.play_store import safe_fetch_list, fetch_app_detail, fetch_reviews, CacheGuard
-from detector.surge import detect_surges, print_report
+from detector.surge import detect_surges
+from reporter.cli import print_report
 import config
 
 
 def cmd_scan():
-    print(f"[{datetime.utcnow().isoformat()}] Starting scan for {len(config.TRACKED_CATEGORIES)} categories...")
+    print(f"[{datetime.now(timezone.utc).isoformat()}] Starting scan for {len(config.TRACKED_CATEGORIES)} categories...")
     cache = CacheGuard(ttl_hours=config.CACHE_TTL_HOURS)
-    snapshot_at = datetime.utcnow().isoformat()
+    snapshot_at = datetime.now(timezone.utc).isoformat()
     total = 0
     for collection in config.TRACKED_COLLECTIONS:
         for category in config.TRACKED_CATEGORIES:
@@ -42,7 +43,7 @@ def cmd_scan():
 
 
 def cmd_detect():
-    print(f"[{datetime.utcnow().isoformat()}] Running surge detection...")
+    print(f"[{datetime.now(timezone.utc).isoformat()}] Running surge detection...")
     all_alerts = []
     for collection in config.TRACKED_COLLECTIONS:
         for category in config.TRACKED_CATEGORIES:
@@ -67,7 +68,7 @@ def cmd_detect():
 
 
 def cmd_detail(app_id: str):
-    print(f"[{datetime.utcnow().isoformat()}] Fetching details for {app_id}...")
+    print(f"[{datetime.now(timezone.utc).isoformat()}] Fetching details for {app_id}...")
     try:
         detail = fetch_app_detail(app_id)
         save_app_detail(detail)

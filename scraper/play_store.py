@@ -7,7 +7,7 @@ import subprocess
 import time
 import random
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 
 GPLAY_JS = Path(__file__).parent / "gplay_fetch.js"
 NODE_BIN = "node"
@@ -82,7 +82,7 @@ class CacheGuard:
         if not path.exists():
             return None
         mtime = datetime.fromtimestamp(path.stat().st_mtime)
-        if datetime.now() - mtime > self.ttl:
+        if datetime.now(timezone.utc) - mtime > self.ttl:
             return None
         return json.loads(path.read_text(encoding="utf-8"))
 

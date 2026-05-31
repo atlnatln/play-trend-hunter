@@ -5,7 +5,7 @@ All timestamps are UTC.
 import sqlite3
 import json
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 DB_PATH = Path(__file__).parent.parent / "data" / "play_trend.db"
 
@@ -79,6 +79,7 @@ def init_db():
         fetched_at TEXT
     );
     CREATE INDEX IF NOT EXISTS idx_rev_app ON reviews(app_id, fetched_at);
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_rev_unique ON reviews(app_id, review_id);
 
     CREATE TABLE IF NOT EXISTS surge_alerts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -97,7 +98,7 @@ def init_db():
 
 def save_snapshot(apps: list[dict], collection: str, category: str, snapshot_at: str = None):
     if snapshot_at is None:
-        snapshot_at = datetime.utcnow().isoformat()
+        snapshot_at = datetime.now(timezone.utc).isoformat()
     conn = get_conn()
     for rank, app in enumerate(apps, start=1):
         conn.execute(
@@ -179,7 +180,7 @@ def save_app_detail(app: dict):
             1 if app.get("offersIAP") else 0,
             app.get("icon"),
             json.dumps(app.get("screenshots", [])),
-            datetime.utcnow().isoformat(),
+            datetime.now(timezone.utc).isoformat(),
         ),
     )
     conn.commit()
@@ -188,7 +189,7 @@ def save_app_detail(app: dict):
 
 def save_reviews(app_id: str, reviews: list[dict]):
     conn = get_conn()
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     for rev in reviews:
         conn.execute(
             """INSERT INTO reviews
@@ -217,7 +218,7 @@ def save_alert(app_id: str, collection: str, category: str, surge_score: float, 
         """INSERT INTO surge_alerts (detected_at, app_id, collection, category, surge_score, signals)
         VALUES (?, ?, ?, ?, ?, ?)""",
         (
-            datetime.utcnow().isoformat(),
+            datetime.now(timezone.utc).isoformat(),
             app_id,
             collection,
             category,

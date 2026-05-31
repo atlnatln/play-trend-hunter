@@ -45,7 +45,12 @@ async function main() {
   
   try {
     const result = await METHODS[method](args);
-    console.log(JSON.stringify(result, null, 0));
+    const out = JSON.stringify(result, null, 0);
+    if (!out) {
+      console.error(JSON.stringify({ error: "Empty output from scraper" }));
+      process.exit(1);
+    }
+    console.log(out);
   } catch (err) {
     console.error(JSON.stringify({ error: err.message }));
     process.exit(1);
