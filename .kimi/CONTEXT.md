@@ -8,10 +8,11 @@
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 1 tamamlandı. MVP çalışıyor, veri kalitesi doğrulandı.
-- Scraper ✅ | Detector ✅ | CLI ✅ | Altyapı ✅ | Ayrı repo ✅
-- `FETCH_NUM = 150` (test edildi, 847ms)
-- Teknik borç temizlendi (datetime deprecation, reporter SoC, review unique index)
+**Faz 0 aktif.** Gün 1 tamamlandı. İlk gerçek tarama yapıldı.
+- 1. snapshot: **47 kategori, 7050 app pozisyonu, 6901 benzersiz app** (2026-05-31 ~14:30 UTC)
+- Detect: Henüz çalışmadı (2. snapshot gerekli)
+- Threshold: 5.0 (henüz kalibre edilmedi)
+- DB: Test/mock verisi temizlendi, sıfırdan dolduruldu
 
 ## ⏭️ Sıradaki Görev
 
