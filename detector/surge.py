@@ -5,6 +5,8 @@ Compares two snapshots and calculates a surge score.
 import json
 from datetime import datetime
 
+import config
+
 
 def parse_snapshot(rows: list[dict]) -> dict[str, dict]:
     """Convert snapshot rows to app_id -> data map."""
@@ -86,7 +88,7 @@ def detect_surges(
         # Calculate surge score
         surge_score = rank_delta_score + ratings_score + score_score + newcomer_bonus
 
-        if surge_score > 5:  # Threshold
+        if surge_score > config.SURGE_THRESHOLD:
             alerts.append(
                 {
                     "app_id": app_id,

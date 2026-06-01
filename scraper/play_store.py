@@ -81,7 +81,7 @@ class CacheGuard:
         path = self._path(self._key(*parts))
         if not path.exists():
             return None
-        mtime = datetime.fromtimestamp(path.stat().st_mtime)
+        mtime = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
         if datetime.now(timezone.utc) - mtime > self.ttl:
             return None
         return json.loads(path.read_text(encoding="utf-8"))

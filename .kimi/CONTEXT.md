@@ -8,17 +8,17 @@
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 1 tamamlandı. İlk gerçek tarama yapıldı.
-- 1. snapshot: **47 kategori, 7050 app pozisyonu, 6901 benzersiz app** (2026-05-31 ~14:30 UTC)
-- Detect: Henüz çalışmadı (2. snapshot gerekli)
-- Threshold: 5.0 (henüz kalibre edilmedi)
-- DB: Test/mock verisi temizlendi, sıfırdan dolduruldu
+**Faz 0 aktif.** Gün 2 tamamlandı. İkinci snapshot alındı, ilk detect çalıştı.
+- Snapshots: **2 adet** (2026-05-31, 2026-06-01) — 7050 app pozisyonu her biri
+- Detect: **337 alert** (threshold 20.0, kalibre edildi)
+- Threshold: **20.0** (önceki: 5.0, histogram analizi sonrası)
+- DB: Temiz, test/mock verisi yok
 
 ## ⏭️ Sıradaki Görev
 
-1. **7 gün veri biriktir** — Günlük `run.py full`
-2. **Threshold kalibrasyonu** — False positive/negative analizi
-3. **İlk aday app'leri belirle** — 3–5 ilginç sinyal
+1. **İlginç app'lerin detayını çek** — Top 5-10 alert'i incele
+2. **True positive analizi** — Alert'ler gerçekten anlamlı mı?
+3. **3-4 gün daha veri biriktir** — Günlük `run.py full`
 
 Detaylı fazlar → `ROADMAP.md`
 
@@ -28,21 +28,21 @@ Detaylı fazlar → `ROADMAP.md`
 |----|-------|---------|
 | S2 | `installs`/`ratings` bazen boş geliyor (Google verisi) | Düşük |
 
-Çözülen: ~~S1~~ `datetime.utcnow()` deprecated → `timezone.utc` ile fixlendi.
+Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi.
 
 ## 🔗 Hızlı Referanslar
 
 | Konu | Dosya |
 |------|-------|
-| Teknik detay (API, schema, formüller) | `.kimi/skills/play-trend-hunter/SKILL.md` |
+| Teknik detay (API, schema, formüller, SQL) | `.kimi/skills/play-trend-hunter/SKILL.md` |
 | Strateji, fazlar, ADR'lar | `ROADMAP.md` |
 | Tarihçe, session detayları | `.kimi/logs/` |
-| Kalıcı dersler, troubleshooting | `SKILL.md` §6–7 |
+| Kalıcı dersler, troubleshooting | ACE `playbook-python-ops` Ders 020-022 |
 
 ---
 
 ## 📝 Oturum Sonu Checklist
 
-- [x] CONTEXT.md güncelle (sadece aktif durum)
-- [x] Session log yaz
-- [x] Git commit
+- [ ] CONTEXT.md güncelle
+- [ ] Session log yaz
+- [ ] Git commit

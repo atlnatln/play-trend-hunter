@@ -68,4 +68,4 @@ FETCH_NUM = 150
 CACHE_TTL_HOURS = 24.0
 
 # Surge detection threshold
-SURGE_THRESHOLD = 5.0
+SURGE_THRESHOLD = 20.0

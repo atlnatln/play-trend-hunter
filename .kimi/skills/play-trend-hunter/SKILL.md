@@ -106,6 +106,36 @@ SELECT * FROM surge_alerts WHERE dismissed = 0
 ORDER BY detected_at DESC LIMIT 50;
 ```
 
+**Analiz SQL Template'leri:**
+```sql
+-- Top 20 alert (title join'li)
+SELECT a.app_id, a.category, a.surge_score, a.signals,
+       (SELECT title FROM snapshots WHERE app_id=a.app_id ORDER BY snapshot_at DESC LIMIT 1) as title,
+       (SELECT rank_position FROM snapshots WHERE app_id=a.app_id ORDER BY snapshot_at DESC LIMIT 1) as rank
+FROM surge_alerts a ORDER BY a.surge_score DESC LIMIT 20;
+
+-- Score histogram (threshold kalibrasyonu için)
+SELECT 
+  CASE 
+    WHEN surge_score BETWEEN 5 AND 10 THEN '5-10'
+    WHEN surge_score BETWEEN 10 AND 15 THEN '10-15'
+    WHEN surge_score BETWEEN 15 AND 20 THEN '15-20'
+    WHEN surge_score BETWEEN 20 AND 30 THEN '20-30'
+    WHEN surge_score BETWEEN 30 AND 50 THEN '30-50'
+    WHEN surge_score BETWEEN 50 AND 100 THEN '50-100'
+    ELSE '100+'
+  END as range,
+  COUNT(*) as cnt
+FROM surge_alerts GROUP BY range;
+
+-- Newcomer sayısı
+SELECT COUNT(*) FROM surge_alerts WHERE signals LIKE '%newcomer%';
+
+-- Kategori dağılımı
+SELECT category, COUNT(*) as cnt FROM surge_alerts 
+GROUP BY category ORDER BY cnt DESC LIMIT 10;
+```
+
 **DB path:** `data/play_trend.db` (gitignore)
 
 ---
@@ -123,7 +153,8 @@ ORDER BY detected_at DESC LIMIT 50;
 
 **Surge Score =** Rank Delta + Ratings Score + Score Score + Newcomer Bonus
 
-**Threshold:** `SURGE_THRESHOLD = 5.0` (config.py)
+**Threshold:** `SURGE_THRESHOLD = 20.0` (config.py)  
+*Not: Önceki değer 5.0'dı. 150 app'lik listede +6 rank bile score 6 üretiyordu, 2024 gürültü alert oluşuyordu. Histogram analizi sonrası 20 seçildi.*
 
 ### Detect Akışı
 
@@ -133,12 +164,51 @@ snapshots (current) ─┐
 snapshots (previous)─┘
                           │
                           v
-                    surge_score > 5.0 ?
+              surge_score > config.SURGE_THRESHOLD ?
                           │
                     ┌─────┴─────┐
                     YES         NO
                     │            │
               save_alert()   skip
+```
+
+### surge.py Tam Kodu
+
+```python
+def detect_surges(current_rows, previous_rows, collection, category):
+    current = parse_snapshot(current_rows)
+    previous = parse_snapshot(previous_rows)
+    alerts = []
+    for app_id, curr in current.items():
+        signals = {}
+        prev = previous.get(app_id)
+        if not prev:
+            signals["newcomer"] = {"current_rank": curr["rank"], "note": "Entered top list"}
+            rank_delta_score = max(0, 50 - curr["rank"])
+        else:
+            rank_delta = prev["rank"] - curr["rank"]  # Positive = moved up
+            signals["rank_delta"] = {"previous": prev["rank"], "current": curr["rank"], "delta": rank_delta}
+            rank_delta_score = max(0, rank_delta)
+        # Ratings growth
+        ratings_score = 0
+        if prev and curr["ratings"] and prev["ratings"]:
+            ratings_delta = curr["ratings"] - prev["ratings"]
+            if ratings_delta > 0:
+                signals["ratings_delta"] = {"previous": prev["ratings"], "current": curr["ratings"], "delta": ratings_delta}
+            ratings_score = min(ratings_delta / 100, 50)
+        # Score improvement
+        score_score = 0
+        if prev and curr["score"] and prev["score"]:
+            score_delta = curr["score"] - prev["score"]
+            if score_delta > 0:
+                signals["score_delta"] = {"previous": prev["score"], "current": curr["score"], "delta": round(score_delta, 3)}
+            score_score = max(0, score_delta * 20)
+        newcomer_bonus = 15 if "newcomer" in signals else 0
+        surge_score = rank_delta_score + ratings_score + score_score + newcomer_bonus
+        if surge_score > config.SURGE_THRESHOLD:  # DO NOT hardcode; read from config
+            alerts.append({...})
+    alerts.sort(key=lambda x: x["surge_score"], reverse=True)
+    return alerts
 ```
 
 ---
@@ -186,6 +256,9 @@ python run.py alerts
 | `datetime.utcnow()` deprecated | Day 1 refactor | Python 3.12+ için `datetime.now(timezone.utc)` kullan |
 | `print_report` detector'da olmamalı | Day 1 refactor | Separation of concerns: detector = algoritma; reporter = çıktı |
 | API hard limit 200 app | Day 1 test | `num > 200` request etse de max 200 döner |
+| **Hardcoded threshold** | Day 2 detect | `surge.py` satır 89'da `> 5` hardcoded'dı. `config.SURGE_THRESHOLD` import edilmeli |
+| **CacheGuard naive datetime** | Day 2 scan | `datetime.fromtimestamp(mtime)` offset-naive üretiyor. `tz=timezone.utc` ekle |
+| **Threshold 5→20 kalibrasyonu** | Day 2 detect | 150 app'lik listede +6 rank = score 6. 2024 gürültü alert oluştu. Histogram: 20+ = 337 alert (makul) |
 
 ---
 
