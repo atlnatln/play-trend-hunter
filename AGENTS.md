@@ -10,9 +10,10 @@
 
 1. **.kimi/CONTEXT.md** — İlk oku. Durum, sıradaki görev, aktif sorunlar.
 2. **AGENTS.md** — Kurallar ve protokol (bu dosya).
-3. **SKILL.md** — Teknik referans (Play Store scraping, trend detection, SQLite schema).
-4. **Session log'ları** — Son 3 oturum (sadece detay gerekiyorsa).
-5. **Kod tabanı** — Yukarıdakiler yeterli olmadığında.
+3. **.kimi/CHANGELOG.md** — Son değişiklikler ve gerekçeleri. "Neden 20?" sorusuna cevap burada.
+4. **SKILL.md** — Teknik referans (Play Store scraping, trend detection, SQLite schema).
+5. **Session log'ları** — Son 3 oturum (sadece detay gerekiyorsa).
+6. **Kod tabanı** — Yukarıdakiler yeterli olmadığında.
 
 **Token israfı yasak:** Skill'de cevap varken kod tabanını kazmak yasak. Bulduğun bilgiyi skill'e yaz (pay it forward).
 

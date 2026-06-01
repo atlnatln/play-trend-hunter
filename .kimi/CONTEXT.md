@@ -43,6 +43,9 @@ Detaylı fazlar → `ROADMAP.md`
 
 ## 📝 Oturum Sonu Checklist
 
-- [ ] CONTEXT.md güncelle
-- [ ] Session log yaz
-- [ ] Git commit
+- [x] CONTEXT.md güncelle
+- [x] Session log yaz
+- [x] SKILL.md güncelle
+- [x] CHANGELOG.md oluştur
+- [x] AGENTS.md okuma sırasına CHANGELOG eklendi
+- [x] Git commit
