@@ -62,7 +62,7 @@ TRACKED_COLLECTIONS = [
 ]
 
 # How many apps per list fetch
-FETCH_NUM = 150
+FETCH_NUM = 200
 
 # Cache TTL in hours
 CACHE_TTL_HOURS = 24.0

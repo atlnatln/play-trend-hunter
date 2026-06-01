@@ -239,3 +239,39 @@ def get_recent_alerts(limit: int = 50):
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
+
+
+def get_top_alerts(limit: int = 10):
+    """Get highest-scoring alerts ever detected (with title and rank from latest snapshot)."""
+    conn = get_conn()
+    rows = conn.execute(
+        """SELECT a.*,
+           (SELECT title FROM snapshots WHERE app_id=a.app_id ORDER BY snapshot_at DESC LIMIT 1) as title,
+           (SELECT rank_position FROM snapshots WHERE app_id=a.app_id ORDER BY snapshot_at DESC LIMIT 1) as current_rank
+           FROM surge_alerts a WHERE dismissed = 0
+           ORDER BY a.surge_score DESC LIMIT ?""",
+        (limit,),
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_alert_count_by_category():
+    """Histogram of alerts per category."""
+    conn = get_conn()
+    rows = conn.execute(
+        """SELECT category, COUNT(*) as cnt FROM surge_alerts
+           WHERE dismissed = 0 GROUP BY category ORDER BY cnt DESC"""
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_snapshot_dates():
+    """Get distinct snapshot dates."""
+    conn = get_conn()
+    rows = conn.execute(
+        """SELECT DISTINCT snapshot_at FROM snapshots ORDER BY snapshot_at DESC"""
+    ).fetchall()
+    conn.close()
+    return [r["snapshot_at"] for r in rows]

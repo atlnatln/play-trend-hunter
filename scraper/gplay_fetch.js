@@ -11,7 +11,7 @@ const METHODS = {
     return gplay.list({
       collection: gplay.collection[collection],
       category: gplay.category[category],
-      num: Math.min(num, 150),
+      num: Math.min(num, 200),
       fullDetail,
     });
   },

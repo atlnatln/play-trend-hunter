@@ -3,19 +3,22 @@
 Play Trend Hunter — Main entry point.
 
 Usage:
-    python run.py scan          # Fetch latest snapshots for all tracked categories
-    python run.py detect        # Compare latest two snapshots and detect surges
-    python run.py full          # scan + detect
-    python run.py detail <appId> # Fetch full app details and reviews
-    python run.py alerts        # Show recent alerts
+    python run.py scan              # Fetch latest snapshots for all tracked categories
+    python run.py detect            # Compare latest two snapshots and detect surges
+    python run.py full              # scan + detect
+    python run.py detail <appId>    # Fetch full app details and reviews
+    python run.py alerts            # Show recent alerts (chronological)
+    python run.py top-alerts [N]    # Show top N alerts by score (default 10)
+    python run.py auto-detail [N]   # Auto-fetch details for top N alerts (default 5)
+    python run.py report            # Summary report of all snapshots and alerts
 """
 import sys
 from datetime import datetime, timezone
 
-from database.models import init_db, save_snapshot, get_snapshots, save_app_detail, save_reviews, save_alert, get_recent_alerts
+from database.models import init_db, save_snapshot, get_snapshots, save_app_detail, save_reviews, save_alert, get_recent_alerts, get_top_alerts, get_alert_count_by_category, get_snapshot_dates
 from scraper.play_store import safe_fetch_list, fetch_app_detail, fetch_reviews, CacheGuard
 from detector.surge import detect_surges
-from reporter.cli import print_report
+from reporter.cli import print_report, print_top_alerts
 import config
 
 
@@ -103,6 +106,47 @@ def cmd_alerts():
         print(f"  [{a['detected_at']}] {a['app_id']} — score: {a['surge_score']} — {a['category']}")
 
 
+def cmd_top_alerts(limit: int = 10):
+    alerts = get_top_alerts(limit=limit)
+    print_top_alerts(alerts, limit=limit)
+
+
+def cmd_auto_detail(limit: int = 5):
+    alerts = get_top_alerts(limit=limit)
+    if not alerts:
+        print("No alerts to fetch details for.")
+        return
+    print(f"Auto-fetching details for top {len(alerts)} alerts...\n")
+    for a in alerts:
+        cmd_detail(a["app_id"])
+        print()
+
+
+def cmd_report():
+    print(f"\n{'=' * 70}")
+    print(f" PLAY TREND HUNTER — REPORT")
+    print(f"{'=' * 70}\n")
+    dates = get_snapshot_dates()
+    print(f"  Snapshots: {len(dates)}")
+    if dates:
+        print(f"  Latest:    {dates[0]}")
+        print(f"  First:     {dates[-1]}\n")
+    cats = get_alert_count_by_category()
+    print(f"  Total alerts: {sum(c['cnt'] for c in cats)}")
+    print(f"  Categories with alerts: {len(cats)}\n")
+    print("  Top categories:")
+    for c in cats[:10]:
+        print(f"    {c['category']:<25}: {c['cnt']}")
+    print()
+    top = get_top_alerts(limit=5)
+    if top:
+        print("  Highest scoring alerts:")
+        for a in top:
+            title = a.get("title") or a["app_id"]
+            print(f"    Score {a['surge_score']:>5} | {a['category']:<22} | {title}")
+    print(f"\n{'=' * 70}\n")
+
+
 def main():
     init_db()
     if len(sys.argv) < 2:
@@ -121,6 +165,14 @@ def main():
         cmd_detail(sys.argv[2])
     elif cmd == "alerts":
         cmd_alerts()
+    elif cmd == "top-alerts":
+        limit = int(sys.argv[2]) if len(sys.argv) >= 3 else 10
+        cmd_top_alerts(limit=limit)
+    elif cmd == "auto-detail":
+        limit = int(sys.argv[2]) if len(sys.argv) >= 3 else 5
+        cmd_auto_detail(limit=limit)
+    elif cmd == "report":
+        cmd_report()
     else:
         print(__doc__)
         sys.exit(1)
