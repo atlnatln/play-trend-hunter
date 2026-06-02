@@ -2,7 +2,7 @@
 name: play-trend-hunter
 description: Play Trend Hunter — Play Store trend tespiti, fast-follow stratejisi, scraping ve otomasyon
 metadata:
-  last_updated: 2026-05-31
+  last_updated: 2026-06-02
   maintainer: kimi-agent
   project: play-trend-hunter
 ---
@@ -273,6 +273,286 @@ python run.py alerts
 | `No surge alerts detected` | Tek snapshot var veya threshold yüksek | İkinci taramayı bekle veya threshold düşür (config.py) |
 | `datetime.utcnow() deprecated` | Python 3.12+ | Düşük öncelik, `datetime.now(datetime.UTC)` ile değiştir |
 | `installs`/`ratings` boş | Google verisi eksik | Normal, bazı app'lerde gizli. Diğer sinyallere güven. |
+| Review `content` NULL | google-play-scraper v10 API değişikliği | `content`→`text`, `reviewId`→`id`. SKILL.md Bölüm 2'ye bak |
+
+---
+
+## 9. Mobil Test Altyapısı (Maestro + Android Emulator)
+
+### 9.1 Maestro Kurulumu ve Kullanımı
+
+```bash
+# Kurulum
+curl -fsSL "https://get.maestro.mobile.dev" | bash
+export PATH="$PATH:$HOME/.maestro/bin"
+
+# Versiyon kontrol
+maestro --version   # 2.6.0+
+```
+
+**Temel Komutlar:**
+```bash
+maestro test flow.yaml              # Tek flow çalıştır
+maestro test flows/                 # Tüm flow'ları çalıştır
+maestro test -c flow.yaml           # Watch mode (dosya değişiminde yeniden çalıştır)
+maestro hierarchy                   # Cihaz UI hiyerarşisi (element inspection)
+maestro record flow.yaml            # Video kaydı
+maestro download-samples            # Örnek app ve flow'lar
+```
+
+**Basit Flow Örneği:**
+```yaml
+appId: com.example.myapp
+---
+- launchApp
+- tapOn: "Start Game"
+- assertVisible: "Level 1"
+- inputText: "Player1"
+- tapOn: "Submit"
+- assertVisible: "Score: 0"
+```
+
+### 9.2 Android Emulator Yönetimi
+
+```bash
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$HOME/.maestro/bin"
+
+# Mevcut AVD'leri listele
+emulator -list-avds
+
+# AVD başlat (headless, arka planda)
+emulator -avd tablet_7inch -no-window -no-audio -gpu swiftshader_indirect &
+
+# Cihaz bağlı mı kontrol et
+adb devices
+
+# APK yükle
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+
+# Logcat izle
+adb logcat -s com.example.myapp:D
+```
+
+**Mevcut AVD'ler (Bu Makinede):**
+| AVD | Boyut | API | Durum |
+|-----|-------|-----|-------|
+| `tablet_7inch` | 1200x1920 | 34 | ✅ Mevcut |
+| `tablet_10inch` | — | 34 | ✅ Mevcut |
+
+**Telefon AVD'si oluşturma (gerekirse):**
+```bash
+sdkmanager "system-images;android-34;google_apis_playstore;x86_64"
+avdmanager create avd -n pixel6 -d pixel_6 -k "system-images;android-34;google_apis_playstore:x86_64"
+```
+
+### 9.3 Maestro Best Practices ve İleri Komutlar
+
+**Visibility Assertions:**
+```yaml
+# Regex match (case-insensitive)
+- assertVisible:
+    text: ".*error.*"
+
+# Element yoksa PASS (optional)
+- assertVisible:
+    text: "Tooltip"
+    optional: true
+
+# Element görünmemeli
+- assertNotVisible: "Loading..."
+
+# Relative selector (belirli bir elementin altında/üstünde)
+- assertVisible:
+    text: "Price: $9.99"
+    below:
+      text: "Sauce Labs Backpack"
+```
+
+**Repeat / Loop:**
+```yaml
+# JavaScript condition ile while loop
+- evalScript: ${output.count = 0}
+- repeat:
+    while:
+      true: ${output.count < 3}
+    commands:
+      - tapOn:
+          id: "fabAddIcon"
+      - evalScript: ${output.count = output.count + 1}
+```
+
+**Environment Variables:**
+```yaml
+appId: com.example.myapp
+---
+- launchApp
+- tapOn: ${USERNAME}   # maestro test -e USERNAME=alice flow.yaml
+```
+
+**CI Integration:**
+```bash
+# JUnit XML raporu
+maestro test --format junit --output results.xml flows/
+
+# Tag filtering
+maestro test --include-tags smoke --exclude-tags slow flows/
+
+# Paralel çalıştırma (4 cihaz)
+maestro test --shard-split 4 flows/
+```
+
+### 9.4 Test Stratejisi — Agent vs Kullanıcı
+
+| Test Türü | Kim Yapar? | Araç | Neden? |
+|-----------|-----------|------|--------|
+| **Unit test** | Agent | JUnit (Kotlin) | Kod doğruluğu |
+| **Smoke test** (app açılıyor mu?) | Agent | Maestro YAML | Otomasyon |
+| **Flow test** (login → oyna → skor) | Agent | Maestro YAML | Regression |
+| **Assertion/log analizi** | Agent | Maestro output + logcat | Metin tabanlı |
+| **Animasyon/oyun mekaniği** | **Kullanıcı** | Manuel oynama | Agent VLM değil, görsel analiz yapamaz |
+| **Renk/UI estetiği** | **Kullanıcı** | Manuel gözlem | Agent renk/aydınlatma yorumu yapamaz |
+| **Crash/bug analizi** | Agent | Logcat + Maestro log | Metin tabanlı |
+
+**Önemli:** Agent metin-tabanlı LLM'dir. Screenshot'tan "bu buton yanlış yerde", "animasyon donuyor", "renk soluk" analizi **yapamaz**. Bu tür testler kullanıcıya bırakılır.
+
+---
+
+## 10. Kotlin Android Build Pipeline
+
+### 10.1 Mevcut Pipeline (mathlock-play'den kopyalanabilir)
+
+```bash
+cd projects/mathlock-play
+./gradlew assembleDebug      # Debug APK (~10 sn - 1 dk)
+./gradlew assembleRelease    # Release APK (keystore gerekir)
+```
+
+**Gerekli ortam değişkenleri:**
+```bash
+export ANDROID_HOME="$HOME/Android/Sdk"
+```
+
+**local.properties:**
+```properties
+sdk.dir=/home/akn/Android/Sdk
+```
+
+### 10.2 APK Yükleme ve Test Döngüsü
+
+```bash
+# 1. Build
+./gradlew assembleDebug
+
+# 2. Yükle
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+
+# 3. Maestro test
+maestro test flows/smoke.yaml
+
+# 4. Log kontrolü (crash var mı?)
+adb logcat -d | grep AndroidRuntime
+```
+
+### 10.3 Play Store Release Pipeline (mathlock-play'den)
+
+```bash
+# Keystore ile release build
+./gradlew bundleRelease
+
+# Play Store internal track upload (deploy.sh)
+bash deploy.sh --track internal
+```
+
+> **Not:** Play Trend Hunter app'lerinde aynı pipeline kullanılacak. mathlock-play'in `deploy.sh`, `keystore.jks`, `play-console.json` dosyaları template olarak kopyalanabilir.
+
+---
+
+## 12. Kimi CLI Entegrasyonu (Agent İçin)
+
+### 12.1 Agent Yetenekleri ve Sınırları
+
+**Agent yapabilir:**
+- Kod yazar, dosya oluşturur/siler (`WriteFile`, `StrReplaceFile`)
+- Shell komutları çalıştırır (`Shell`) — Gradle build, ADB, Maestro
+- Web'de araştırma yapar (`SearchWeb`, `FetchURL`)
+- Context7 dokümantasyonu sorgular (`query-docs`)
+- Wiki ingest/lint yapar (`wiki-assistant.py`)
+- ACE dersleri yönetir (`ace-curator.py`)
+- Sub-agent spawn eder (`Agent` tool)
+- Playwright ile web testi yapar (sadece web app'lerde)
+
+**Agent yapamaz:**
+- Görsel analiz (screenshot'tan UI element tespiti, renk yorumu, animasyon değerlendirmesi)
+- Video/animasyon anlama (oyun mekaniği, particle effect, fizik motoru)
+- Elle cihazda oynama (gesture hızı, dokunsal feedback)
+- Gerçek zamanlı oyun testi (frame-by-frame analiz)
+
+**Sonuç:** Agent test araçlarını (Maestro YAML) yazar ve çalıştırır. Assertion sonuçlarını ve log'ları analiz eder. Ama "bu oyun eğlenceli mi?" veya "animasyon akıcı mı?" gibi görsel/somut testleri kullanıcı yapar.
+
+### 12.2 Bu Projedeki Kimi CLI Kullanımı
+
+```bash
+# Session başlat (proje dizininden)
+cd /home/akn/local/projects/play-trend-hunter && kimi
+
+# Agent'a özel prompt örnekleri:
+# "run.py full çalıştır"
+# "top 10 alert'i analiz et"
+# "Maestro smoke test yaz ve çalıştır"
+# "YTV Player Pro için detay çek"
+```
+
+**Config:** `~/.kimi/config.toml` (global) ve `play-trend-hunter/.kimi/` (proje seviyesi)
+
+**Skills:**
+- Proje seviyesi: `play-trend-hunter/.kimi/skills/play-trend-hunter/SKILL.md` (bu dosya)
+- Kullanıcı seviyesi: `~/.kimi/skills/`
+
+**MCP:**
+- Context7 (zaten bağlı): `kimi mcp list`
+- Maestro MCP (opsiyonel): `maestro mcp` çalıştırarak kurulabilir
+
+### 12.3 Background Tasks
+
+Uzun süren işlemler (Gradle build, Maestro test, run.py full) arka planda çalıştırılır:
+```bash
+# Agent arka planda başlatır, tamamlandığında bildirim gelir
+./gradlew assembleDebug          # ~30-60 sn
+python run.py full               # ~3-5 dk (47 kategori)
+maestro test flows/smoke.yaml    # ~10-30 sn
+```
+
+---
+
+## 11. Fast-Follow Aday App Profilleme
+
+### 11.1 auto-detail Çıktısı Analizi
+
+`run.py auto-detail 5` komutu şunları çeker:
+1. App metadata (title, score, ratings, installs, released, genre)
+2. 50 adet son review (1-2★ odaklı şikayet analizi için)
+
+### 11.2 Şikayet Analizi Şablonu
+
+| App | #1 Şikayet | #2 Şikayet | Fast-Follow Fırsatı |
+|-----|-----------|-----------|---------------------|
+| YTV Player Pro | Çok fazla reklam/bildirim | Review bombing | Daha az reklamlı alternatif |
+| IQ Masters | Çok fazla reklam | Abonelik çok pahalı ($8/hafta) | Daha ucuz, az reklamlı |
+| Total Washout | Tutorial yok | Kafa karıştırıcı UI | İyi onboarding = fark |
+| Timpy Cooking | Çok fazla reklam (çocuk app'inde!) | Ücretli versiyonda bile reklam | "Reklamsız çocuk oyunu" |
+| LineLeap | Ticket/email gönderilmiyor | App çöküyor | Güvenilir bilet app'i |
+
+### 11.3 Newcomer Tespiti
+
+`released` alanına bak. Nisan 2026 ve sonrası = çok yeni app. Erken sinyal ama riskli (henüz kanıtlanmamış).
+
+```sql
+-- Yeni app'leri bul
+SELECT app_id, title, genre, released FROM app_details
+WHERE released LIKE '2026-%' OR released LIKE '2025-%'
+ORDER BY released DESC;
+```
 
 ---
 
