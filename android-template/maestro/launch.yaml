@@ -1,0 +1,6 @@
+# Maestro E2E test — Launch and basic visibility check
+appId: com.akn.playtrendhunter
+---
+- launchApp
+- assertVisible: "Clean Kotlin Template"
+- assertVisible: "mathlock-play'den sadeleştirilmiş"

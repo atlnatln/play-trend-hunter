@@ -8,30 +8,54 @@
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 3 tamamlandı. Üçüncü snapshot alındı, detect çalıştı, top 5 detay çekildi.
+**Faz 0 aktif.** Gün 3 tamamlandı. Android geliştirme altyapısı kuruldu, clean template oluşturuldu, test pipeline çalışıyor.
 - Snapshots: **3 adet** (2026-05-31, 2026-06-01, 2026-06-02) — 7050 app pozisyonu her biri
-- Detect: **449 alert** (threshold 20.0) — Gün 3'te 112 yeni alert
-- Threshold: **20.0** (kalibre edildi, değişmedi)
+- Detect: **449 alert** (threshold 20.0)
 - DB: Temiz, test/mock verisi yok
 
-## 📋 Strateji Kararları (2026-06-02 — Kullanıcı + Agent Tartışması Sonucu)
+### 🛠️ Android Geliştirme Altyapısı (YENİ — 2026-06-02)
 
-| # | Karar | Eski Durum | Yeni Durum | Gerekçe |
-|---|-------|-----------|-----------|---------|
-| 1 | **Altyapı** | Flutter MVP | Kotlin Native Android | Mevcut mathlock-play pipeline'ı (Gradle, Keystore, Play Console, deploy.sh) hazır. APK boyutu küçük, Play Store performansı en iyi |
-| 2 | **Test stratejisi** | Belirsiz | Maestro YAML (agent) + Manuel (sen) | Agent Maestro test'leri yazıp çalıştırabilir, assertion sonuçlarını analiz edebilir. Görsel/animasyon/oyun testleri için kullanıcı manuel test eder |
-| 3 | **Web app politikası** | — | Google Play'den gelen adaylar native clone'lanacak | Web wrapper (Capacitor/PWA) Play Store'da "low quality" etiketi riski. Aday web tabanlı olsa bile native Kotlin versiyonu yapılacak |
-| 4 | **Agent yetenek sınırları** | — | Metin-tabanlı model | Agent VLM (Vision-Language Model) değil. Screenshot'tan "bu renk kötü" veya "animasyon donuyor" analizi yapamaz. Araştırma: Maestro, claude-in-mobile, Mobile-Agent-E gibi araçlar var ama görsel zeka VLM (GPT-4o/Claude) gerektirir |
-| 5 | **"Video gibi oyunlar" testi** | — | Maestro flow test + manuel | Akademik çözüm: Keyframe extraction (FFmpeg) + VLM (GPT-4o) analizi. Pratikte: Maestro ile level geçiş/skore assertion test'i + kullanıcı manuel oynayarak test |
-| 6 | **Gerekli kurulumlar** | — | Maestro CLI + Android Emulator | Java 21 ✅ | ADB ✅ | FFmpeg ✅ | Maestro ❌ | Emulator ❌ |
+| Araç | Durum | Versiyon / Detay |
+|------|-------|------------------|
+| **Kotlin / Gradle** | ✅ | AGP 8.2.2, Kotlin 1.9.20, compileSdk 35 |
+| **Pixel 6 AVD** | ✅ | API 34, 1080×2400, 420 dpi, cold boot tamam |
+| **Maestro** | ✅ | v2.6.0, PATH: `~/.maestro/bin` |
+| **ADB** | ✅ | Emulator bağlı (`emulator-5554`) |
+| **Clean Template** | ✅ | `android-template/` dizininde, build + test geçti |
+
+### 📁 Dizin Yapısı (YENİ — 2026-06-02)
+
+```
+play-trend-hunter/
+├── android-template/        ← Clean Kotlin MVP template
+│   ├── app/                 ← namespace: com.akn.playtrendhunter
+│   ├── maestro/             ← launch.yaml (E2E test)
+│   └── ...
+├── apps/                    ← Her fast-follow app burada
+├── maestro-lib/             ← Paylaşılan Maestro snippet'leri
+├── scraper/                 ← Python tarafı (root'ta kaldı)
+├── detector/
+├── reporter/
+└── ...
+```
+
+### 🧪 Test Pipeline (Çalışıyor)
+
+```bash
+cd android-template
+./gradlew assembleDebug
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+maestro test maestro/launch.yaml
+```
+
+---
 
 ## ⏭️ Sıradaki Görev
 
-1. **Maestro + Android Emulator kurulumu** | ~20 dk
-2. **mathlock-play'den "clean template" çıkarma** | ~30 dk
-3. **İlk MVP app'i başlatma** — Aday app: Total Washout (oyun) veya IQ Masters (utility)
-4. **2-3 gün daha veri biriktir** — Günlük `run.py full`
-5. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
+1. **İlk fast-follow app başlat** — Aday: Total Washout (GAME_ACTION, surf arcade) veya IQ Masters (EDUCATION)
+2. **Günlük veri biriktirme** — `run.py full` (Faz 0 devam)
+3. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
+4. **Maestro test kütüphanesi** — `maestro-lib/common/` altında yeniden kullanılabilir snippet'ler
 
 ### 🏆 Gün 3'ün En Güçlü Sinyalleri
 | # | App | Skor | Kategori | Durum |
@@ -50,13 +74,14 @@ Detaylı fazlar → `ROADMAP.md`
 |----|-------|---------|
 | S2 | `installs`/`ratings` bazen boş geliyor (Google verisi) | Düşük |
 
-Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi. ~~S5~~ Review `content` boş gelme → `google-play-scraper` v10 API alan adları (`text`, `id`, `thumbsUp`, `version`, `date`) ile düzeltildi. 350 boş review temizlendi.
+Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi. ~~S5~~ Review `content` boş gelme → v10 API alan adlarıyla düzeltildi. ~~S6~~ Maestro + Emulator kurulumu tamamlandı.
 
 ## 🔗 Hızlı Referanslar
 
 | Konu | Dosya |
 |------|-------|
 | Teknik detay (API, schema, formüller, SQL) | `.kimi/skills/play-trend-hunter/SKILL.md` |
+| Android template, build, Maestro komutları | `AGENTS.md` §Araç Kullanımı, §Android Katmanı |
 | Strateji, fazlar, ADR'lar | `ROADMAP.md` |
 | Tarihçe, session detayları | `.kimi/logs/` |
 | Kalıcı dersler, troubleshooting | ACE `playbook-python-ops` Ders 020-022 |
@@ -66,11 +91,7 @@ Detaylı fazlar → `ROADMAP.md`
 ## 📝 Oturum Sonu Checklist
 
 - [x] CONTEXT.md güncelle
-- [x] Session log yaz (`2026-06-02-2054-session.md`)
-- [x] SKILL.md güncelle (+281 satır, 12 bölüm)
-- [x] CHANGELOG.md güncellendi
-- [x] Git commit (5 adet)
-- [x] ACE Ders 007 + 008 eklendi
-- [x] Wiki ingest + lint (9/10 pass)
-- [x] Maestro + Emulator kurulumu ve testi
-- [x] Strateji kararları loglandı
+- [x] Session log yaz (`2026-06-02-2055-session.md`)
+- [x] CHANGELOG.md güncelle
+- [x] AGENTS.md güncelle (Android + Maestro kuralları)
+- [ ] Git commit

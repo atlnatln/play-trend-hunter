@@ -89,6 +89,29 @@
 
 ---
 
+## 2026-06-02 — Android Altyapı Kurulumu: AVD, Maestro, Clean Template, Dizin Yapısı
+
+| # | Dosya | Değişiklik | Gerekçe |
+|---|-------|-----------|---------|
+| 1 | `android/` → `android-template/` | Mevcut `android/` dizini yeniden adlandırıldı | Çoklu app yapısı için template ve instance ayrımı. Her yeni app `apps/<name>/` altında `cp -r android-template` ile oluşturulacak |
+| 2 | `apps/` | Yeni dizin oluşturuldu | Fast-follow app'lerin merkezi konumu. Şu an boş, ilk app buraya gelecek |
+| 3 | `maestro-lib/` | Yeni dizin oluşturuldu | Paylaşılan Maestro test snippet'leri. Tekrar kullanılabilir flow'lar (login, onboarding, purchase vb.) |
+| 4 | `android-template/` | Clean Kotlin MVP template oluşturuldu | mathlock-play'den sadeleştirilmiş. Sadece `core-ktx`, `appcompat`, `material`, `constraintlayout`. Billing, Chart, ACRA, Biometric, Security-Crypto çıkarıldı. ViewBinding açık |
+| 5 | `android-template/maestro/launch.yaml` | İlk Maestro E2E testi yazıldı | `launchApp` + `assertVisible` ile app açılış doğrulaması. Pixel 6 AVD'de çalıştırıldı, `COMPLETED` |
+| 6 | `Pixel_6_API_34.avd` | AVD oluşturuldu | Cihaz: Pixel 6, API 34 (Android 14), 1080×2400, 420 dpi, `google_apis/x86_64`. Daha gerçekçi test ortamı |
+| 7 | `~/.maestro/bin/maestro` | Maestro v2.6.0 kuruldu | Agent'ın yazabildiği, shell'den çalıştırabildiği UI test framework'ü. YAML formatı |
+| 8 | `AGENTS.md` | Android Katmanı + Maestro/Emulator/ADB araç kuralları eklendi | Sonraki agent'ların test pipeline'ını, app oluşturma akışını, Maestro kullanımını bilmesi için |
+
+### Android Pipeline Doğrulama
+```bash
+# Tüm adımlar başarıyla tamamlandı:
+cd android-template && ./gradlew assembleDebug     # BUILD SUCCESSFUL (11s)
+adb install -r app/build/outputs/apk/debug/app-debug.apk   # Success
+maestro test maestro/launch.yaml                    # 2 assertion COMPLETED
+```
+
+---
+
 ## Değişiklik Ekleme Kuralı
 
 Her kod/config değişikliğinde buraya satır ekle:

@@ -53,6 +53,9 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 | **Detail fetch** | Surge alert'i incelenirken | Tek app, tek request. Review sentiment analizi yapılabilir. |
 | **SQLite** | Veri sorgulama | `.kimi/skills/play-trend-hunter/SKILL.md` §3'te schema var. |
 | **Wiki** | Cross-project bağlantı, strateji kararları | `wiki/projects/play-store-trend-hunter.md` |
+| **Maestro** | Android UI/E2E test | `android-template/maestro/` ve `apps/<name>/maestro/` altında YAML test'ler. `maestro test <yaml>` ile çalışır. Emulator veya fiziksel cihaz gerekir. |
+| **Emulator** | Android test cihazı | `Pixel_6_API_34` (1080×2400, Android 14). Path: `/home/akn/Android/Sdk/emulator/emulator`. Başlat: `emulator -avd Pixel_6_API_34 -no-window -no-boot-anim` |
+| **ADB** | Cihaz/emulator kontrolü | APK yükleme, logcat, shell komutları. `adb install -r app/build/outputs/apk/debug/app-debug.apk` |
 
 ---
 
@@ -73,6 +76,13 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 
 - **CLI output**: `reporter/cli.py` veya `run.py`'de değişiklik yaparken `__doc__` string'i güncellenmeli.
 - **Alert formatı**: JSON/CSV export eklenebilir. Mevcut CLI output değiştirilemez (backward compat).
+
+### Android Katmanı
+
+- **Yeni app oluşturma**: `android-template/` dizinini `apps/<app-name>/` altına `cp -r` ile kopyala. `namespace`, `applicationId`, `app_name` değiştir. Build edilebilirliği hemen doğrula (`./gradlew assembleDebug`).
+- **Maestro test'leri**: Her app'in kendi `maestro/` dizini olur. `launch.yaml` zorunlu (app açılıyor mu?). Flow test'leri feature'a göre genişler.
+- **APK build & test pipeline**: `./gradlew assembleDebug` → `adb install -r` → `maestro test maestro/` . Bu 3 adım her app değişikliğinde tekrarlanır.
+- **Signing**: Release build için `keystore.jks` ve `local.properties` (şifreler) gerekir. `.gitignore`'da `*.jks`, `local.properties` var. Keystore mathlock-play'den kopyalanabilir.
 
 ---
 

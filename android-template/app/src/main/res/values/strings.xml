@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Play Trend Hunter</string>
+    <string name="hello_template">Clean Kotlin Template</string>
+    <string name="template_subtitle">mathlock-play\'den sadeleştirilmiş</string>
+</resources>
