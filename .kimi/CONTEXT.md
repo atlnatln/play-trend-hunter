@@ -48,6 +48,28 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 maestro test maestro/launch.yaml
 ```
 
+### 🤖 VLM Screenshot Analizi (YENİ — 2026-06-02)
+
+**Seçilen model:** `qwen2.5vl:7b` (6.0GB, Ollama)
+
+| Senaryo | UI Türü | qwen2.5vl:7b |
+|---------|---------|--------------|
+| A | Basit text-only | ✅ Türkçe OCR doğru |
+| B | Buton + Counter | ✅ Buton sayısı doğru |
+| C | Liste (5 item) | ✅ 5 item doğru sayıldı |
+| D | Dialog/Popup | ✅ Dialog tanındı |
+| E | Image + Text Kart | ✅ Kart yapısı doğru |
+
+**Kullanım:** Smoke test sonrası, assertion başarısızlığında, crash sonrası ekran analizi.
+**Süre:** ~8-10s/screenshot. **VRAM:** ~7-8GB.
+
+```bash
+# Screenshot → VLM analizi
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png /tmp/screen.png
+# → qwen2.5vl:7b API çağrısı (SKILL.md §13)
+```
+
 ---
 
 ## ⏭️ Sıradaki Görev

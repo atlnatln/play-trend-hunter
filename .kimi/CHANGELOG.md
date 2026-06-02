@@ -47,6 +47,19 @@
 - **Yeni app:** Total Washout: Surf Arcade (Nisan 2026, 10K+ install, 4.68★) — fast-follow adayı
 - **Pattern:** Video player'lar, eğitim oyunları ve event app'leri yoğun
 
+### VLM Benchmark (6 Model, 5 Senaryo)
+
+| Model | Boyut | OCR | Türkçe | Hayal | Süre | Skor |
+|-------|-------|-----|--------|-------|------|------|
+| llava-phi3 | 2.9GB | ❌ | ❌ | ❌ | 3.6s | 0/25 |
+| llava | 4.7GB | ⚠️ | ❌ | ❌ | 48s | 1/25 |
+| llava-llama3 | 5.5GB | ❌ | ❌ | ❌ | 6.4s | 0/25 |
+| llama3.2-vision | 7.8GB | ⚠️ | ⚠️ | ⚠️ | 15.1s | 11/25 |
+| minicpm-v | 5.5GB | ⚠️ | ⚠️ | ✅ | 9.3s | 16/25 |
+| **qwen2.5vl:7b** | **6.0GB** | ✅ | ✅ | ✅ | **9.1s** | **25/25** |
+
+**Seçilen model:** `qwen2.5vl:7b` — 5/5 senaryoda mükemmel, Türkçe karakterler doğru, hayal ürünü yok.
+
 ### 📝 1-2★ Review Şikayet Analizi (Top 5)
 | App | #1 Şikayet | #2 Şikayet |
 |-----|-----------|-----------|

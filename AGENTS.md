@@ -56,6 +56,7 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 | **Maestro** | Android UI/E2E test | `android-template/maestro/` ve `apps/<name>/maestro/` altında YAML test'ler. `maestro test <yaml>` ile çalışır. Emulator veya fiziksel cihaz gerekir. |
 | **Emulator** | Android test cihazı | `Pixel_6_API_34` (1080×2400, Android 14). Path: `/home/akn/Android/Sdk/emulator/emulator`. Başlat: `emulator -avd Pixel_6_API_34 -no-window -no-boot-anim` |
 | **ADB** | Cihaz/emulator kontrolü | APK yükleme, logcat, shell komutları. `adb install -r app/build/outputs/apk/debug/app-debug.apk` |
+| **VLM** | Screenshot görsel analizi | `qwen2.5vl:7b` (Ollama). Smoke test sonrası, assertion hatasında, crash sonrası ekran değerlendirmesi. **Hayal ürünü kontrolü:** Buton sayısı, metin içeriği, renkler doğrulanmalı. |
 
 ---
 
@@ -82,6 +83,7 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 - **Yeni app oluşturma**: `android-template/` dizinini `apps/<app-name>/` altına `cp -r` ile kopyala. `namespace`, `applicationId`, `app_name` değiştir. Build edilebilirliği hemen doğrula (`./gradlew assembleDebug`).
 - **Maestro test'leri**: Her app'in kendi `maestro/` dizini olur. `launch.yaml` zorunlu (app açılıyor mu?). Flow test'leri feature'a göre genişler.
 - **APK build & test pipeline**: `./gradlew assembleDebug` → `adb install -r` → `maestro test maestro/` . Bu 3 adım her app değişikliğinde tekrarlanır.
+- **VLM screenshot analizi**: Maestro test sonrası veya assertion başarısızlığında `adb shell screencap` + `qwen2.5vl:7b` API çağrısı ile ekran değerlendirilir. Metin OCR, buton sayısı, renk doğruluğu kontrol edilir.
 - **Signing**: Release build için `keystore.jks` ve `local.properties` (şifreler) gerekir. `.gitignore`'da `*.jks`, `local.properties` var. Keystore mathlock-play'den kopyalanabilir.
 
 ---

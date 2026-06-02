@@ -5,6 +5,8 @@ metadata:
   last_updated: 2026-06-02
   android_setup: true
   maestro_version: "2.6.0"
+  vlm_model: "qwen2.5vl:7b"
+  vlm_benchmark: "6 model, 5 senaryo — qwen2.5vl:7b kazanan"
   maintainer: kimi-agent
   project: play-trend-hunter
 ---
@@ -529,6 +531,89 @@ bash deploy.sh --track internal
 
 ---
 
+## 13. VLM (Vision Language Model) — Android Screenshot Analizi
+
+> **Son güncelleme:** 2026-06-02 — 6 model, 5 senaryo benchmark tamamlandı.
+
+### 13.1 Seçilen Model: qwen2.5vl:7b
+
+**Neden qwen2.5vl:7b?**
+
+| Model | Boyut | OCR | Türkçe | Hayal Ürünü | Süre | Skor |
+|-------|-------|-----|--------|-------------|------|------|
+| llava-phi3 | 2.9GB | ❌ | ❌ | ❌ | 3.6s | 0/25 |
+| llava | 4.7GB | ⚠️ | ❌ | ❌ | 48s* | 1/25 |
+| llava-llama3 | 5.5GB | ❌ | ❌ | ❌ | 6.4s | 0/25 |
+| llama3.2-vision | 7.8GB | ⚠️ | ⚠️ | ⚠️ | 15.1s | 11/25 |
+| minicpm-v | 5.5GB | ⚠️ | ⚠️ | ✅ | 9.3s | 16/25 |
+| **qwen2.5vl:7b** | **6.0GB** | ✅ | ✅ | ✅ | **9.1s** | **25/25** |
+
+*qwen2.5vl:7b 5/5 senaryoda mükemmel OCR, Türkçe karakterleri (ş,ç,ı,ğ,ü,ö) doğru okuyor, hayal ürünü eleman üretmiyor.*
+
+### 13.2 Ne Zaman VLM Kullanılır?
+
+| Durum | Kullan? | Amaç |
+|-------|---------|------|
+| **Smoke test sonrası** | ✅ | Ekran beklendiği gibi mi? Metinler doğru mu? |
+| **Maestro assertion başarısız** | ✅ | UI element neden bulunamadı? Ekranda ne var? |
+| **App crash sonrası** | ✅ | Crash sonrası ekran durumu nedir? |
+| **Yeni app build sonrası** | ✅ | İlk açılış ekranı doğru render edilmiş mi? |
+| **Renk/estetik değerlendirme** | ❌ | Agent VLM ile renk yorumu yapabilir ama "güzel mi?" kararı kullanıcıya bırakılır |
+| **Animasyon/oyun mekaniği** | ❌ | VLM tek frame analiz eder, akıcılık/oyun deneyimi değerlendirilemez |
+| **Video/frame dizisi** | ⚠️ | Her frame ayrı analiz edilir. 30-40 frame = ~4.5-6 dk. Frame küçültme önerilir. |
+
+### 13.3 VLM Kullanım Akışı
+
+```bash
+# 1. Screenshot al
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png /tmp/screen.png
+
+# 2. Base64'e çevir
+IMG_B64=$(base64 -w 0 /tmp/screen.png)
+
+# 3. qwen2.5vl:7b'e gönder
+curl -s http://localhost:11434/api/generate -d "$(jq -n \
+  --arg img "$IMG_B64" \
+  '{model: "qwen2.5vl:7b",
+    prompt: "Read all text in this Android screenshot. Describe UI elements, colors, and layout.",
+    images: [$img],
+    stream: false,
+    options: {temperature: 0.1}}')"
+```
+
+**Prompt stratejisi:**
+- `temperature: 0.1` — Tutarlı, tekrarlanabilir sonuçlar
+- Spesifik sorular sor — "How many buttons?" genel "Describe"'den daha doğru
+- Türkçe metin varsa prompt'ta belirtme gerekmez, model otomatik tanır
+
+### 13.4 Performans Beklentisi
+
+- **Tek screenshot:** ~8-10 saniye
+- **30-40 frame (video):** ~4.5-6 dakika (frame'leri 640×360'a küçültmek yarıya indirir)
+- **VRAM kullanımı:** ~7-8GB (RTX 4070 12GB'da emulator ile birlikte rahat çalışır)
+- **Model boyutu:** 6.0GB disk
+
+### 13.5 Ollama Kurulumu
+
+```bash
+# Modeli indir (tek seferlik)
+ollama pull qwen2.5vl:7b
+
+# Diğer VLM modelleri sil (benchmark sonrası temizlik)
+# ollama rm llava-phi3 llava llava-llama3 llama3.2-vision minicpm-v
+
+# Çalıştır
+curl http://localhost:11434/api/generate -d '{
+  "model": "qwen2.5vl:7b",
+  "prompt": "...",
+  "images": ["..."],
+  "stream": false
+}'
+```
+
+---
+
 ## 12. Kimi CLI Entegrasyonu (Agent İçin)
 
 ### 12.1 Agent Yetenekleri ve Sınırları
@@ -542,14 +627,15 @@ bash deploy.sh --track internal
 - ACE dersleri yönetir (`ace-curator.py`)
 - Sub-agent spawn eder (`Agent` tool)
 - Playwright ile web testi yapar (sadece web app'lerde)
+- **VLM ile screenshot analizi** — qwen2.5vl:7b modeli üzerinden görsel UI değerlendirmesi
 
 **Agent yapamaz:**
-- Görsel analiz (screenshot'tan UI element tespiti, renk yorumu, animasyon değerlendirmesi)
+- Doğrudan görsel analiz (kendi başına screenshot'tan UI element tespiti yapamaz; VLM aracılığıyla yapar)
 - Video/animasyon anlama (oyun mekaniği, particle effect, fizik motoru)
 - Elle cihazda oynama (gesture hızı, dokunsal feedback)
 - Gerçek zamanlı oyun testi (frame-by-frame analiz)
 
-**Sonuç:** Agent test araçlarını (Maestro YAML) yazar ve çalıştırır. Assertion sonuçlarını ve log'ları analiz eder. Ama "bu oyun eğlenceli mi?" veya "animasyon akıcı mı?" gibi görsel/somut testleri kullanıcı yapar.
+**Sonuç:** Agent test araçlarını (Maestro YAML) yazar ve çalıştırır. Assertion sonuçlarını ve log'ları analiz eder. **VLM (qwen2.5vl:7b) ile screenshot analizi yaparak** UI elementlerini, metinleri, renkleri ve layout'u değerlendirebilir. Ama "bu oyun eğlenceli mi?" veya "animasyon akıcı mı?" gibi deneyimsel testleri kullanıcı yapar.
 
 ### 12.2 Bu Projedeki Kimi CLI Kullanımı
 
