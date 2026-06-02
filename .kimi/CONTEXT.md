@@ -66,8 +66,11 @@ Detaylı fazlar → `ROADMAP.md`
 ## 📝 Oturum Sonu Checklist
 
 - [x] CONTEXT.md güncelle
-- [x] Session log yaz
-- [x] SKILL.md güncelle
-- [x] CHANGELOG.md oluştur
-- [x] AGENTS.md okuma sırasına CHANGELOG eklendi
-- [x] Git commit
+- [x] Session log yaz (`2026-06-02-2054-session.md`)
+- [x] SKILL.md güncelle (+281 satır, 12 bölüm)
+- [x] CHANGELOG.md güncellendi
+- [x] Git commit (5 adet)
+- [x] ACE Ders 007 + 008 eklendi
+- [x] Wiki ingest + lint (9/10 pass)
+- [x] Maestro + Emulator kurulumu ve testi
+- [x] Strateji kararları loglandı
