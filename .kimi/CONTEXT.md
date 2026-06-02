@@ -37,7 +37,7 @@ Detaylı fazlar → `ROADMAP.md`
 |----|-------|---------|
 | S2 | `installs`/`ratings` bazen boş geliyor (Google verisi) | Düşük |
 
-Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi.
+Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi. ~~S5~~ Review `content` boş gelme → `google-play-scraper` v10 API alan adları (`text`, `id`, `thumbsUp`, `version`, `date`) ile düzeltildi. 350 boş review temizlendi.
 
 ## 🔗 Hızlı Referanslar
 

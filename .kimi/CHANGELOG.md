@@ -31,7 +31,7 @@
 
 ---
 
-## 2026-06-02 — Gün 3: Üçüncü Snapshot, Aday App Profilleme
+## 2026-06-02 — Gün 3: Üçüncü Snapshot, Aday App Profilleme, Review Bug Fix
 
 | # | Dosya | Değişiklik | Gerekçe |
 |---|-------|-----------|---------|
@@ -39,13 +39,22 @@
 | 2 | `run.py full` | Günlük scan + detect çalıştırıldı | Faz 0 veri birikimi. 3. snapshot oluşturuldu. |
 | 3 | `run.py auto-detail 5` | Top 5 alert için detay + review çekildi | True positive analizi için app metadata ve kullanıcı şikayetleri toplandı. |
 | 4 | `.kimi/CONTEXT.md` | Gün 3 durumu, top 5 sinyal tablosu, sıradaki görevler | Agent context'i güncel kalmalı. |
+| 5 | `database/models.py` | `save_reviews`: alan adları `google-play-scraper` v10 API'ye uygun hale getirildi | `reviewId→id`, `content→text`, `thumbsUpCount→thumbsUp`, `reviewCreatedVersion→version`, `at→date`. 350 boş review temizlendi. |
 
 ### Bugünkü Bulgular (Gün 3 Detect Sonuçları)
 - **112 yeni alert** (threshold 20 ile, toplam 449)
 - **En güçlü sinyal:** YTV Player Pro (VIDEO_PLAYERS): score 137, rank #142→#5 (3 gün)
 - **Yeni app:** Total Washout: Surf Arcade (Nisan 2026, 10K+ install, 4.68★) — fast-follow adayı
 - **Pattern:** Video player'lar, eğitim oyunları ve event app'leri yoğun
-- **Sorun:** Review `content` alanı scraper'dan boş geliyor (S3?) — şikayet analizi yapılamadı
+
+### 📝 1-2★ Review Şikayet Analizi (Top 5)
+| App | #1 Şikayet | #2 Şikayet |
+|-----|-----------|-----------|
+| YTV Player Pro | Çok fazla reklam/bildirim | Review bombing (1★'lar anlamsız) |
+| IQ Masters | Çok fazla reklam | Abonelik çok pahalı ($8/hafta) |
+| Total Washout | Tutorial/talimat yok | Kafa karıştırıcı UI |
+| Timpy Cooking | Çok fazla reklam (çocuk app'inde!) | Ücretli versiyonda bile reklam var |
+| LineLeap | Ticket/email gönderilmiyor | App çöküyor/açılmıyor |
 
 ---
 

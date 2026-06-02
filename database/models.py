@@ -198,13 +198,13 @@ def save_reviews(app_id: str, reviews: list[dict]):
             ON CONFLICT DO NOTHING""",
             (
                 app_id,
-                rev.get("reviewId"),
+                rev.get("id"),
                 rev.get("userName"),
                 rev.get("score"),
-                rev.get("content"),
-                rev.get("thumbsUpCount"),
-                rev.get("reviewCreatedVersion"),
-                rev.get("at"),
+                rev.get("text"),
+                rev.get("thumbsUp"),
+                rev.get("version"),
+                rev.get("date"),
                 now,
             ),
         )
