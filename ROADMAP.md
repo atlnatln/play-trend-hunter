@@ -158,7 +158,10 @@ python run.py alerts      # son alert'lere bak
 |-------|-------|---------|
 | 2026-05-31 | API tabanlı scraping (Node.js) | Playwright'tan daha hızlı, daha az kaynak, daha az ban riski |
 | 2026-05-31 | Hibrit hafıza (Wiki + `.kimi/`) | Wiki = strateji/cross-project; `.kimi/` = agent context/teknik ref |
-| 2026-05-31 | Flutter MVP şablonu | Cross-platform, hızlı build, Play Store'a kolay entegrasyon |
+| ~~2026-05-31~~ | ~~Flutter MVP şablonu~~ | ~~İPTAL: Mevcut Kotlin pipeline'ı (mathlock-play) daha değerli. Dart öğrenme eğrisi + yeni pipeline = zaman kaybı~~ |
+| 2026-06-02 | **Kotlin Native Android** MVP şablonu | Mevcut mathlock-play pipeline'ı (Gradle, Keystore, Play Console, deploy.sh) kopyalanabilir. APK boyutu küçük, Play Store performansı en iyi |
+| 2026-06-02 | **Maestro** mobil test framework'ü | Agent (Kimi) YAML test'leri yazabilir ve shell'den çalıştırabilir. Assertion sonuçlarını analiz edebilir. Görsel/oyun testleri için manuel test gerekir |
+| 2026-06-02 | **Web tabanlı app yapılmayacak** | Hedef Google Play Store. Web wrapper (Capacitor/PWA) "low quality" etiketi riski. Aday app web tabanlı olsa bile native Kotlin clone yapılacak |
 | 2026-05-31 | SQLite (yerel DB) | Hafif, bakım yok, yeterli ölçek |
 
 ---

@@ -58,6 +58,37 @@
 
 ---
 
+## 2026-06-02 — Strateji Tartışması & Kararlar (Agent + Kullanıcı)
+
+**Bağlam:** Kullanıcı "hangi altyapıyla uygulama yaratalım?" sorusunu gündeme getirdi. Agent internet araştırması yaptı, mevcut yetkinlikleri analiz etti.
+
+### Kararlar
+
+| # | Karar | Açıklama |
+|---|-------|----------|
+| 1 | **Altyapı: Kotlin Native Android** | Flutter iptal. Mevcut mathlock-play pipeline'ı (Gradle, Keystore, Play Console JSON, deploy.sh) doğrudan kullanılabilir. Dart öğrenme eğrisi + yeni pipeline = 2-3 gün kayıp. |
+| 2 | **Test: Maestro YAML + Manuel** | Agent Maestro test'leri yazıp shell'den çalıştırabilir, assertion sonuçlarını analiz edebilir. Görsel/animasyon/oyun mekaniği testleri kullanıcı tarafından manuel yapılacak. |
+| 3 | **Web app: Yapılmayacak** | Google Play'den gelen aday app'ler native Kotlin clone'lanacak. Capacitor/PWA/Trusted Web Activity "low quality" etiketi riski taşır. |
+| 4 | **Agent yetenek sınırları** | Agent metin-tabanlı model (VLM değil). Screenshot'tan "bu renk kötü", "animasyon donuyor" analizi yapamaz. Araştırma: VideoGameQA-Bench, GlitchBench, Mobile-Agent-E, claude-in-mobile, Maestro MCP gibi araçlar mevcut ama hepsi VLM (GPT-4o/Claude) gerektirir. |
+| 5 | **"Video gibi oyunlar" testi** | Statik tek screenshot yetersiz (akademik F1: 0.46). Çözüm: Keyframe extraction (FFmpeg) + VLM analizi. Pratikte: Maestro flow test (level geçiş, skor assertion) + kullanıcı manuel oyun testi. |
+
+### Araştırma Bulguları
+- **Maestro MCP:** Maestro CLI içinde built-in MCP server var. `maestro mcp` komutu ile başlatılır. AI agent emulator'de app launch, tap, swipe, screenshot, view hierarchy inspection yapabilir.
+- **claude-in-mobile:** Rust binary (2MB). ADB üzerinden Android kontrolü. Annotated screenshot + UI tree + tap/swipe/type. MCP server olarak çalışır.
+- **Mobile-Agent-E / DroidRun / AutoDroid:** ADB + screenshot + LLM ile Android navigasyonu. Akademik/araştırma projeleri.
+- **Vision-Language Models (GPT-4o):** Gameplay video'larından bug frame extraction F1: 0.79. Ama agent'ın kendi modeli VLM değil.
+
+### Mevcut Ortam Durumu
+| Araç | Durum |
+|------|-------|
+| Java 21 | ✅ |
+| ADB | ✅ |
+| FFmpeg | ✅ |
+| Maestro | ❌ (kurulum gerekli) |
+| Android Emulator | ❌ (kurulum gerekli) |
+
+---
+
 ## Değişiklik Ekleme Kuralı
 
 Her kod/config değişikliğinde buraya satır ekle:

@@ -14,11 +14,24 @@
 - Threshold: **20.0** (kalibre edildi, değişmedi)
 - DB: Temiz, test/mock verisi yok
 
+## 📋 Strateji Kararları (2026-06-02 — Kullanıcı + Agent Tartışması Sonucu)
+
+| # | Karar | Eski Durum | Yeni Durum | Gerekçe |
+|---|-------|-----------|-----------|---------|
+| 1 | **Altyapı** | Flutter MVP | Kotlin Native Android | Mevcut mathlock-play pipeline'ı (Gradle, Keystore, Play Console, deploy.sh) hazır. APK boyutu küçük, Play Store performansı en iyi |
+| 2 | **Test stratejisi** | Belirsiz | Maestro YAML (agent) + Manuel (sen) | Agent Maestro test'leri yazıp çalıştırabilir, assertion sonuçlarını analiz edebilir. Görsel/animasyon/oyun testleri için kullanıcı manuel test eder |
+| 3 | **Web app politikası** | — | Google Play'den gelen adaylar native clone'lanacak | Web wrapper (Capacitor/PWA) Play Store'da "low quality" etiketi riski. Aday web tabanlı olsa bile native Kotlin versiyonu yapılacak |
+| 4 | **Agent yetenek sınırları** | — | Metin-tabanlı model | Agent VLM (Vision-Language Model) değil. Screenshot'tan "bu renk kötü" veya "animasyon donuyor" analizi yapamaz. Araştırma: Maestro, claude-in-mobile, Mobile-Agent-E gibi araçlar var ama görsel zeka VLM (GPT-4o/Claude) gerektirir |
+| 5 | **"Video gibi oyunlar" testi** | — | Maestro flow test + manuel | Akademik çözüm: Keyframe extraction (FFmpeg) + VLM (GPT-4o) analizi. Pratikte: Maestro ile level geçiş/skore assertion test'i + kullanıcı manuel oynayarak test |
+| 6 | **Gerekli kurulumlar** | — | Maestro CLI + Android Emulator | Java 21 ✅ | ADB ✅ | FFmpeg ✅ | Maestro ❌ | Emulator ❌ |
+
 ## ⏭️ Sıradaki Görev
 
-1. **2-3 gün daha veri biriktir** — Günlük `run.py full`
-2. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
-3. **Aday app seçimi** — Fast-follow'a en uygun sinyal (YTV Player Pro ve IQ Masters öne çıkıyor)
+1. **Maestro + Android Emulator kurulumu** | ~20 dk
+2. **mathlock-play'den "clean template" çıkarma** | ~30 dk
+3. **İlk MVP app'i başlatma** — Aday app: Total Washout (oyun) veya IQ Masters (utility)
+4. **2-3 gün daha veri biriktir** — Günlük `run.py full`
+5. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
 
 ### 🏆 Gün 3'ün En Güçlü Sinyalleri
 | # | App | Skor | Kategori | Durum |
