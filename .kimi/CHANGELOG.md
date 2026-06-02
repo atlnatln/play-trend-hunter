@@ -31,6 +31,24 @@
 
 ---
 
+## 2026-06-02 — Gün 3: Üçüncü Snapshot, Aday App Profilleme
+
+| # | Dosya | Değişiklik | Gerekçe |
+|---|-------|-----------|---------|
+| 1 | `data/play_trend_hunter.db` | Silindi (boş dosya) | Kafa karışıklığı yaratıyordu. Gerçek DB `play_trend.db`. |
+| 2 | `run.py full` | Günlük scan + detect çalıştırıldı | Faz 0 veri birikimi. 3. snapshot oluşturuldu. |
+| 3 | `run.py auto-detail 5` | Top 5 alert için detay + review çekildi | True positive analizi için app metadata ve kullanıcı şikayetleri toplandı. |
+| 4 | `.kimi/CONTEXT.md` | Gün 3 durumu, top 5 sinyal tablosu, sıradaki görevler | Agent context'i güncel kalmalı. |
+
+### Bugünkü Bulgular (Gün 3 Detect Sonuçları)
+- **112 yeni alert** (threshold 20 ile, toplam 449)
+- **En güçlü sinyal:** YTV Player Pro (VIDEO_PLAYERS): score 137, rank #142→#5 (3 gün)
+- **Yeni app:** Total Washout: Surf Arcade (Nisan 2026, 10K+ install, 4.68★) — fast-follow adayı
+- **Pattern:** Video player'lar, eğitim oyunları ve event app'leri yoğun
+- **Sorun:** Review `content` alanı scraper'dan boş geliyor (S3?) — şikayet analizi yapılamadı
+
+---
+
 ## Değişiklik Ekleme Kuralı
 
 Her kod/config değişikliğinde buraya satır ekle:

@@ -8,17 +8,26 @@
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 2 tamamlandı. İkinci snapshot alındı, ilk detect çalıştı.
-- Snapshots: **2 adet** (2026-05-31, 2026-06-01) — 7050 app pozisyonu her biri
-- Detect: **337 alert** (threshold 20.0, kalibre edildi)
-- Threshold: **20.0** (önceki: 5.0, histogram analizi sonrası)
+**Faz 0 aktif.** Gün 3 tamamlandı. Üçüncü snapshot alındı, detect çalıştı, top 5 detay çekildi.
+- Snapshots: **3 adet** (2026-05-31, 2026-06-01, 2026-06-02) — 7050 app pozisyonu her biri
+- Detect: **449 alert** (threshold 20.0) — Gün 3'te 112 yeni alert
+- Threshold: **20.0** (kalibre edildi, değişmedi)
 - DB: Temiz, test/mock verisi yok
 
 ## ⏭️ Sıradaki Görev
 
-1. **İlginç app'lerin detayını çek** — Top 5-10 alert'i incele
-2. **True positive analizi** — Alert'ler gerçekten anlamlı mı?
-3. **3-4 gün daha veri biriktir** — Günlük `run.py full`
+1. **2-3 gün daha veri biriktir** — Günlük `run.py full`
+2. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
+3. **Aday app seçimi** — Fast-follow'a en uygun sinyal (YTV Player Pro ve IQ Masters öne çıkıyor)
+
+### 🏆 Gün 3'ün En Güçlü Sinyalleri
+| # | App | Skor | Kategori | Durum |
+|---|-----|------|----------|-------|
+| 1 | YTV Player Pro | 137.0 | VIDEO_PLAYERS | #142→#5 (3 günde) |
+| 2 | IQ Masters - Brain Games | 104.02 | EDUCATION | #134→#30 |
+| 3 | Total Washout: Surf Arcade | 95.0 | GAME_ACTION | Yeni, Nisan 2026 |
+| 4 | Timpy Cooking Games for Kids | 94.26 | GAME_EDUCATIONAL | #137→#44 |
+| 5 | LineLeap | 90.0 | EVENTS | #147→#57 |
 
 Detaylı fazlar → `ROADMAP.md`
 
