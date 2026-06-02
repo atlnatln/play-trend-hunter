@@ -3,6 +3,8 @@ name: play-trend-hunter
 description: Play Trend Hunter — Play Store trend tespiti, fast-follow stratejisi, scraping ve otomasyon
 metadata:
   last_updated: 2026-06-02
+  android_setup: true
+  maestro_version: "2.6.0"
   maintainer: kimi-agent
   project: play-trend-hunter
 ---
@@ -25,8 +27,15 @@ play-trend-hunter/
 ├── package.json                  # Node.js bağımlılıkları (google-play-scraper)
 ├── .kimi/
 │   ├── CONTEXT.md               # Aktif durum, görevler, sorunlar
+│   ├── CHANGELOG.md             # Değişiklik logu
 │   ├── skills/play-trend-hunter/SKILL.md  # Bu dosya
 │   └── logs/                     # Session log'ları
+├── android-template/             # Clean Kotlin MVP template (minSdk 26, compileSdk 35)
+│   ├── app/                      # Tek modül: core-ktx, appcompat, material, constraintlayout
+│   ├── maestro/                  # launch.yaml (smoke test)
+│   └── gradlew
+├── apps/                         # Her fast-follow app: cp -r android-template apps/<name>
+├── maestro-lib/                  # Paylaşılan Maestro snippet'leri
 ├── scraper/
 │   ├── gplay_fetch.js           # Node.js scraper wrapper (JSON output)
 │   └── play_store.py            # Python wrapper + rate limiting + caching
@@ -337,13 +346,13 @@ adb logcat -s com.example.myapp:D
 **Mevcut AVD'ler (Bu Makinede):**
 | AVD | Boyut | API | Durum |
 |-----|-------|-----|-------|
-| `tablet_7inch` | 1200x1920 | 34 | ✅ Mevcut |
-| `tablet_10inch` | — | 34 | ✅ Mevcut |
+| `Pixel_6_API_34` | 1080x2400 | 34 | ✅ **Aktif test cihazı** |
+| `tablet_7inch` | 1200x1920 | 34 | ✅ Mevcut (eski) |
+| `tablet_10inch` | — | 34 | ✅ Mevcut (eski) |
 
 **Telefon AVD'si oluşturma (gerekirse):**
 ```bash
-sdkmanager "system-images;android-34;google_apis_playstore;x86_64"
-avdmanager create avd -n pixel6 -d pixel_6 -k "system-images;android-34;google_apis_playstore:x86_64"
+avdmanager create avd -n Pixel_6_API_34 -k "system-images;android-34;google_apis;x86_64" -d pixel_6
 ```
 
 ### 9.3 Maestro Best Practices ve İleri Komutlar
@@ -454,7 +463,59 @@ maestro test flows/smoke.yaml
 adb logcat -d | grep AndroidRuntime
 ```
 
-### 10.3 Play Store Release Pipeline (mathlock-play'den)
+### 10.3 Android Template Yapısı (`android-template/`)
+
+**Package:** `com.akn.playtrendhunter`  
+**App name:** "Play Trend Hunter"  
+**MinSdk:** 26 (Oreo) — Adaptive icon desteği, eski PNG fallback gerekmez  
+**CompileSdk:** 35  
+**AGP:** 8.2.2 | **Kotlin:** 1.9.20
+
+**Bağımlılıklar (sadece temel):**
+| Kütüphane | Amaç |
+|-----------|------|
+| `androidx.core:core-ktx:1.12.0` | Kotlin extension'ları |
+| `androidx.appcompat:appcompat:1.6.1` | AppCompat Activity |
+| `com.google.android.material:material:1.11.0` | Material3 bileşenleri |
+| `androidx.constraintlayout:constraintlayout:2.1.4` | Layout |
+| `junit:junit:4.13.2` | Unit test |
+| `androidx.test.espresso:espresso-core:3.5.1` | UI test |
+
+**Çıkarılan bağımlılıklar (mathlock-play'den sadeleştirme):**
+Billing, MPAndroidChart, ACRA, Biometric, Security-Crypto, RecyclerView, CardView, Lifecycle-Service
+
+**Build özellikleri:**
+- `viewBinding = true`
+- `buildConfig = false` (sadeleştirme)
+- Release: `isMinifyEnabled = false` (MVP aşamasında)
+
+### 10.4 Yeni Fast-Follow App Oluşturma Akışı
+
+```bash
+# 1. Template'i kopyala
+cp -r android-template apps/<app-name>
+
+# 2. Değiştirilmesi gerekenler
+cd apps/<app-name>
+# - settings.gradle.kts → rootProject.name
+# - app/build.gradle.kts → namespace, applicationId, versionCode, versionName
+# - app/src/main/res/values/strings.xml → app_name
+# - app/src/main/java/com/akn/playtrendhunter/ → yeni package dizini
+
+# 3. Build doğrula
+./gradlew assembleDebug
+```
+
+**Değişiklik kontrol listesi:**
+- [ ] `namespace = "com.akn.<appname>"` (app/build.gradle.kts)
+- [ ] `applicationId = "com.akn.<appname>"` (app/build.gradle.kts)
+- [ ] `rootProject.name = "<AppName>"` (settings.gradle.kts)
+- [ ] `<string name="app_name">...</string>` (strings.xml)
+- [ ] Package dizin yapısı ve `package` deklarasyonu (Kotlin dosyaları)
+- [ ] `./gradlew assembleDebug` başarılı
+- [ ] `maestro test maestro/launch.yaml` başarılı
+
+### 10.5 Play Store Release Pipeline (mathlock-play'den)
 
 ```bash
 # Keystore ile release build

@@ -80,7 +80,7 @@ Detaylı fazlar → `ROADMAP.md`
 
 | Konu | Dosya |
 |------|-------|
-| Teknik detay (API, schema, formüller, SQL) | `.kimi/skills/play-trend-hunter/SKILL.md` |
+| Teknik detay (API, schema, formüller, SQL, Android template) | `.kimi/skills/play-trend-hunter/SKILL.md` |
 | Android template, build, Maestro komutları | `AGENTS.md` §Araç Kullanımı, §Android Katmanı |
 | Strateji, fazlar, ADR'lar | `ROADMAP.md` |
 | Tarihçe, session detayları | `.kimi/logs/` |
@@ -94,4 +94,4 @@ Detaylı fazlar → `ROADMAP.md`
 - [x] Session log yaz (`2026-06-02-2055-session.md`)
 - [x] CHANGELOG.md güncelle
 - [x] AGENTS.md güncelle (Android + Maestro kuralları)
-- [ ] Git commit
+- [x] Git commit
