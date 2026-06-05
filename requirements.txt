@@ -1,2 +1,10 @@
 # Python dependencies for Play Trend Hunter
 # Node.js dependencies: see package.json
+Pillow>=10.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+diffusers>=0.30.0
+transformers>=4.40.0,<5.0
+accelerate>=0.30.0
+protobuf
+sentencepiece

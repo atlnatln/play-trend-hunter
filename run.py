@@ -11,13 +11,16 @@ Usage:
     python run.py top-alerts [N]    # Show top N alerts by score (default 10)
     python run.py auto-detail [N]   # Auto-fetch details for top N alerts (default 5)
     python run.py report            # Summary report of all snapshots and alerts
+    python run.py assets <app> <cat>  # Generate app icon + feature graphic + screenshot bg
 """
 import sys
-from datetime import datetime, timezone
+import json
+from pathlib import Path
+from datetime import datetime, timezone, date
 
 from database.models import init_db, save_snapshot, get_snapshots, save_app_detail, save_reviews, save_alert, get_recent_alerts, get_top_alerts, get_alert_count_by_category, get_snapshot_dates
 from scraper.play_store import safe_fetch_list, fetch_app_detail, fetch_reviews, CacheGuard
-from detector.surge import detect_surges
+from detector.surge import detect_surges_recent, detect_surges_persistence, detect_surges_wma, detect_surges_slope
 from reporter.cli import print_report, print_top_alerts
 import config
 
@@ -45,29 +48,101 @@ def cmd_scan():
     print(f"[DONE] Scan complete. {total} total app positions saved.")
 
 
+def _run_algo(algo_fn, algo_name, snaps, collection, category):
+    """Run a single detection algorithm and return its alerts."""
+    times = sorted({s["snapshot_at"] for s in snaps}, reverse=True)
+    if len(times) < 2:
+        return []
+    current = [s for s in snaps if s["snapshot_at"] == times[0]]
+    previous = [s for s in snaps if s["snapshot_at"] == times[1]]
+    historical = [s for s in snaps if s["snapshot_at"] != times[0]]
+    try:
+        alerts = algo_fn(current, previous, historical, collection, category)
+        return alerts
+    except Exception as e:
+        print(f"  [ERR {algo_name}] {collection}/{category}: {e}")
+        return []
+
+
+def _build_log_data(alerts, algo_name):
+    """Build a log-data dict for a single algorithm's results."""
+    hist = {}
+    cat_counts = {}
+    for a in alerts:
+        lo = int(a["surge_score"] // 10 * 10)
+        hi = lo + 10
+        bin_label = f"{lo}-{hi}"
+        hist[bin_label] = hist.get(bin_label, 0) + 1
+        cat_counts[a["category"]] = cat_counts.get(a["category"], 0) + 1
+    return {
+        "algo": algo_name,
+        "total_alerts": len(alerts),
+        "top_alerts": [
+            {
+                "app_id": a["app_id"],
+                "title": a["title"],
+                "category": a["category"],
+                "score": a["surge_score"],
+                "rank": a["current_rank"],
+            }
+            for a in sorted(alerts, key=lambda x: x["surge_score"], reverse=True)[:20]
+        ],
+        "histogram": hist,
+        "category_counts": cat_counts,
+    }
+
+
 def cmd_detect():
     print(f"[{datetime.now(timezone.utc).isoformat()}] Running surge detection...")
-    all_alerts = []
+
+    algorithms = [
+        ("recent", detect_surges_recent),
+        ("persistence", detect_surges_persistence),
+        ("wma", detect_surges_wma),
+        ("slope", detect_surges_slope),
+    ]
+
+    results = {name: [] for name, _ in algorithms}
+
     for collection in config.TRACKED_COLLECTIONS:
         for category in config.TRACKED_CATEGORIES:
-            try:
-                snaps = get_snapshots(collection, category, limit=2)
-                if len(snaps) < 2:
-                    continue
-                # Partition by snapshot_at
-                times = sorted(set(s["snapshot_at"] for s in snaps), reverse=True)
-                if len(times) < 2:
-                    continue
-                current = [s for s in snaps if s["snapshot_at"] == times[0]]
-                previous = [s for s in snaps if s["snapshot_at"] == times[1]]
-                alerts = detect_surges(current, previous, collection, category)
-                for a in alerts:
-                    save_alert(a["app_id"], collection, category, a["surge_score"], a["signals"])
-                all_alerts.extend(alerts)
-            except Exception as e:
-                print(f"  [ERR] {collection}/{category}: {e}")
-    print_report(all_alerts)
-    print(f"[DONE] {len(all_alerts)} alerts saved to database.")
+            snaps = get_snapshots(collection, category, limit=7)
+            if len(snaps) < 2:
+                continue
+
+            for name, fn in algorithms:
+                alerts = _run_algo(fn, name, snaps, collection, category)
+                results[name].extend(alerts)
+
+    # Save RECENT to DB as the default canonical set
+    for a in results["recent"]:
+        save_alert(a["app_id"], a["collection"], a["category"], a["surge_score"], a["signals"])
+
+    # --- Print summary for all algorithms ---
+    for name, alerts in results.items():
+        print(f"\n--- {name.upper()} ({len(alerts)} alerts) ---")
+        top3 = sorted(alerts, key=lambda x: x["surge_score"], reverse=True)[:3]
+        for a in top3:
+            print(f"  #{a['current_rank']} {a['title'][:40]:40s} | Score: {a['surge_score']}")
+        if not top3:
+            print("  (no alerts)")
+
+    print(f"\n[DONE] {len(results['recent'])} recent alerts saved to database.")
+
+    # --- JSON log with all algorithms ---
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+    log_data = {
+        "date": date.today().isoformat(),
+        "threshold": config.SURGE_THRESHOLD,
+        "algorithms": [
+            _build_log_data(results[name], name)
+            for name, _ in algorithms
+        ],
+    }
+    log_path = log_dir / f"detect_{date.today().isoformat()}.json"
+    log_path.write_text(json.dumps(log_data, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"[LOG] Detect results saved to {log_path}")
 
 
 def cmd_detail(app_id: str):
@@ -147,6 +222,32 @@ def cmd_report():
     print(f"\n{'=' * 70}\n")
 
 
+def cmd_assets(app_name: str, category: str):
+    from assets.generator import draw_app_icon, draw_feature_graphic, draw_screenshot_bg
+    out_dir = Path("assets/output") / app_name.lower().replace(" ", "_")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    slug = app_name.lower().replace(" ", "_")
+    print(f"[ASSETS] Generating for '{app_name}' ({category}) ...")
+    draw_app_icon(app_name, category, output_path=out_dir / f"{slug}_icon.png")
+    print(f"  [OK] Icon: {out_dir / f'{slug}_icon.png'}")
+    draw_feature_graphic(app_name, category, output_path=out_dir / f"{slug}_feature.png")
+    print(f"  [OK] Feature: {out_dir / f'{slug}_feature.png'}")
+    draw_screenshot_bg(category, output_path=out_dir / f"{slug}_screenshot_bg.png")
+    print(f"  [OK] Screenshot BG: {out_dir / f'{slug}_screenshot_bg.png'}")
+    print(f"[DONE] All assets saved to {out_dir}")
+
+
+def cmd_ai_assets(app_name: str, category: str):
+    from assets.ai_generator import generate_ai_assets
+    print(f"[AI ASSETS] Generating FLUX assets for '{app_name}' ({category}) ...")
+    paths = generate_ai_assets(app_name, category)
+    print(f"  [OK] Icon 512x512:   {paths['icon_512']}")
+    print(f"  [OK] Icon 1024x1024: {paths['icon_1024']}")
+    print(f"  [OK] Feature raw:    {paths['feature_raw']}")
+    print(f"  [OK] Feature final:  {paths['feature_final']}")
+    print(f"[DONE] AI assets saved.")
+
+
 def main():
     init_db()
     if len(sys.argv) < 2:
@@ -173,6 +274,10 @@ def main():
         cmd_auto_detail(limit=limit)
     elif cmd == "report":
         cmd_report()
+    elif cmd == "assets" and len(sys.argv) >= 4:
+        cmd_assets(sys.argv[2], sys.argv[3])
+    elif cmd == "ai-assets" and len(sys.argv) >= 4:
+        cmd_ai_assets(sys.argv[2], sys.argv[3])
     else:
         print(__doc__)
         sys.exit(1)
