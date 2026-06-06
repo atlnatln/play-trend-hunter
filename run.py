@@ -11,7 +11,6 @@ Usage:
     python run.py top-alerts [N]    # Show top N alerts by score (default 10)
     python run.py auto-detail [N]   # Auto-fetch details for top N alerts (default 5)
     python run.py report            # Summary report of all snapshots and alerts
-    python run.py assets <app> <cat>  # Generate app icon + feature graphic + screenshot bg
 """
 import sys
 import json
@@ -222,32 +221,6 @@ def cmd_report():
     print(f"\n{'=' * 70}\n")
 
 
-def cmd_assets(app_name: str, category: str):
-    from assets.generator import draw_app_icon, draw_feature_graphic, draw_screenshot_bg
-    out_dir = Path("assets/output") / app_name.lower().replace(" ", "_")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    slug = app_name.lower().replace(" ", "_")
-    print(f"[ASSETS] Generating for '{app_name}' ({category}) ...")
-    draw_app_icon(app_name, category, output_path=out_dir / f"{slug}_icon.png")
-    print(f"  [OK] Icon: {out_dir / f'{slug}_icon.png'}")
-    draw_feature_graphic(app_name, category, output_path=out_dir / f"{slug}_feature.png")
-    print(f"  [OK] Feature: {out_dir / f'{slug}_feature.png'}")
-    draw_screenshot_bg(category, output_path=out_dir / f"{slug}_screenshot_bg.png")
-    print(f"  [OK] Screenshot BG: {out_dir / f'{slug}_screenshot_bg.png'}")
-    print(f"[DONE] All assets saved to {out_dir}")
-
-
-def cmd_ai_assets(app_name: str, category: str):
-    from assets.ai_generator import generate_ai_assets
-    print(f"[AI ASSETS] Generating FLUX assets for '{app_name}' ({category}) ...")
-    paths = generate_ai_assets(app_name, category)
-    print(f"  [OK] Icon 512x512:   {paths['icon_512']}")
-    print(f"  [OK] Icon 1024x1024: {paths['icon_1024']}")
-    print(f"  [OK] Feature raw:    {paths['feature_raw']}")
-    print(f"  [OK] Feature final:  {paths['feature_final']}")
-    print(f"[DONE] AI assets saved.")
-
-
 def main():
     init_db()
     if len(sys.argv) < 2:
@@ -274,10 +247,6 @@ def main():
         cmd_auto_detail(limit=limit)
     elif cmd == "report":
         cmd_report()
-    elif cmd == "assets" and len(sys.argv) >= 4:
-        cmd_assets(sys.argv[2], sys.argv[3])
-    elif cmd == "ai-assets" and len(sys.argv) >= 4:
-        cmd_ai_assets(sys.argv[2], sys.argv[3])
     else:
         print(__doc__)
         sys.exit(1)

@@ -1,119 +1,61 @@
 # Play Trend Hunter — Aktif Context
 
 > **Kural:** Session başında ilk okunan dosya. AGENTS.md (kurallar) → bu dosya (durum) → SKILL.md (teknik referans, gerekirse).
-> 
-> **Token tasarrufu:** Bu dosya kısa tutulur. Tarihçe → session log'ları. Detaylı teknik bilgi → SKILL.md. Strateji kararları → ROADMAP.md.
+> **Token tasarrufu:** Bu dosyada cevap varsa ek veri çekme.
+
+---
+
+## ⏭️ Bugünün Görevleri
+
+1. **Gün 6 snapshot** — `run.py full` (Faz 0 devam)
+2. **Algo karşılaştırması** — 5 gün veri birikmiş, hangisi daha iyi aday yakalıyor?
+3. **Aday app'leri emulator'de aç** — Aurora Store → Digital Compass, Love Island, Borrow Cash, IQ Masters
+4. **İlk fast-follow app değerlendir** — Aday seç, reverse engineering yap
 
 ---
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 3 tamamlandı. Android geliştirme altyapısı kuruldu, clean template oluşturuldu, test pipeline çalışıyor.
-- Snapshots: **3 adet** (2026-05-31, 2026-06-01, 2026-06-02) — 7050 app pozisyonu her biri
-- Detect: **449 alert** (threshold 20.0)
-- DB: Temiz, test/mock verisi yok
+**Faz 0 aktif.** Gün 6 tamamlandı.
+- Snapshots: **8 adet** (2026-05-31 → 06-05) — ~9.400 app/gün
+- **Recent Delta:** 174 alert | **Persistence:** 196 alert | **WMA:** 77 | **Slope:** 49
+- Threshold: **40.0** (30'dan yükseltildi) | Cache TTL: **20 saat**
+- Android altyapısı: Template ✅, Emulator ✅, Maestro ✅
+- AI Asset Generator: 🚫 Kaldırıldı. `assets/ai_generator.py`, `assets/ai_postprocess.py`, `assets/generator.py` ve `flux-asset-generation` skill `uygulama-gelistir-play`'e taşındı. `run.py ai-assets` ve `run.py assets` komutları silindi.
+- İlk fast-follow app: Henüz başlatılmadı
 
-### 🛠️ Android Geliştirme Altyapısı (YENİ — 2026-06-02)
+### 🏆 Gün 5 — Top 5 Sinyal (Her İkisinde de)
+| # | App | Skor | Kategori |
+|---|-----|------|----------|
+| 1 | Digital Compass | 99 | MAPS |
+| 2 | NBC LA: News | 82 | NEWS |
+| 3 | Love Island USA | 70 | ENTERTAINMENT |
+| 4 | Borrow Cash | 68 | FINANCE |
+| 5 | Happy Dentist | 67 | GAME_EDUCATIONAL |
 
-| Araç | Durum | Versiyon / Detay |
-|------|-------|------------------|
-| **Kotlin / Gradle** | ✅ | AGP 8.2.2, Kotlin 1.9.20, compileSdk 35 |
-| **Pixel 6 AVD** | ✅ | API 34, 1080×2400, 420 dpi, cold boot tamam |
-| **Maestro** | ✅ | v2.6.0, PATH: `~/.maestro/bin` |
-| **ADB** | ✅ | Emulator bağlı (`emulator-5554`) |
-| **Clean Template** | ✅ | `android-template/` dizininde, build + test geçti |
-
-### 📁 Dizin Yapısı (YENİ — 2026-06-02)
-
-```
-play-trend-hunter/
-├── android-template/        ← Clean Kotlin MVP template
-│   ├── app/                 ← namespace: com.akn.playtrendhunter
-│   ├── maestro/             ← launch.yaml (E2E test)
-│   └── ...
-├── apps/                    ← Her fast-follow app burada
-├── maestro-lib/             ← Paylaşılan Maestro snippet'leri
-├── scraper/                 ← Python tarafı (root'ta kaldı)
-├── detector/
-├── reporter/
-└── ...
-```
-
-### 🧪 Test Pipeline (Çalışıyor)
-
-```bash
-cd android-template
-./gradlew assembleDebug
-adb install -r app/build/outputs/apk/debug/app-debug.apk
-maestro test maestro/launch.yaml
-```
-
-### 🤖 VLM Screenshot Analizi (YENİ — 2026-06-02)
-
-**Seçilen model:** `qwen2.5vl:7b` (6.0GB, Ollama)
-
-| Senaryo | UI Türü | qwen2.5vl:7b |
-|---------|---------|--------------|
-| A | Basit text-only | ✅ Türkçe OCR doğru |
-| B | Buton + Counter | ✅ Buton sayısı doğru |
-| C | Liste (5 item) | ✅ 5 item doğru sayıldı |
-| D | Dialog/Popup | ✅ Dialog tanındı |
-| E | Image + Text Kart | ✅ Kart yapısı doğru |
-
-**Kullanım:** Smoke test sonrası, assertion başarısızlığında, crash sonrası ekran analizi.
-**Süre:** ~8-10s/screenshot. **VRAM:** ~7-8GB.
-
-```bash
-# Screenshot → VLM analizi
-adb shell screencap -p /sdcard/screen.png
-adb pull /sdcard/screen.png /tmp/screen.png
-# → qwen2.5vl:7b API çağrısı (SKILL.md §13)
-```
+**Sadece Persistence:** IQ Masters (30), YTV Player Pro (30), McAlister's Deli (56.3)
 
 ---
-
-## ⏭️ Sıradaki Görev
-
-1. **İlk fast-follow app başlat** — Aday: Total Washout (GAME_ACTION, surf arcade) veya IQ Masters (EDUCATION)
-2. **Günlük veri biriktirme** — `run.py full` (Faz 0 devam)
-3. **Haftalık true positive analizi** — 3 snapshot üzerinden trend doğrulama
-4. **Maestro test kütüphanesi** — `maestro-lib/common/` altında yeniden kullanılabilir snippet'ler
-
-### 🏆 Gün 3'ün En Güçlü Sinyalleri
-| # | App | Skor | Kategori | Durum |
-|---|-----|------|----------|-------|
-| 1 | YTV Player Pro | 137.0 | VIDEO_PLAYERS | #142→#5 (3 günde) |
-| 2 | IQ Masters - Brain Games | 104.02 | EDUCATION | #134→#30 |
-| 3 | Total Washout: Surf Arcade | 95.0 | GAME_ACTION | Yeni, Nisan 2026 |
-| 4 | Timpy Cooking Games for Kids | 94.26 | GAME_EDUCATIONAL | #137→#44 |
-| 5 | LineLeap | 90.0 | EVENTS | #147→#57 |
-
-Detaylı fazlar → `ROADMAP.md`
 
 ## 🐛 Aktif Sorunlar
 
 | ID | Sorun | Öncelik |
 |----|-------|---------|
-| S2 | `installs`/`ratings` bazen boş geliyor (Google verisi) | Düşük |
+| S2 | `installs`/`ratings` bazen boş geliyor | Düşük |
+| S7 | Büyük marka gürültüsü (Waze, Facebook Lite) | Düşük |
 
-Çözülen: ~~S1~~ datetime deprecated fixlendi. ~~S3~~ CacheGuard naive datetime fixlendi. ~~S4~~ Hardcoded threshold fixlendi. ~~S5~~ Review `content` boş gelme → v10 API alan adlarıyla düzeltildi. ~~S6~~ Maestro + Emulator kurulumu tamamlandı.
+Çözülen: ~~S1~~ datetime. ~~S3~~ CacheGuard. ~~S4~~ Hardcoded threshold. ~~S5~~ Review boş. ~~S6~~ Maestro/Emulator. ~~S8~~ IQ Masters kayboluyor. ~~S9~~ Cumulative delta gürültüsü.
+
+---
 
 ## 🔗 Hızlı Referanslar
 
 | Konu | Dosya |
 |------|-------|
-| Teknik detay (API, schema, formüller, SQL, Android template) | `.kimi/skills/play-trend-hunter/SKILL.md` |
-| Android template, build, Maestro komutları | `AGENTS.md` §Araç Kullanımı, §Android Katmanı |
-| Strateji, fazlar, ADR'lar | `ROADMAP.md` |
-| Tarihçe, session detayları | `.kimi/logs/` |
-| Kalıcı dersler, troubleshooting | ACE `playbook-python-ops` Ders 020-022 |
-
----
-
-## 📝 Oturum Sonu Checklist
-
-- [x] CONTEXT.md güncelle
-- [x] Session log yaz (`2026-06-02-2055-session.md`)
-- [x] CHANGELOG.md güncelle
-- [x] AGENTS.md güncelle (Android + Maestro kuralları)
-- [x] Git commit
+| Teknik detay | `.kimi/skills/play-trend-hunter/SKILL.md` |
+| Android/Maestro | `.kimi/skills/android-test-pipeline/SKILL.md` |
+| VLM | `.kimi/skills/vlm-screenshot/SKILL.md` |
+| AI Asset (taşındı) | `uygulama-gelistir-play/.kimi/skills/flux-asset-generation/SKILL.md` |
+| Strateji/ADR'lar | `ROADMAP.md` |
+| Tarihçe | `.kimi/logs/` |
+| Detect logları | `logs/detect_YYYY-MM-DD.json` |

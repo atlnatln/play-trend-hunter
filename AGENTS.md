@@ -66,7 +66,7 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 | **SQLite** | Schema ve SQL template'ler SKILL.md §3'te. Elle sorgu yazma, modelleri kullan. |
 | **Maestro** | YAML test'ler `android-template/maestro/` ve `apps/<name>/maestro/` altında. Emulator: `Pixel_6_API_34`. |
 | **VLM** | `qwen2.5vl:7b` (Ollama). Smoke test sonrası, assertion hatasında, crash sonrası ekran analizi. |
-| **AI Asset** | `run.py ai-assets <app> <cat>` (FLUX.1-schnell). Detaylar `flux-asset-generation` skill'inde. Üretim öncesi (Faz 1+) kullanılır. Faz 0'da `run.py assets` (PIL) yeterlidir. |
+| **AI Asset** | 🚫 Kaldırıldı. Asset üretimi `uygulama-gelistir-play` altına taşındı. Bak `flux-asset-generation` skill'i (artık `uygulama-gelistir-play/.kimi/skills/` altında). |
 
 ---
 
