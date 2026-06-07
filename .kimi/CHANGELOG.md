@@ -125,6 +125,67 @@ maestro test maestro/launch.yaml                    # 2 assertion COMPLETED
 
 ---
 
+## 2026-06-04 — Gün 5: Detect Algoritması Redizaynı, Threshold Kalibrasyonu, Loglama
+
+| # | Dosya | Değişiklik | Gerekçe |
+|---|-------|-----------|---------|
+| 1 | `config.py` | `CACHE_TTL_HOURS = 20.0` (önceki: 24.0) | Local PC günlük 1 kez çalıştırıyor. 24 saat TTL cache'i sınırda geçerli bırakıyordu (23h 43m → cache hit, 0 alert). 20 saat her zaman invalid olur. [ACE Ders 023] |
+| 2 | `config.py` | `SURGE_THRESHOLD = 30.0` (önceki: 20.0) | Histogram analizi: 20-30 aralığında 530 alert (%49) gürültüydü. 30 threshold ile 60 anlamlı alert kaldı. Elbow noktası 30. [ACE Ders 024] |
+| 3 | `detector/surge.py` | `parse_recent_worst_rank()` + recent-delta algoritması | Cumulative delta (7 gün) "geçmiş birikimi" yaratıyordu — app 7 gün önce #190'daydı, 3 gündür #50'de, hâlâ alert üretiyordu. Yeni algoritma: son 3 günün en kötü rank'ından bugüne delta. [ACE Ders 025] |
+| 4 | `run.py` | `limit=7`, `historical` parametresi, JSON loglama | `detect_surges` artık tüm geçmişi (newcomer kontrolü) ve recent 3 günü (delta hesabı) ayrı ayrı kullanıyor. Her detect sonucu `logs/detect_YYYY-MM-DD.json` olarak kaydediliyor (histogram, top 20, kategori dağılımı). |
+| 5 | `reporter/cli.py` | `recent_delta` key desteği | `print_report` ve `print_top_alerts` yeni `recent_delta`, `worst_rank`, `window_days` key'lerini gösterebiliyor. Geriye uyumlu (eski `delta`/`cumulative_delta` key'leri de çalışıyor). |
+| 6 | `database/models.py` | `get_snapshots(limit=7)` kullanımı | `run.py` artık son 7 snapshot'ı çekiyor. Newcomer kontrolü 7 gün pencere, delta hesabı 3 gün pencere. |
+| 7 | `detector/surge.py` | `detect_surges_persistence()` eklendi | Recent delta + top-50 cumulative bonus hibrit algoritması. IQ Masters gibi "sabitlenmiş ama değerli" app'leri geri getirir. [ACE Ders 026] |
+| 8 | `run.py` | Çift algoritma desteği (`cmd_detect`) | Her detect'te **recent** ve **persistence** algoritmaları paralel çalışır. Sonuçlar aynı JSON log'da `algorithms` dizisi olarak kaydedilir. DB'ye sadece recent kaydedilir (canonical). |
+
+### Bugünkü Bulgular (Algo Karşılaştırması)
+- **Recent Delta:** 65 alert (threshold 30, 3 gün pencere)
+- **Persistence:** 82 alert (+17 ek app, top-50 bonus ile)
+- **Önceki:** 1065 alert (threshold 20, cumulative-delta, 7 gün pencere) — %94 azalma
+- **En güçlü (her ikisinde de #1-5):** Digital Compass 99, NBC LA 82, Love Island 70, Borrow Cash 68, Happy Dentist 67
+- **Sadece Persistence'te:** IQ Masters (#10, score 30), YTV Player Pro (#19, score 30), McAlister's Deli (#24, score 56.3), Peacock TV (#28, score 40.9)
+- **Log:** `logs/detect_2026-06-04.json` — her iki algoritmanın sonuçları
+
+### Kararlar
+| # | Karar | Açıklama |
+|---|-------|----------|
+| 1 | **Günlük tek çalıştırma** | Local PC açık kalmayacağı için `run.py full` günde 1 kez. Detect algoritması bu kısıta göre dizayn edildi. |
+| 2 | **Recent-delta > Cumulative-delta** | 7 gün yerine 3 gün pencere. "Geçmiş birikimi" sorunu çözüldü, gürültü %94 azaldı. |
+| 3 | **Threshold 30** | 20 çok düşük (hep min score), 40 çok yüksek (sadece 15-20 alert). 30 sweet spot. |
+| 4 | **A/B Algoritma Testi** | Recent ve Persistence algoritmaları her gün paralel çalıştırılacak. 3-5 gün log biriktikten sonra hangisi daha iyi aday yakalıyor değerlendirilecek. |
+
+---
+
+---
+
+## 2026-06-05 — Gün 6: Detect Patlaması, Volatilite Filtresi, Token Tasarrufu
+
+| # | Dosya | Değişiklik | Gerekçe |
+|---|-------|-----------|---------|
+| 1 | `config.py` | `SURGE_THRESHOLD = 40.0` (önceki: 30.0) | Snapshot 5'ten 8'e çıkınca alert sayısı patladı: Recent 65→342, Persistence 82→370. Sabit threshold artan veriyle ölçeklenmiyor. [ACE Ders 027] |
+| 2 | `detector/surge.py` | Volatilite filtresi (`std_dev > 35` → skip) | Sürekli yukarı-aşağı yapan app'ler (dans eden rank'lar) gürültü üretiyordu. Filtre sonrası alert %49 azaldı (342→174). [ACE Ders 028] |
+| 3 | `detector/surge.py` | Newcomer bonus `15 → 5` | Newcomer app'ler normal delta hesaplamasına girince yüksek skor üretiyordu. Bonus azaltıldı. [ACE Ders 029] |
+| 4 | `AGENTS.md` | Token tasarrufu kuralları, "İlk prompt = CONTEXT.md" | İlk prompt'ta 25k token harcandı, CONTEXT.md tek başına yeterliydi. [ACE Ders 030] |
+| 5 | `CONTEXT.md` | Optimize (55 satır), "Bugünün Görevleri" en üste | Token tasarrufu, hızlı context okuma. |
+
+### Bugünkü Bulgular (Patch Sonrası)
+- **Recent Delta:** 174 alert (threshold 40, volatilite filtresi)
+- **Persistence:** 196 alert
+- **WMA:** 77 alert | **Slope:** 49 alert
+- **Azalma:** %49 (342→174)
+- **Top sinyaller stabil:** Digital Compass 142, YTV Player Pro 137, KSAT Plus 132
+- **Slope en makul algo:** 49 alert, R²>=0.5 filtresi çalışıyor
+
+### Kararlar
+| # | Karar | Açıklama |
+|---|-------|----------|
+| 1 | Threshold 40 (şimdilik) | Snapshot arttıkça sabit 30 çok düşük. 40 sweet spot (şimdilik). |
+| 2 | Volatilite filtresi kalıcı | `std_dev > 35` olan app'ler detect'ten çıkarıldı. |
+| 3 | Newcomer bonus 5 | 15 çok yüksekti, gürültüye dönüyordu. |
+| 4 | 3-5 gün daha izleme | Volatilite filtresi etkisini izle, histogram analizi yap. |
+
+---
+
 ## Değişiklik Ekleme Kuralı
 
 Her kod/config değişikliğinde buraya satır ekle:

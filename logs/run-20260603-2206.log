@@ -1,0 +1,1096 @@
+[2026-06-03T19:06:52.438223+00:00] Starting scan for 47 categories...
+  [FETCH] TOP_FREE/GAME_ACTION ...
+  [OK] TOP_FREE/GAME_ACTION: 200 apps saved
+  [FETCH] TOP_FREE/GAME_ADVENTURE ...
+  [OK] TOP_FREE/GAME_ADVENTURE: 200 apps saved
+  [FETCH] TOP_FREE/GAME_ARCADE ...
+  [OK] TOP_FREE/GAME_ARCADE: 200 apps saved
+  [FETCH] TOP_FREE/GAME_PUZZLE ...
+  [OK] TOP_FREE/GAME_PUZZLE: 200 apps saved
+  [FETCH] TOP_FREE/GAME_STRATEGY ...
+  [OK] TOP_FREE/GAME_STRATEGY: 200 apps saved
+  [FETCH] TOP_FREE/GAME_SIMULATION ...
+  [OK] TOP_FREE/GAME_SIMULATION: 200 apps saved
+  [FETCH] TOP_FREE/GAME_CASUAL ...
+  [OK] TOP_FREE/GAME_CASUAL: 200 apps saved
+  [FETCH] TOP_FREE/GAME_ROLE_PLAYING ...
+  [OK] TOP_FREE/GAME_ROLE_PLAYING: 200 apps saved
+  [FETCH] TOP_FREE/GAME_SPORTS ...
+  [OK] TOP_FREE/GAME_SPORTS: 200 apps saved
+  [FETCH] TOP_FREE/GAME_RACING ...
+  [OK] TOP_FREE/GAME_RACING: 200 apps saved
+  [FETCH] TOP_FREE/GAME_BOARD ...
+  [OK] TOP_FREE/GAME_BOARD: 200 apps saved
+  [FETCH] TOP_FREE/GAME_CARD ...
+  [OK] TOP_FREE/GAME_CARD: 200 apps saved
+  [FETCH] TOP_FREE/GAME_WORD ...
+  [OK] TOP_FREE/GAME_WORD: 200 apps saved
+  [FETCH] TOP_FREE/GAME_EDUCATIONAL ...
+  [OK] TOP_FREE/GAME_EDUCATIONAL: 200 apps saved
+  [FETCH] TOP_FREE/GAME_MUSIC ...
+  [OK] TOP_FREE/GAME_MUSIC: 200 apps saved
+  [FETCH] TOP_FREE/GAME_TRIVIA ...
+  [OK] TOP_FREE/GAME_TRIVIA: 200 apps saved
+  [FETCH] TOP_FREE/APPLICATION ...
+  [OK] TOP_FREE/APPLICATION: 200 apps saved
+  [FETCH] TOP_FREE/TOOLS ...
+  [OK] TOP_FREE/TOOLS: 200 apps saved
+  [FETCH] TOP_FREE/PRODUCTIVITY ...
+  [OK] TOP_FREE/PRODUCTIVITY: 200 apps saved
+  [FETCH] TOP_FREE/COMMUNICATION ...
+  [OK] TOP_FREE/COMMUNICATION: 200 apps saved
+  [FETCH] TOP_FREE/SOCIAL ...
+  [OK] TOP_FREE/SOCIAL: 200 apps saved
+  [FETCH] TOP_FREE/PHOTOGRAPHY ...
+  [OK] TOP_FREE/PHOTOGRAPHY: 200 apps saved
+  [FETCH] TOP_FREE/VIDEO_PLAYERS ...
+  [OK] TOP_FREE/VIDEO_PLAYERS: 200 apps saved
+  [FETCH] TOP_FREE/LIFESTYLE ...
+  [OK] TOP_FREE/LIFESTYLE: 200 apps saved
+  [FETCH] TOP_FREE/HEALTH_AND_FITNESS ...
+  [OK] TOP_FREE/HEALTH_AND_FITNESS: 200 apps saved
+  [FETCH] TOP_FREE/EDUCATION ...
+  [OK] TOP_FREE/EDUCATION: 200 apps saved
+  [FETCH] TOP_FREE/BUSINESS ...
+  [OK] TOP_FREE/BUSINESS: 200 apps saved
+  [FETCH] TOP_FREE/FINANCE ...
+  [OK] TOP_FREE/FINANCE: 200 apps saved
+  [FETCH] TOP_FREE/ENTERTAINMENT ...
+  [OK] TOP_FREE/ENTERTAINMENT: 200 apps saved
+  [FETCH] TOP_FREE/BOOKS_AND_REFERENCE ...
+  [OK] TOP_FREE/BOOKS_AND_REFERENCE: 200 apps saved
+  [FETCH] TOP_FREE/TRAVEL_AND_LOCAL ...
+  [OK] TOP_FREE/TRAVEL_AND_LOCAL: 200 apps saved
+  [FETCH] TOP_FREE/SHOPPING ...
+  [OK] TOP_FREE/SHOPPING: 200 apps saved
+  [FETCH] TOP_FREE/FOOD_AND_DRINK ...
+  [OK] TOP_FREE/FOOD_AND_DRINK: 200 apps saved
+  [FETCH] TOP_FREE/DATING ...
+  [OK] TOP_FREE/DATING: 200 apps saved
+  [FETCH] TOP_FREE/MAPS_AND_NAVIGATION ...
+  [OK] TOP_FREE/MAPS_AND_NAVIGATION: 200 apps saved
+  [FETCH] TOP_FREE/AUTO_AND_VEHICLES ...
+  [OK] TOP_FREE/AUTO_AND_VEHICLES: 200 apps saved
+  [FETCH] TOP_FREE/BEAUTY ...
+  [OK] TOP_FREE/BEAUTY: 200 apps saved
+  [FETCH] TOP_FREE/ART_AND_DESIGN ...
+  [OK] TOP_FREE/ART_AND_DESIGN: 200 apps saved
+  [FETCH] TOP_FREE/EVENTS ...
+  [OK] TOP_FREE/EVENTS: 200 apps saved
+  [FETCH] TOP_FREE/HOUSE_AND_HOME ...
+  [OK] TOP_FREE/HOUSE_AND_HOME: 200 apps saved
+  [FETCH] TOP_FREE/LIBRARIES_AND_DEMO ...
+  [OK] TOP_FREE/LIBRARIES_AND_DEMO: 200 apps saved
+  [FETCH] TOP_FREE/MEDICAL ...
+  [OK] TOP_FREE/MEDICAL: 200 apps saved
+  [FETCH] TOP_FREE/MUSIC_AND_AUDIO ...
+  [OK] TOP_FREE/MUSIC_AND_AUDIO: 200 apps saved
+  [FETCH] TOP_FREE/NEWS_AND_MAGAZINES ...
+  [OK] TOP_FREE/NEWS_AND_MAGAZINES: 200 apps saved
+  [FETCH] TOP_FREE/PARENTING ...
+  [OK] TOP_FREE/PARENTING: 200 apps saved
+  [FETCH] TOP_FREE/PERSONALIZATION ...
+  [OK] TOP_FREE/PERSONALIZATION: 200 apps saved
+  [FETCH] TOP_FREE/WEATHER ...
+  [OK] TOP_FREE/WEATHER: 200 apps saved
+[DONE] Scan complete. 9400 total app positions saved.
+
+[2026-06-03T19:09:57.880874+00:00] Running surge detection...
+
+======================================================================
+ SURGE ALERTS: 229 apps detected
+======================================================================
+
+  🔥 Gangs Wars: Pixel Shooter RP (com.actopolus.PixelDudeSandbox)
+     Score: 42  |  Rank: #118  |  Cat: GAME_ACTION
+     → Rank: #160 → #118 (Δ +42)
+
+  🔥 Grand Hustle RP: Online Game (com.NikitaPokruchin.ALTCITYOnline)
+     Score: 21.58  |  Rank: #111  |  Cat: GAME_ACTION
+     → Rank: #132 → #111 (Δ +21)
+     → Score: 4.39 → 4.42 (Δ +0.029)
+
+  🔥 Merge Dinosaurs Battle Fight (com.mergemaster.dinosaurs)
+     Score: 28  |  Rank: #155  |  Cat: GAME_ARCADE
+     → Rank: #183 → #155 (Δ +28)
+
+  🔥 Bubble Bus: Parking Jam Puzzle (com.bugbomb.dumptruckjam)
+     Score: 41  |  Rank: #152  |  Cat: GAME_PUZZLE
+     → Rank: #193 → #152 (Δ +41)
+
+  🔥 Arrow Master (com.vgames.arrows)
+     Score: 39.2  |  Rank: #109  |  Cat: GAME_PUZZLE
+     → Rank: #148 → #109 (Δ +39)
+     → Score: 4.69 → 4.70 (Δ +0.010)
+
+  🔥 Tangram Heaven (com.gimica.tangram)
+     Score: 38.27  |  Rank: #138  |  Cat: GAME_PUZZLE
+     → Rank: #176 → #138 (Δ +38)
+     → Score: 4.05 → 4.07 (Δ +0.013)
+
+  🔥 Jigsawscapes® - Jigsaw Puzzles (jigsaw.puzzle.game.banana)
+     Score: 31.01  |  Rank: #130  |  Cat: GAME_PUZZLE
+     → Rank: #161 → #130 (Δ +31)
+     → Score: 4.50 → 4.50 (Δ +0.000)
+
+  🔥 Threadform (com.gimica.threadform)
+     Score: 29.0  |  Rank: #137  |  Cat: GAME_PUZZLE
+     → Rank: #166 → #137 (Δ +29)
+     → Score: 4.48 → 4.48 (Δ +0.000)
+
+  🔥 Color Block Jam (com.GybeGames.ColorBlockJam)
+     Score: 21.02  |  Rank: #65  |  Cat: GAME_PUZZLE
+     → Rank: #86 → #65 (Δ +21)
+     → Score: 4.19 → 4.20 (Δ +0.001)
+
+  🔥 Fridge Horror Game (com.imi.nitikowa)
+     Score: 23  |  Rank: #88  |  Cat: GAME_STRATEGY
+     → Rank: #111 → #88 (Δ +23)
+
+  🔥 Rise of Castles: Ice and Fire (com.im30.ROE.gp)
+     Score: 23  |  Rank: #150  |  Cat: GAME_STRATEGY
+     → Rank: #173 → #150 (Δ +23)
+
+  🔥 Fidget & Dumpling Trading (com.kidskitchenfun.fidget)
+     Score: 22  |  Rank: #108  |  Cat: GAME_STRATEGY
+     → Rank: #130 → #108 (Δ +22)
+
+  🔥 Idle MoonRabbit: AFK RPG Y5 (com.AbleGames.DalToKi)
+     Score: 58.18  |  Rank: #121  |  Cat: GAME_SIMULATION
+     → Rank: #178 → #121 (Δ +57)
+     → Score: 4.31 → 4.37 (Δ +0.059)
+
+  🔥 Episode - Choose Your Story (com.episodeinteractive.android.catalog)
+     Score: 43  |  Rank: #103  |  Cat: GAME_SIMULATION
+     → Rank: #146 → #103 (Δ +43)
+
+  🔥 Prank House Escape (com.uc.animal.hide.seek)
+     Score: 39  |  Rank: #124  |  Cat: GAME_SIMULATION
+     → Rank: #163 → #124 (Δ +39)
+
+  🔥 My Cat - Virtual pet simulator (cat.game.liftapp)
+     Score: 38  |  Rank: #138  |  Cat: GAME_SIMULATION
+     → Rank: #176 → #138 (Δ +38)
+
+  🔥 Aria: My Anime School Story (com.gameous.police.bus.simulator.game.offroad.rescue.game)
+     Score: 35  |  Rank: #31  |  Cat: GAME_SIMULATION
+     → Rank: #66 → #31 (Δ +35)
+
+  🔥 Urban Raid Ops (com.megamillions.virtual.mom.happy.family.simulator.game)
+     Score: 34  |  Rank: #97  |  Cat: GAME_SIMULATION
+     → Rank: #131 → #97 (Δ +34)
+
+  🔥 Pocket Paws: My lovely dogs (com.LandmarkGames.TopDogsBestInShow)
+     Score: 28.19  |  Rank: #114  |  Cat: GAME_SIMULATION
+     → Rank: #142 → #114 (Δ +28)
+     → Score: 4.74 → 4.75 (Δ +0.010)
+
+  🔥 Animal Valley: Idle Merge Game (com.redcellgames.animalvalley)
+     Score: 23  |  Rank: #163  |  Cat: GAME_SIMULATION
+     → Rank: #186 → #163 (Δ +23)
+
+  🔥 Arrows Puzzle Relax (com.arrowout.puzzle.amzejam)
+     Score: 51.42  |  Rank: #39  |  Cat: GAME_CASUAL
+     → Rank: #90 → #39 (Δ +51)
+     → Score: 4.65 → 4.67 (Δ +0.021)
+
+  🔥 Secret Love Tile: Match (com.secretlovetile.app.game)
+     Score: 49  |  Rank: #64  |  Cat: GAME_CASUAL
+     → Rank: #113 → #64 (Δ +49)
+
+  🔥 Colorful Soda Sort (com.colorrful.sunny.sodda.sort)
+     Score: 46  |  Rank: #33  |  Cat: GAME_CASUAL
+     → Rank: #79 → #33 (Δ +46)
+
+  🔥 Fruit Mania - Earn Cash (com.cash.fruit.game.mania.puzzle)
+     Score: 31  |  Rank: #116  |  Cat: GAME_CASUAL
+     → Rank: #147 → #116 (Δ +31)
+
+  🔥 Bubble Shooter Gem Puzzle Pop (com.pop.bubbleshooter.gem.classic.games)
+     Score: 30.92  |  Rank: #143  |  Cat: GAME_CASUAL
+     → Rank: #173 → #143 (Δ +30)
+     → Score: 4.78 → 4.83 (Δ +0.046)
+
+  🔥 Hexa Master 3D - Color Sort (com.hexa.master.puzzle.match3d)
+     Score: 30  |  Rank: #126  |  Cat: GAME_CASUAL
+     → Rank: #156 → #126 (Δ +30)
+
+  🔥 Cat Beats - Tiles Music Games (cats.tap.dacing.games.free)
+     Score: 28  |  Rank: #65  |  Cat: GAME_CASUAL
+     → Rank: #93 → #65 (Δ +28)
+
+  🔥 Dicero (com.bailing.lark.roll.dev)
+     Score: 27.03  |  Rank: #131  |  Cat: GAME_CASUAL
+     → Rank: #158 → #131 (Δ +27)
+     → Score: 4.78 → 4.79 (Δ +0.002)
+
+  🔥 Hello Kitty Nail Salon (com.budgestudios.HelloKittyNailSalon)
+     Score: 26.1  |  Rank: #107  |  Cat: GAME_CASUAL
+     → Rank: #133 → #107 (Δ +26)
+     → Score: 4.34 → 4.34 (Δ +0.005)
+
+  🔥 Merge Meow Cafe : Coffee cat (com.actionfit.catmerge)
+     Score: 26  |  Rank: #161  |  Cat: GAME_CASUAL
+     → Rank: #187 → #161 (Δ +26)
+
+  🔥 Slam Dunk! (com.gimica.slamdunk)
+     Score: 25.03  |  Rank: #128  |  Cat: GAME_CASUAL
+     → Rank: #153 → #128 (Δ +25)
+     → Score: 4.24 → 4.24 (Δ +0.002)
+
+  🔥 Last Light (com.lighthouse.freeplay.ameuno)
+     Score: 23  |  Rank: #41  |  Cat: GAME_CASUAL
+     → Rank: #64 → #41 (Δ +23)
+
+  🔥 Old Greg's Tavern (com.oldgregstavern.app)
+     Score: 47.01  |  Rank: #132  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #178 → #132 (Δ +46)
+     → Score: 4.67 → 4.72 (Δ +0.051)
+
+  🔥 Fate/Grand Order (English) (com.aniplex.fategrandorder.en)
+     Score: 30.02  |  Rank: #124  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #154 → #124 (Δ +30)
+     → Score: 4.01 → 4.01 (Δ +0.001)
+
+  🔥 Paranoize (com.zigzagame.paranoize)
+     Score: 27  |  Rank: #74  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #101 → #74 (Δ +27)
+
+  🔥 Pizza Maker Kids Cooking Games (com.pizza.maker.game.baking.making.cooking)
+     Score: 24  |  Rank: #95  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #119 → #95 (Δ +24)
+
+  🔥 Satisfying Car Wash & Repair (com.mp.satisfying.carwash.asmr.repair)
+     Score: 24  |  Rank: #161  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #185 → #161 (Δ +24)
+
+  🔥 IdleOn (com.lavaflame.MMO)
+     Score: 23  |  Rank: #82  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #105 → #82 (Δ +23)
+
+  🔥 Honey Panic: Bear My Heart (com.sixwaves.ffmascot)
+     Score: 22.85  |  Rank: #30  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #51 → #30 (Δ +21)
+     → Score: 4.28 → 4.37 (Δ +0.093)
+
+  🔥 Mighty Party: Epic RPG Heroes (com.panoramik.mightyparty)
+     Score: 22.02  |  Rank: #173  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #195 → #173 (Δ +22)
+     → Score: 3.61 → 3.61 (Δ +0.001)
+
+  🔥 Prison Parkour: Worm Race (com.hp.prison.parkour.worm.hunt)
+     Score: 22  |  Rank: #109  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #131 → #109 (Δ +22)
+
+  🔥 High School Life: Open World (com.obby.lava.parkour)
+     Score: 21  |  Rank: #78  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #99 → #78 (Δ +21)
+
+  🔥 Rope Action City Fighting Game (com.rlg.future.robot.transform.car.racing)
+     Score: 21  |  Rank: #168  |  Cat: GAME_ROLE_PLAYING
+     → Rank: #189 → #168 (Δ +21)
+
+  🔥 Flip Skater (com.miniclip.topskater)
+     Score: 41  |  Rank: #94  |  Cat: GAME_SPORTS
+     → Rank: #135 → #94 (Δ +41)
+
+  🔥 Police Car Chase Drift Games (com.ge.police.car.chase.drift.games)
+     Score: 37.74  |  Rank: #156  |  Cat: GAME_RACING
+     → Rank: #192 → #156 (Δ +36)
+     → Score: 3.91 → 4.00 (Δ +0.087)
+
+  🔥 Ludo Clash - Dice Board Games (com.ob.eb.ludo.board.games)
+     Score: 42  |  Rank: #74  |  Cat: GAME_BOARD
+     → Rank: #116 → #74 (Δ +42)
+
+  🔥 Surreal Art Coloring Pages (com.pixel.art.paint.coloring.book.draw.puzzle.game)
+     Score: 25  |  Rank: #153  |  Cat: GAME_BOARD
+     → Rank: #178 → #153 (Δ +25)
+
+  🔥 Dominoes - classic domino game (org.sabgames.domino)
+     Score: 20.09  |  Rank: #136  |  Cat: GAME_BOARD
+     → Rank: #156 → #136 (Δ +20)
+     → Score: 4.54 → 4.54 (Δ +0.004)
+
+  🔥 Solitaire 2026 (com.standard.puzzle.solitaire.klondike.japanjourney)
+     Score: 30.03  |  Rank: #93  |  Cat: GAME_CARD
+     → Rank: #123 → #93 (Δ +30)
+     → Score: 4.68 → 4.68 (Δ +0.001)
+
+  🔥 Sago Mini School (Kids 2-5) (com.sagosago.School.googleplay)
+     Score: 44.51  |  Rank: #139  |  Cat: GAME_EDUCATIONAL
+     → Rank: #183 → #139 (Δ +44)
+     → Score: 3.78 → 3.81 (Δ +0.025)
+
+  🔥 Cocobi World 4 - Kids Game (com.kigle.cocobi.world.four)
+     Score: 34  |  Rank: #131  |  Cat: GAME_EDUCATIONAL
+     → Rank: #165 → #131 (Δ +34)
+
+  🔥 Kids Monster Truck Games 2+ (com.tt.kids.monster.truck)
+     Score: 30.06  |  Rank: #118  |  Cat: GAME_EDUCATIONAL
+     → Rank: #148 → #118 (Δ +30)
+     → Score: 4.70 → 4.70 (Δ +0.003)
+
+  🔥 Cocobi Little Safety Hero -kid (com.kigle.cocobi.safetyhero)
+     Score: 24.06  |  Rank: #137  |  Cat: GAME_EDUCATIONAL
+     → Rank: #158 → #137 (Δ +21)
+     → Score: 3.62 → 3.78 (Δ +0.153)
+
+  🔥 Toddler Games for 2+ year olds (com.bimiboo.playandlearn)
+     Score: 21.02  |  Rank: #106  |  Cat: GAME_EDUCATIONAL
+     → Rank: #127 → #106 (Δ +21)
+     → Score: 4.41 → 4.41 (Δ +0.001)
+
+  🔥 Trivia Mix: Quiz Game (com.owlgames.triviamix)
+     Score: 33  |  Rank: #55  |  Cat: GAME_TRIVIA
+     → Rank: #88 → #55 (Δ +33)
+
+  🔥 The 1% Club TV Show Quiz Game (tv.telescope.onepercentclub.us)
+     Score: 27  |  Rank: #146  |  Cat: GAME_TRIVIA
+     → Rank: #173 → #146 (Δ +27)
+
+  🔥 Planet Fitness (com.planetfitness)
+     Score: 69  |  Rank: #78  |  Cat: APPLICATION
+     → Rank: #147 → #78 (Δ +69)
+
+  🔥 Key VPN–Secure VPN (free.key.vpn)
+     Score: 56  |  Rank: #135  |  Cat: APPLICATION
+     → Rank: #191 → #135 (Δ +56)
+
+  🔥 Capital One Mobile (com.konylabs.capitalone)
+     Score: 51  |  Rank: #89  |  Cat: APPLICATION
+     → Rank: #140 → #89 (Δ +51)
+
+  🔥 GoodShort - Short Dramas Hub (com.newreading.goodreels)
+     Score: 50  |  Rank: #92  |  Cat: APPLICATION
+     → Rank: #142 → #92 (Δ +50)
+
+  🔥 Easy Mail - Email Launcher (com.applabstudios.ai.mail.homescreen.inbox)
+     Score: 43.08  |  Rank: #120  |  Cat: APPLICATION
+     → Rank: #163 → #120 (Δ +43)
+     → Score: 4.16 → 4.17 (Δ +0.004)
+
+  🔥 Phone Junk Clear (com.phone.junkclear.mialtrap)
+     Score: 41  |  Rank: #159  |  Cat: APPLICATION
+     → Rank: #200 → #159 (Δ +41)
+
+  🔥 Zoom Workplace (us.zoom.videomeetings)
+     Score: 37  |  Rank: #85  |  Cat: APPLICATION
+     → Rank: #122 → #85 (Δ +37)
+
+  🔥 PDF Reader - Editor & Viewer (pdf.reader.editor.office)
+     Score: 37  |  Rank: #139  |  Cat: APPLICATION
+     → Rank: #176 → #139 (Δ +37)
+
+  🔥 Microsoft Edge (com.microsoft.emmx)
+     Score: 35  |  Rank: #122  |  Cat: APPLICATION
+     → Rank: #157 → #122 (Δ +35)
+
+  🔥 Microsoft Teams (com.microsoft.teams)
+     Score: 31.01  |  Rank: #68  |  Cat: APPLICATION
+     → Rank: #99 → #68 (Δ +31)
+     → Score: 4.62 → 4.62 (Δ +0.000)
+
+  🔥 Clean Sweep Master (com.cleansweepmaster.clsm)
+     Score: 29.2  |  Rank: #97  |  Cat: APPLICATION
+     → Rank: #125 → #97 (Δ +28)
+     → Score: 4.76 → 4.82 (Δ +0.060)
+
+  🔥 Google Translate (com.google.android.apps.translate)
+     Score: 29.02  |  Rank: #168  |  Cat: APPLICATION
+     → Rank: #197 → #168 (Δ +29)
+     → Score: 4.27 → 4.27 (Δ +0.001)
+
+  🔥 MyChart (epic.mychart.android)
+     Score: 28  |  Rank: #105  |  Cat: APPLICATION
+     → Rank: #133 → #105 (Δ +28)
+
+  🔥 Google Messages (com.google.android.apps.messaging)
+     Score: 28  |  Rank: #118  |  Cat: APPLICATION
+     → Rank: #146 → #118 (Δ +28)
+
+  🔥 PDF Reader: View All PDFs (com.espublishing.pdfreader.viewer.editor)
+     Score: 28  |  Rank: #149  |  Cat: APPLICATION
+     → Rank: #177 → #149 (Δ +28)
+
+  🔥 KashKick: Get paid to have fun (com.kashkick.kashkickapp)
+     Score: 26  |  Rank: #127  |  Cat: APPLICATION
+     → Rank: #153 → #127 (Δ +26)
+
+  🔥 BESTPLAY Play to earn & donate (com.bestplay.app)
+     Score: 23.02  |  Rank: #108  |  Cat: APPLICATION
+     → Rank: #131 → #108 (Δ +23)
+     → Score: 4.67 → 4.68 (Δ +0.001)
+
+  🔥 NetShort - Popular Dramas & TV (com.netshort.abroad)
+     Score: 23  |  Rank: #104  |  Cat: APPLICATION
+     → Rank: #127 → #104 (Δ +23)
+
+  🔥 SpeedTop VPN: Fast & Secure (io.speedtop.app)
+     Score: 22  |  Rank: #93  |  Cat: APPLICATION
+     → Rank: #115 → #93 (Δ +22)
+
+  🔥 Airbnb (com.airbnb.android)
+     Score: 21.01  |  Rank: #98  |  Cat: APPLICATION
+     → Rank: #119 → #98 (Δ +21)
+     → Score: 4.54 → 4.54 (Δ +0.000)
+
+  🔥 Cleanup: Phone Storage Cleaner (com.storage.androidcleaner)
+     Score: 20.35  |  Rank: #86  |  Cat: APPLICATION
+     → Rank: #106 → #86 (Δ +20)
+     → Score: 4.44 → 4.46 (Δ +0.017)
+
+  🔥 Progressive (com.phonevalley.progressive)
+     Score: 20.04  |  Rank: #162  |  Cat: APPLICATION
+     → Rank: #182 → #162 (Δ +20)
+     → Score: 4.57 → 4.57 (Δ +0.002)
+
+  🔥 XV Browser - Safe & Simple (com.xv.downloader.hd.player)
+     Score: 37.65  |  Rank: #82  |  Cat: TOOLS
+     → Rank: #118 → #82 (Δ +36)
+     → Score: 4.48 → 4.56 (Δ +0.082)
+
+  🔥 Notepad - Notes and Notebook (er.notepad.notes.notebook.checklist.calendar)
+     Score: 33  |  Rank: #123  |  Cat: TOOLS
+     → Rank: #156 → #123 (Δ +33)
+
+  🔥 Clean Fix Plus (com.cleanfix.fixplus)
+     Score: 32.22  |  Rank: #158  |  Cat: TOOLS
+     → Rank: #190 → #158 (Δ +32)
+     → Score: 4.45 → 4.46 (Δ +0.011)
+
+  🔥 Authenticator App - 2FA Auth (com.mobiauth)
+     Score: 30.22  |  Rank: #168  |  Cat: TOOLS
+     → Rank: #198 → #168 (Δ +30)
+     → Score: 4.53 → 4.54 (Δ +0.011)
+
+  🔥 WeTrack - Location Tracker (com.wetrackk.lt)
+     Score: 28.31  |  Rank: #132  |  Cat: TOOLS
+     → Rank: #159 → #132 (Δ +27)
+     → Score: 3.82 → 3.89 (Δ +0.065)
+
+  🔥 Antivrus Clean: Virus & Junk (com.eduspot.antivirus.clean)
+     Score: 25  |  Rank: #37  |  Cat: TOOLS
+     → Rank: #62 → #37 (Δ +25)
+
+  🔥 V2SPEED VPN (comv2.v2speedvpn.appv2)
+     Score: 25  |  Rank: #54  |  Cat: TOOLS
+     → Rank: #79 → #54 (Δ +25)
+
+  🔥 McAfee Security: Antivirus VPN (com.wsandroid.suite)
+     Score: 25.0  |  Rank: #148  |  Cat: TOOLS
+     → Rank: #173 → #148 (Δ +25)
+     → Score: 4.73 → 4.73 (Δ +0.000)
+
+  🔥 QuickDoc: PDF Reader Tools (com.quickdoc.pdfreader)
+     Score: 23  |  Rank: #68  |  Cat: TOOLS
+     → Rank: #91 → #68 (Δ +23)
+
+  🔥 PDF Reader – Reader & Editor (pdf.reader.editor.office.ora)
+     Score: 23  |  Rank: #71  |  Cat: TOOLS
+     → Rank: #94 → #71 (Δ +23)
+
+  🔥 Malwarebytes Mobile Security (org.malwarebytes.antimalware)
+     Score: 22  |  Rank: #87  |  Cat: TOOLS
+     → Rank: #109 → #87 (Δ +22)
+
+  🔥 Beats (com.apple.bnd)
+     Score: 21.08  |  Rank: #134  |  Cat: TOOLS
+     → Rank: #155 → #134 (Δ +21)
+     → Score: 3.83 → 3.83 (Δ +0.004)
+
+  🔥 CleanMas (com.clea.mas.pro)
+     Score: 20.4  |  Rank: #86  |  Cat: TOOLS
+     → Rank: #106 → #86 (Δ +20)
+     → Score: 3.94 → 3.96 (Δ +0.020)
+
+  🔥 EasyClean (com.easy.cleaner.cacheclear)
+     Score: 92.43  |  Rank: #108  |  Cat: PRODUCTIVITY
+     → Rank: #200 → #108 (Δ +92)
+     → Score: 3.98 → 4.00 (Δ +0.021)
+
+  🔥 rmResident (com.rentmanager.rmResident)
+     Score: 51.33  |  Rank: #148  |  Cat: PRODUCTIVITY
+     → Rank: #199 → #148 (Δ +51)
+     → Score: 4.07 → 4.09 (Δ +0.017)
+
+  🔥 QR Scanner, All Barcode Scan (com.bupavon.qrcode.reader.barcode.scan.generator)
+     Score: 43.57  |  Rank: #131  |  Cat: PRODUCTIVITY
+     → Rank: #173 → #131 (Δ +42)
+     → Score: 3.60 → 3.68 (Δ +0.079)
+
+  🔥 OtterAI Transcribe Voice Notes (com.aisense.otter)
+     Score: 39.01  |  Rank: #101  |  Cat: PRODUCTIVITY
+     → Rank: #140 → #101 (Δ +39)
+     → Score: 4.75 → 4.75 (Δ +0.001)
+
+  🔥 Camera Detector Hidden (com.camera.detector.hiddencheck.privacyscan)
+     Score: 37  |  Rank: #133  |  Cat: PRODUCTIVITY
+     → Rank: #170 → #133 (Δ +37)
+
+  🔥 QuickBooks Workforce (com.tsheets.android.hammerhead)
+     Score: 33  |  Rank: #91  |  Cat: PRODUCTIVITY
+     → Rank: #124 → #91 (Δ +33)
+
+  🔥 Docusign - Upload & Sign Docs (com.docusign.ink)
+     Score: 23.09  |  Rank: #89  |  Cat: PRODUCTIVITY
+     → Rank: #112 → #89 (Δ +23)
+     → Score: 4.65 → 4.65 (Δ +0.004)
+
+  🔥 Messages: SMS Texting App (sms.app.messages.app.message.box.message.me)
+     Score: 39  |  Rank: #98  |  Cat: COMMUNICATION
+     → Rank: #137 → #98 (Δ +39)
+
+  🔥 BeenVerified Background Search (com.beenverified.android)
+     Score: 22  |  Rank: #145  |  Cat: COMMUNICATION
+     → Rank: #167 → #145 (Δ +22)
+
+  🔥 Toki-Casual Connect & Chat (banter.toki.android)
+     Score: 36  |  Rank: #121  |  Cat: SOCIAL
+     → Rank: #157 → #121 (Δ +36)
+
+  🔥 Mee Hub - Live & Chat (cc.megoplus.proand)
+     Score: 35  |  Rank: #74  |  Cat: SOCIAL
+     → Rank: #109 → #74 (Δ +35)
+
+  🔥 Gallery - Photo Album (com.calculatorphotovault.securecalculator)
+     Score: 30.3  |  Rank: #141  |  Cat: PHOTOGRAPHY
+     → Rank: #170 → #141 (Δ +29)
+     → Score: 4.48 → 4.54 (Δ +0.065)
+
+  🔥 Gallery - Photo Gallery (com.gallery.photogallery.album.photovault)
+     Score: 24.52  |  Rank: #164  |  Cat: PHOTOGRAPHY
+     → Rank: #188 → #164 (Δ +24)
+     → Score: 4.43 → 4.46 (Δ +0.026)
+
+  🔥 HairApp: AI Hairstyle Try On (com.hair.ai.filter.color.changer.app)
+     Score: 24  |  Rank: #152  |  Cat: PHOTOGRAPHY
+     → Rank: #176 → #152 (Δ +24)
+
+  🔥 Vorexa : Video Downloader HD (vorexa.video.downloader)
+     Score: 40  |  Rank: #159  |  Cat: VIDEO_PLAYERS
+     → Rank: #199 → #159 (Δ +40)
+
+  🔥 Fomi (com.jollyshort.shortdrama)
+     Score: 37  |  Rank: #152  |  Cat: VIDEO_PLAYERS
+     → Rank: #189 → #152 (Δ +37)
+
+  🔥 DOOR: Smart Access & Control (com.door.doorapp)
+     Score: 67  |  Rank: #127  |  Cat: LIFESTYLE
+     → Rank: #194 → #127 (Δ +67)
+
+  🔥 TrendStudy (com.realitymineservices.trendstudy.android)
+     Score: 55.09  |  Rank: #115  |  Cat: LIFESTYLE
+     → Rank: #168 → #115 (Δ +53)
+     → Score: 3.12 → 3.22 (Δ +0.105)
+
+  🔥 McAlister's Deli (com.snapfinger.mobile.mcalisters)
+     Score: 50  |  Rank: #53  |  Cat: LIFESTYLE
+     → Rank: #103 → #53 (Δ +50)
+
+  🔥 ELive-Chill&Stream (com.elive.joy.android)
+     Score: 32  |  Rank: #161  |  Cat: LIFESTYLE
+     → Rank: #193 → #161 (Δ +32)
+
+  🔥 Homebody: Better Renting (com.homebody)
+     Score: 24  |  Rank: #95  |  Cat: LIFESTYLE
+     → Rank: #119 → #95 (Δ +24)
+
+  🔥 LifePoints: Rewards App (com.kantarprofiles.lifepoints)
+     Score: 23  |  Rank: #124  |  Cat: LIFESTYLE
+     → Rank: #147 → #124 (Δ +23)
+
+  🔥 Glynt - Earn Rewards (com.apptopia.glynt)
+     Score: 23  |  Rank: #130  |  Cat: LIFESTYLE
+     → Rank: #153 → #130 (Δ +23)
+
+  🔥 SmartRewards: Cumberland Farms (com.cumberlandfarms.mobile)
+     Score: 22  |  Rank: #91  |  Cat: LIFESTYLE
+     → Rank: #113 → #91 (Δ +22)
+
+  🔥 OnStar Guardian: Safety App (com.onstar.guardian)
+     Score: 21.05  |  Rank: #103  |  Cat: LIFESTYLE
+     → Rank: #124 → #103 (Δ +21)
+     → Score: 4.31 → 4.32 (Δ +0.003)
+
+  🔥 StepReward: Walk & Earn (com.iwanmaket.walk.stepreward)
+     Score: 49  |  Rank: #80  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #129 → #80 (Δ +49)
+
+  🔥 Headspace: Sleep & Meditate (com.getsomeheadspace.android)
+     Score: 33  |  Rank: #121  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #154 → #121 (Δ +33)
+
+  🔥 BP Tracker Home (com.bp.tracker.home)
+     Score: 30  |  Rank: #164  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #194 → #164 (Δ +30)
+
+  🔥 BetterHelp - Therapy (com.betterhelp)
+     Score: 29.02  |  Rank: #135  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #164 → #135 (Δ +29)
+     → Score: 4.60 → 4.61 (Δ +0.001)
+
+  🔥 AF App (com.anytimefitness.userapp)
+     Score: 28  |  Rank: #118  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #146 → #118 (Δ +28)
+
+  🔥 Yazio: AI Calorie Tracker (com.yazio.android)
+     Score: 26  |  Rank: #170  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #196 → #170 (Δ +26)
+
+  🔥 Hinge Health (com.hingehealth.phoenix)
+     Score: 20.02  |  Rank: #85  |  Cat: HEALTH_AND_FITNESS
+     → Rank: #105 → #85 (Δ +20)
+     → Score: 4.91 → 4.91 (Δ +0.001)
+
+  🔥 YayTalk: Speak & Learn English (com.ai.language.learning.tutor)
+     Score: 56  |  Rank: #100  |  Cat: EDUCATION
+     → Rank: #156 → #100 (Δ +56)
+
+  🔥 Knowunity: AI Study & Homework (de.knowunity.app)
+     Score: 49.02  |  Rank: #127  |  Cat: EDUCATION
+     → Rank: #176 → #127 (Δ +49)
+     → Score: 4.78 → 4.78 (Δ +0.001)
+
+  🔥 Transact eAccounts (com.blackboard.transact.android.v2)
+     Score: 45.08  |  Rank: #102  |  Cat: EDUCATION
+     → Rank: #147 → #102 (Δ +45)
+     → Score: 4.10 → 4.10 (Δ +0.004)
+
+  🔥 Brightspace Pulse (com.d2l.brightspace.student.android)
+     Score: 30.03  |  Rank: #128  |  Cat: EDUCATION
+     → Rank: #158 → #128 (Δ +30)
+     → Score: 4.74 → 4.75 (Δ +0.001)
+
+  🔥 Moodle (com.moodle.moodlemobile)
+     Score: 29  |  Rank: #164  |  Cat: EDUCATION
+     → Rank: #193 → #164 (Δ +29)
+
+  🔥 Quiz AI: AI Homework Helper (com.intsig.camexam)
+     Score: 27.31  |  Rank: #147  |  Cat: EDUCATION
+     → Rank: #174 → #147 (Δ +27)
+     → Score: 4.45 → 4.46 (Δ +0.015)
+
+  🔥 Blackboard (com.blackboard.android.bbstudent)
+     Score: 24  |  Rank: #163  |  Cat: EDUCATION
+     → Rank: #187 → #163 (Δ +24)
+
+  🔥 Cake - Learn English & Korean (me.mycake)
+     Score: 21.01  |  Rank: #154  |  Cat: EDUCATION
+     → Rank: #175 → #154 (Δ +21)
+     → Score: 4.68 → 4.68 (Δ +0.000)
+
+  🔥 SAP Concur (com.concur.breeze)
+     Score: 37  |  Rank: #94  |  Cat: BUSINESS
+     → Rank: #131 → #94 (Δ +37)
+
+  🔥 MyChoice Benefits (com.businessolver.mychoice)
+     Score: 28.08  |  Rank: #119  |  Cat: BUSINESS
+     → Rank: #147 → #119 (Δ +28)
+     → Score: 4.72 → 4.72 (Δ +0.004)
+
+  🔥 PDF Scanner app - TapScanner (pdf.tap.scanner)
+     Score: 28.01  |  Rank: #76  |  Cat: BUSINESS
+     → Rank: #104 → #76 (Δ +28)
+     → Score: 4.53 → 4.53 (Δ +0.001)
+
+  🔥 FAX App: Send Faxes from Phone (biz.faxapp.app)
+     Score: 28.01  |  Rank: #83  |  Cat: BUSINESS
+     → Rank: #111 → #83 (Δ +28)
+     → Score: 4.51 → 4.51 (Δ +0.001)
+
+  🔥 FPL (com.nee.fpl)
+     Score: 28  |  Rank: #98  |  Cat: BUSINESS
+     → Rank: #126 → #98 (Δ +28)
+
+  🔥 WorkJam (com.workjam.workjam)
+     Score: 27  |  Rank: #149  |  Cat: BUSINESS
+     → Rank: #176 → #149 (Δ +27)
+
+  🔥 PDF Zone - Read PDF (zone.readviewpdf.com)
+     Score: 26.27  |  Rank: #103  |  Cat: BUSINESS
+     → Rank: #127 → #103 (Δ +24)
+     → Score: 3.64 → 3.75 (Δ +0.114)
+
+  🔥 Word Reader - Docx/PDF Viewer (docx.pdf.reader.editor.office.eternal)
+     Score: 24  |  Rank: #70  |  Cat: BUSINESS
+     → Rank: #94 → #70 (Δ +24)
+
+  🔥 Avigilon Alta Open (com.openpath.mobile)
+     Score: 21.46  |  Rank: #71  |  Cat: BUSINESS
+     → Rank: #92 → #71 (Δ +21)
+     → Score: 4.21 → 4.23 (Δ +0.023)
+
+  🔥 Borrow Money Instantly - Fundi (com.instantly.bils.rent.pay.loan)
+     Score: 74  |  Rank: #116  |  Cat: FINANCE
+     → Rank: #190 → #116 (Δ +74)
+
+  🔥 Abound Credit Union Mobile (com.abound.grip)
+     Score: 65  |  Rank: #60  |  Cat: FINANCE
+     → Rank: #125 → #60 (Δ +65)
+
+  🔥 Earnifi: Early Pay. Fast Money (com.earnifi.app)
+     Score: 52  |  Rank: #139  |  Cat: FINANCE
+     → Rank: #191 → #139 (Δ +52)
+
+  🔥 Cash Advance - No credit Check (com.quick.loans.online.instant.money)
+     Score: 30.18  |  Rank: #90  |  Cat: FINANCE
+     → Rank: #120 → #90 (Δ +30)
+     → Score: 4.68 → 4.69 (Δ +0.009)
+
+  🔥 Cash Advance Loan - CREDO (com.credo.loan.payday.cash.advance.online)
+     Score: 26.1  |  Rank: #96  |  Cat: FINANCE
+     → Rank: #122 → #96 (Δ +26)
+     → Score: 4.68 → 4.68 (Δ +0.005)
+
+  🔥 Fifth Third: 53 Mobile Banking (com.clairmail.fth)
+     Score: 25  |  Rank: #161  |  Cat: FINANCE
+     → Rank: #186 → #161 (Δ +25)
+
+  🔥 TD Bank (US) (com.tdbank)
+     Score: 24.12  |  Rank: #144  |  Cat: FINANCE
+     → Rank: #168 → #144 (Δ +24)
+     → Score: 4.08 → 4.09 (Δ +0.006)
+
+  🔥 Schwab Mobile (com.schwab.mobile)
+     Score: 22  |  Rank: #51  |  Cat: FINANCE
+     → Rank: #73 → #51 (Δ +22)
+
+  🔥 Ramp (com.ramp.android.app)
+     Score: 21.03  |  Rank: #179  |  Cat: FINANCE
+     → Rank: #200 → #179 (Δ +21)
+     → Score: 4.69 → 4.69 (Δ +0.002)
+
+  🔥 Farmers Insurance Inc. (com.farmers.ifarmers)
+     Score: 21  |  Rank: #167  |  Cat: FINANCE
+     → Rank: #188 → #167 (Δ +21)
+
+  🔥 Zeus (com.thezeusnetwork.www)
+     Score: 25.06  |  Rank: #110  |  Cat: ENTERTAINMENT
+     → Rank: #135 → #110 (Δ +25)
+     → Score: 4.58 → 4.58 (Δ +0.003)
+
+  🔥 Funny Prank Sounds: Fart, Horn (pranksounds.airhorn.haircut.fart.funnysounds)
+     Score: 24.19  |  Rank: #143  |  Cat: ENTERTAINMENT
+     → Rank: #167 → #143 (Δ +24)
+     → Score: 4.55 → 4.56 (Δ +0.010)
+
+  🔥 Kids Bowl Free (com.kidsbowlfree.mobile)
+     Score: 23  |  Rank: #98  |  Cat: ENTERTAINMENT
+     → Rank: #121 → #98 (Δ +23)
+
+  🔥 My Drama - Short Dramas Stream (com.dashdramas)
+     Score: 23  |  Rank: #155  |  Cat: ENTERTAINMENT
+     → Rank: #178 → #155 (Δ +23)
+
+  🔥 Boom Chip Challenge: 2 Player (com.bg.chip.blast.challenge.game)
+     Score: 22.12  |  Rank: #169  |  Cat: ENTERTAINMENT
+     → Rank: #191 → #169 (Δ +22)
+     → Score: 4.14 → 4.15 (Δ +0.006)
+
+  🔥 ReelDrama: Short Movies (com.reel.drama.short.movies)
+     Score: 22  |  Rank: #134  |  Cat: ENTERTAINMENT
+     → Rank: #156 → #134 (Δ +22)
+
+  🔥 JoyReels - Enjoy Short Dramas (com.joyreels.video)
+     Score: 21  |  Rank: #148  |  Cat: ENTERTAINMENT
+     → Rank: #169 → #148 (Δ +21)
+
+  🔥 HelloMillions: Casino Games (com.hellomillions)
+     Score: 20.27  |  Rank: #141  |  Cat: ENTERTAINMENT
+     → Rank: #161 → #141 (Δ +20)
+     → Score: 3.95 → 3.96 (Δ +0.014)
+
+  🔥 Story Reader (com.igapp.story.reader)
+     Score: 61  |  Rank: #114  |  Cat: BOOKS_AND_REFERENCE
+     → Rank: #175 → #114 (Δ +61)
+
+  🔥 Moonstories (com.zhangyue.read.ireaderth)
+     Score: 40  |  Rank: #100  |  Cat: BOOKS_AND_REFERENCE
+     → Rank: #140 → #100 (Δ +40)
+
+  🔥 ReadNow: Good Novels & Fiction (com.jr.cdxs.ereader)
+     Score: 21  |  Rank: #164  |  Cat: BOOKS_AND_REFERENCE
+     → Rank: #185 → #164 (Δ +21)
+
+  🔥 Allure: Alpha Werewolf Stories (com.allure.audiobooks)
+     Score: 21  |  Rank: #167  |  Cat: BOOKS_AND_REFERENCE
+     → Rank: #188 → #167 (Δ +21)
+
+  🔥 byAir: Flight Tracker & Status (com.byairapp.android)
+     Score: 53  |  Rank: #13  |  Cat: TRAVEL_AND_LOCAL
+     → Rank: #66 → #13 (Δ +53)
+
+  🔥 Temple Square (org.churchofjesuschrist.tsq)
+     Score: 49  |  Rank: #134  |  Cat: TRAVEL_AND_LOCAL
+     → Rank: #183 → #134 (Δ +49)
+
+  🔥 Navan (com.tripactions.alpha)
+     Score: 27.07  |  Rank: #166  |  Cat: TRAVEL_AND_LOCAL
+     → Rank: #193 → #166 (Δ +27)
+     → Score: 4.68 → 4.69 (Δ +0.004)
+
+  🔥 RideKC GO (com.genfare.mobile2.ridekc)
+     Score: 23  |  Rank: #114  |  Cat: TRAVEL_AND_LOCAL
+     → Rank: #137 → #114 (Δ +23)
+
+  🔥 PerkSpot (com.perkspotmobile)
+     Score: 43  |  Rank: #146  |  Cat: SHOPPING
+     → Rank: #189 → #146 (Δ +43)
+
+  🔥 Rooms To Go (com.roomstogo.dealstogo)
+     Score: 28  |  Rank: #134  |  Cat: SHOPPING
+     → Rank: #162 → #134 (Δ +28)
+
+  🔥 Locally Grown: Local Farms (com.johnange.locallygrown)
+     Score: 28.04  |  Rank: #137  |  Cat: FOOD_AND_DRINK
+     → Rank: #165 → #137 (Δ +28)
+     → Score: 4.87 → 4.87 (Δ +0.002)
+
+  🔥 Samokat: Food Delivery (ru.sbcs.store)
+     Score: 24  |  Rank: #175  |  Cat: FOOD_AND_DRINK
+     → Rank: #199 → #175 (Δ +24)
+
+  🔥 Sexy Live - Live Video Chat (com.drt.freerandomchat)
+     Score: 37  |  Rank: #156  |  Cat: DATING
+     → Rank: #193 → #156 (Δ +37)
+
+  🔥 Phone Tracker Live Locator (com.findly.livephone.tracker)
+     Score: 58  |  Rank: #120  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #178 → #120 (Δ +58)
+
+  🔥 Locaty - GPS Location Share (com.locaty.gps.location.aishare)
+     Score: 53  |  Rank: #130  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #183 → #130 (Δ +53)
+
+  🔥 Weigh My Truck (com.catscale.weighmytruck)
+     Score: 30  |  Rank: #110  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #140 → #110 (Δ +30)
+
+  🔥 GPS Tracker - Family Locator (com.phonelocator.find.friend)
+     Score: 25  |  Rank: #60  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #85 → #60 (Δ +25)
+
+  🔥 MTM Link Member (net.mtmlink.member)
+     Score: 24.09  |  Rank: #83  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #107 → #83 (Δ +24)
+     → Score: 4.00 → 4.00 (Δ +0.005)
+
+  🔥 Spotlight by Verizon Connect (com.telogis.spotlight)
+     Score: 23  |  Rank: #78  |  Cat: MAPS_AND_NAVIGATION
+     → Rank: #101 → #78 (Δ +23)
+
+  🔥 PrePass (com.prepass.mobile.app)
+     Score: 23  |  Rank: #133  |  Cat: AUTO_AND_VEHICLES
+     → Rank: #156 → #133 (Δ +23)
+
+  🔥 ELD APP (by TT ELD) (com.tteld.app)
+     Score: 23  |  Rank: #165  |  Cat: AUTO_AND_VEHICLES
+     → Rank: #188 → #165 (Δ +23)
+
+  🔥 AARP SafeTrip™ (org.aarp.safetrip)
+     Score: 21  |  Rank: #105  |  Cat: AUTO_AND_VEHICLES
+     → Rank: #126 → #105 (Δ +21)
+
+  🔥 AI Video Creator - Bloom AI (com.bivex.beautykit)
+     Score: 41  |  Rank: #51  |  Cat: BEAUTY
+     → Rank: #92 → #51 (Δ +41)
+
+  🔥 Genera: AI Video Generator (com.aiphoto.videogenerator.app)
+     Score: 56  |  Rank: #127  |  Cat: ART_AND_DESIGN
+     → Rank: #183 → #127 (Δ +56)
+
+  🔥 AR Drawing - Trace Art Studio (com.drawing.illustration.sketch.art)
+     Score: 32  |  Rank: #96  |  Cat: ART_AND_DESIGN
+     → Rank: #128 → #96 (Δ +32)
+
+  🔥 Viswap - AI Image & Video Pro (io.viswap.a)
+     Score: 32  |  Rank: #120  |  Cat: ART_AND_DESIGN
+     → Rank: #152 → #120 (Δ +32)
+
+  🔥 LarlyPix AI-AI Flower world (com.larly.pix)
+     Score: 32  |  Rank: #148  |  Cat: ART_AND_DESIGN
+     → Rank: #180 → #148 (Δ +32)
+
+  🔥 SkillsUSA NLSC 2026 (a2z.Mobile.Event6624)
+     Score: 57  |  Rank: #8  |  Cat: EVENTS
+     → Newcomer at rank #8
+
+  🔥 Psych Congress Events (com.cadmiumcd.hmpe2)
+     Score: 42  |  Rank: #112  |  Cat: EVENTS
+     → Rank: #154 → #112 (Δ +42)
+
+  🔥 Eventsential (com.resultsdirect.eventsential.express)
+     Score: 39  |  Rank: #76  |  Cat: EVENTS
+     → Rank: #115 → #76 (Δ +39)
+
+  🔥 Agorify (com.agorify.app)
+     Score: 39  |  Rank: #80  |  Cat: EVENTS
+     → Rank: #119 → #80 (Δ +39)
+
+  🔥 Cleveland Orch (com.clevelandorchestra.ticketwallet)
+     Score: 36  |  Rank: #91  |  Cat: EVENTS
+     → Rank: #127 → #91 (Δ +36)
+
+  🔥 SBC Annual Meeting (com.sbc.meeting)
+     Score: 35  |  Rank: #54  |  Cat: EVENTS
+     → Rank: #89 → #54 (Δ +35)
+
+  🔥 Eventify (com.teks.eventify)
+     Score: 35  |  Rank: #59  |  Cat: EVENTS
+     → Rank: #94 → #59 (Δ +35)
+
+  🔥 Helper Helper (us.helperhelper)
+     Score: 27  |  Rank: #89  |  Cat: EVENTS
+     → Rank: #116 → #89 (Δ +27)
+
+  🔥 FanBase By MoneyDolly (com.moneydolly.fanbase)
+     Score: 24  |  Rank: #73  |  Cat: EVENTS
+     → Rank: #97 → #73 (Δ +24)
+
+  🔥 Aces Poker Run (com.acespokerrun.app.twa)
+     Score: 23  |  Rank: #133  |  Cat: EVENTS
+     → Rank: #156 → #133 (Δ +23)
+
+  🔥 igloohome (com.igloo.home)
+     Score: 22  |  Rank: #178  |  Cat: HOUSE_AND_HOME
+     → Rank: #200 → #178 (Δ +22)
+
+  🔥 Yandex.Realty (com.yandex.mobile.realty)
+     Score: 21  |  Rank: #157  |  Cat: HOUSE_AND_HOME
+     → Rank: #178 → #157 (Δ +21)
+
+  🔥 PuroAir (com.getpuroair.puroair)
+     Score: 21  |  Rank: #176  |  Cat: HOUSE_AND_HOME
+     → Rank: #197 → #176 (Δ +21)
+
+  🔥 Henri (com.ionicframework.wesidents787956)
+     Score: 21  |  Rank: #177  |  Cat: HOUSE_AND_HOME
+     → Rank: #198 → #177 (Δ +21)
+
+  🔥 Complete – Medication Tracker (com.abbvie.patientapp)
+     Score: 34  |  Rank: #151  |  Cat: MEDICAL
+     → Rank: #185 → #151 (Δ +34)
+
+  🔥 Doctoralia: pide citas médicas (mx.com.doctoralia)
+     Score: 31  |  Rank: #156  |  Cat: MEDICAL
+     → Rank: #187 → #156 (Δ +31)
+
+  🔥 Prisma Health GO (org.prismahealth.go)
+     Score: 24.2  |  Rank: #114  |  Cat: MEDICAL
+     → Rank: #138 → #114 (Δ +24)
+     → Score: 4.20 → 4.21 (Δ +0.010)
+
+  🔥 Garner Health (com.getgarner.app)
+     Score: 24  |  Rank: #109  |  Cat: MEDICAL
+     → Rank: #133 → #109 (Δ +24)
+
+  🔥 BCBSM (com.bcbsm.mmaprod)
+     Score: 23.02  |  Rank: #106  |  Cat: MEDICAL
+     → Rank: #129 → #106 (Δ +23)
+     → Score: 4.49 → 4.49 (Δ +0.001)
+
+  🔥 Learn Drum - Beat Maker & Pad (com.learn.drum.pad.beat.maker)
+     Score: 28.99  |  Rank: #172  |  Cat: MUSIC_AND_AUDIO
+     → Rank: #200 → #172 (Δ +28)
+     → Score: 3.68 → 3.73 (Δ +0.050)
+
+  🔥 faidr: FM Radio & Music (com.auddia.cfr)
+     Score: 24  |  Rank: #118  |  Cat: MUSIC_AND_AUDIO
+     → Rank: #142 → #118 (Δ +24)
+
+  🔥 Volume Booster Bass Equalizer (volumebooster.sound.loud.speaker.bassbooster.equalizer.music.enhancer)
+     Score: 22  |  Rank: #177  |  Cat: MUSIC_AND_AUDIO
+     → Rank: #199 → #177 (Δ +22)
+
+  🔥 Easy Metronome (com.digipom.easymetronome)
+     Score: 21  |  Rank: #161  |  Cat: MUSIC_AND_AUDIO
+     → Rank: #182 → #161 (Δ +21)
+
+  🔥 9NEWS (com.gannett.local.library.news.kusa)
+     Score: 54  |  Rank: #78  |  Cat: NEWS_AND_MAGAZINES
+     → Rank: #132 → #78 (Δ +54)
+
+  🔥 WFAA - News from North Texas (com.doapps.android.mln.MLN_b9e6d9221dcefc50ba23c6bd04ace911)
+     Score: 37  |  Rank: #112  |  Cat: NEWS_AND_MAGAZINES
+     → Rank: #149 → #112 (Δ +37)
+
+  🔥 Gulf Coast News - Fort Myers (com.doapps.android.mln.MLN_7aaf37e89f509a9096bb55d921846ff2)
+     Score: 29  |  Rank: #164  |  Cat: NEWS_AND_MAGAZINES
+     → Rank: #193 → #164 (Δ +29)
+
+  🔥 TeleOnce (com.app.teleonce)
+     Score: 26  |  Rank: #132  |  Cat: NEWS_AND_MAGAZINES
+     → Rank: #158 → #132 (Δ +26)
+
+  🔥 Good Food: Recipe Finder (uk.co.bbc.goodfood2)
+     Score: 23  |  Rank: #115  |  Cat: NEWS_AND_MAGAZINES
+     → Rank: #138 → #115 (Δ +23)
+
+  🔥 Theo: Prayer & Meditation (com.theopray)
+     Score: 41  |  Rank: #95  |  Cat: PARENTING
+     → Rank: #136 → #95 (Δ +41)
+
+  🔥 Pregnancy Tracker: Baby Growth (com.pregnancytracker.babygrowth.pregnancyapp)
+     Score: 39  |  Rank: #160  |  Cat: PARENTING
+     → Rank: #199 → #160 (Δ +39)
+
+  🔥 PB&J TV Family (com.pbjtv.family)
+     Score: 27  |  Rank: #125  |  Cat: PARENTING
+     → Rank: #152 → #125 (Δ +27)
+
+  🔥 DepthX - Live Clock Wallpapers (com.appslab.live.wallpapers)
+     Score: 40  |  Rank: #86  |  Cat: PERSONALIZATION
+     → Rank: #126 → #86 (Δ +40)
+
+  🔥 Magic: Online Video Chat (com.wolf.maid)
+     Score: 25.2  |  Rank: #144  |  Cat: PERSONALIZATION
+     → Rank: #169 → #144 (Δ +25)
+     → Score: 3.98 → 3.99 (Δ +0.010)
+
+  🔥 Icon Changer (any.icon)
+     Score: 25  |  Rank: #127  |  Cat: PERSONALIZATION
+     → Rank: #152 → #127 (Δ +25)
+
+  🔥 T-Mobile Fiber: eero (com.eero.tmobile.fiber)
+     Score: 22.12  |  Rank: #126  |  Cat: PERSONALIZATION
+     → Rank: #148 → #126 (Δ +22)
+     → Score: 4.93 → 4.94 (Δ +0.006)
+
+  🔥 RunShipVPN (runship.jspnitbds.runaop)
+     Score: 22  |  Rank: #77  |  Cat: PERSONALIZATION
+     → Rank: #99 → #77 (Δ +22)
+
+  🔥 Haha Broken - Broken Screen (brokenscreenprank.kafebrokenphonescreen.hahabrokenscreen)
+     Score: 21  |  Rank: #42  |  Cat: PERSONALIZATION
+     → Rank: #63 → #42 (Δ +21)
+
+  🔥 NDS Plus ( DS Emulator ) (note.dailyanimation.daily)
+     Score: 21  |  Rank: #178  |  Cat: PERSONALIZATION
+     → Rank: #199 → #178 (Δ +21)
+
+  🔥 Alabama Weather Network (com.awn.wx)
+     Score: 60  |  Rank: #83  |  Cat: WEATHER
+     → Rank: #143 → #83 (Δ +60)
+
+  🔥 NERV Disaster Prevention (app.nerv)
+     Score: 40  |  Rank: #151  |  Cat: WEATHER
+     → Rank: #191 → #151 (Δ +40)
+
+  🔥 FOX 4: DFW WAPP - Weather (com.kdfw.android.weather)
+     Score: 36  |  Rank: #130  |  Cat: WEATHER
+     → Rank: #166 → #130 (Δ +36)
+
+  🔥 WeatherLive Pro - Radar Alerts (com.trung.live.weather)
+     Score: 29  |  Rank: #104  |  Cat: WEATHER
+     → Rank: #133 → #104 (Δ +29)
+
+  🔥 Thermometer For Room Temp (com.temperature.checker.thermometer.app)
+     Score: 21  |  Rank: #85  |  Cat: WEATHER
+     → Rank: #106 → #85 (Δ +21)
+
+  🔥 MeteoSwiss (ch.admin.meteoswiss)
+     Score: 21  |  Rank: #136  |  Cat: WEATHER
+     → Rank: #157 → #136 (Δ +21)
+
+[DONE] 229 alerts saved to database.

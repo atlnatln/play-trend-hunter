@@ -21,7 +21,10 @@ def print_top_alerts(alerts: list[dict], limit: int = 10):
             if sig_name == "newcomer":
                 print(f"     → Newcomer at rank #{sig_data['current_rank']}")
             elif sig_name == "rank_delta":
-                print(f"     → Rank: #{sig_data['previous']} → #{sig_data['current']} (Δ {sig_data['delta']:+d})")
+                prev = sig_data.get('previous') or sig_data.get('worst_rank')
+                curr = sig_data.get('current') or sig_data.get('current_rank')
+                delta = sig_data.get('delta') or sig_data.get('cumulative_delta') or sig_data.get('recent_delta')
+                print(f"     → Rank: #{prev} → #{curr} (Δ {delta:+d})")
             elif sig_name == "ratings_delta":
                 print(f"     → Ratings: +{sig_data['delta']:,}")
             elif sig_name == "score_delta":
@@ -43,7 +46,10 @@ def print_report(alerts: list[dict]):
             if sig_name == "newcomer":
                 print(f"     → Newcomer at rank #{sig_data['current_rank']}")
             elif sig_name == "rank_delta":
-                print(f"     → Rank: #{sig_data['previous']} → #{sig_data['current']} (Δ {sig_data['delta']:+d})")
+                prev = sig_data.get('previous') or sig_data.get('worst_rank')
+                curr = sig_data.get('current') or sig_data.get('current_rank')
+                delta = sig_data.get('delta') or sig_data.get('cumulative_delta') or sig_data.get('recent_delta')
+                print(f"     → Rank: #{prev} → #{curr} (Δ {delta:+d})")
             elif sig_name == "ratings_delta":
                 print(f"     → Ratings: +{sig_data['delta']:,}")
             elif sig_name == "score_delta":

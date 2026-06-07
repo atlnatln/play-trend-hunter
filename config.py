@@ -65,7 +65,13 @@ TRACKED_COLLECTIONS = [
 FETCH_NUM = 200
 
 # Cache TTL in hours
-CACHE_TTL_HOURS = 24.0
+# NOTE: Local PC runs once per day. TTL must be < 24h so cache is ALWAYS
+# invalid on the next daily run, ensuring fresh data.
+CACHE_TTL_HOURS = 20.0
 
 # Surge detection threshold
-SURGE_THRESHOLD = 20.0
+# Calibrated weekly based on histogram analysis.
+# 2026-06-04: raised from 20→30 to cut noise (49% of alerts were 20-30 range).
+# 2026-06-05: raised from 30→40. Snapshot count increased 5→8, alert count
+#   exploded 65→342 (Recent). Volatility filter added to surge.py.
+SURGE_THRESHOLD = 40.0

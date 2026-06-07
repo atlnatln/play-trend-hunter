@@ -1,0 +1,784 @@
+{
+  "date": "2026-06-05",
+  "threshold": 40.0,
+  "algorithms": [
+    {
+      "algo": "recent",
+      "total_alerts": 174,
+      "top_alerts": [
+        {
+          "app_id": "com.graham.ksat",
+          "title": "KSAT Plus",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 132,
+          "rank": 68
+        },
+        {
+          "app_id": "com.ibsys.app.pns_ant",
+          "title": "KSAT 12 News",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 121,
+          "rank": 73
+        },
+        {
+          "app_id": "com.cry.analyzer",
+          "title": "Cry Analyzer AI Baby Assistant",
+          "category": "PARENTING",
+          "score": 117.3,
+          "rank": 65
+        },
+        {
+          "app_id": "com.eedalkhadeer.app469606875290",
+          "title": "عيد الغدير - عيد الغدير الاغر",
+          "category": "EVENTS",
+          "score": 114,
+          "rank": 79
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 109.03,
+          "rank": 91
+        },
+        {
+          "app_id": "free.number.puzzle.matchten",
+          "title": "Wood Number Match",
+          "category": "GAME_TRIVIA",
+          "score": 106,
+          "rank": 68
+        },
+        {
+          "app_id": "increaseheightworkout.heightincreaseexercise.tallerexercise",
+          "title": "Height Increase Workout",
+          "category": "HEALTH_AND_FITNESS",
+          "score": 105.01,
+          "rank": 62
+        },
+        {
+          "app_id": "com.arrowpath.android.gp",
+          "title": "Arrow Path Solve Puzzle",
+          "category": "GAME_CASUAL",
+          "score": 99.99,
+          "rank": 87
+        },
+        {
+          "app_id": "com.we.dollar.money.instantly.instant.cash.advance",
+          "title": "Borrow Cash Instantly WeDollar",
+          "category": "FINANCE",
+          "score": 99.09,
+          "rank": 99
+        },
+        {
+          "app_id": "com.zams.car.parking.game",
+          "title": "Prado Parking Game: Car Games",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 94.12,
+          "rank": 56
+        },
+        {
+          "app_id": "com.haircutsalon.fashion_stylist",
+          "title": "StarHair: AI Haircut Simulator",
+          "category": "BEAUTY",
+          "score": 93,
+          "rank": 42
+        },
+        {
+          "app_id": "com.tenetapps.artielab",
+          "title": "ARtie Lab: AR Drawing & Sketch",
+          "category": "ART_AND_DESIGN",
+          "score": 92.04,
+          "rank": 40
+        },
+        {
+          "app_id": "com.lagomproductsllc.lagomvpn",
+          "title": "LagomVPN: VPN Proxy",
+          "category": "TOOLS",
+          "score": 90.99,
+          "rank": 101
+        },
+        {
+          "app_id": "com.kingsfortune.happydinerstory",
+          "title": "Happy Diner Story™: Cooking",
+          "category": "GAME_SIMULATION",
+          "score": 90,
+          "rank": 65
+        },
+        {
+          "app_id": "com.epicpandagames.bartolito.game",
+          "title": "Bartolito Play & Learn",
+          "category": "GAME_EDUCATIONAL",
+          "score": 90,
+          "rank": 45
+        },
+        {
+          "app_id": "com.mahmoudzadah.glassifywidgets",
+          "title": "Glassify - Widgets & Themes",
+          "category": "PERSONALIZATION",
+          "score": 86,
+          "rank": 73
+        },
+        {
+          "app_id": "com.jrustonapps.myauroraforecast",
+          "title": "My Aurora Forecast & Alerts",
+          "category": "WEATHER",
+          "score": 85,
+          "rank": 50
+        },
+        {
+          "app_id": "com.alrespolapps.drawpad",
+          "title": "AmberPaint - Motion Brush",
+          "category": "ART_AND_DESIGN",
+          "score": 83.21,
+          "rank": 107
+        },
+        {
+          "app_id": "com.sagosago.Superfonik.googleplay",
+          "title": "Superfonik: Kids Learn to Read",
+          "category": "GAME_EDUCATIONAL",
+          "score": 83,
+          "rank": 87
+        },
+        {
+          "app_id": "com.quilt.happy.paint.by.number.coloring.game",
+          "title": "Quilt Color By Number Book",
+          "category": "GAME_CASUAL",
+          "score": 82,
+          "rank": 53
+        }
+      ],
+      "histogram": {
+        "70-80": 13,
+        "40-50": 81,
+        "60-70": 20,
+        "50-60": 35,
+        "90-100": 8,
+        "80-90": 10,
+        "100-110": 3,
+        "110-120": 2,
+        "130-140": 1,
+        "120-130": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 5,
+        "GAME_ADVENTURE": 3,
+        "GAME_PUZZLE": 5,
+        "GAME_STRATEGY": 3,
+        "GAME_SIMULATION": 5,
+        "GAME_CASUAL": 5,
+        "GAME_ROLE_PLAYING": 3,
+        "GAME_SPORTS": 2,
+        "GAME_RACING": 1,
+        "GAME_BOARD": 3,
+        "GAME_CARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 7,
+        "GAME_TRIVIA": 2,
+        "APPLICATION": 11,
+        "TOOLS": 8,
+        "PRODUCTIVITY": 3,
+        "COMMUNICATION": 3,
+        "SOCIAL": 4,
+        "PHOTOGRAPHY": 4,
+        "VIDEO_PLAYERS": 3,
+        "LIFESTYLE": 2,
+        "HEALTH_AND_FITNESS": 5,
+        "EDUCATION": 3,
+        "BUSINESS": 2,
+        "FINANCE": 4,
+        "ENTERTAINMENT": 7,
+        "BOOKS_AND_REFERENCE": 2,
+        "FOOD_AND_DRINK": 3,
+        "DATING": 1,
+        "BEAUTY": 3,
+        "ART_AND_DESIGN": 4,
+        "EVENTS": 14,
+        "LIBRARIES_AND_DEMO": 3,
+        "MEDICAL": 1,
+        "MUSIC_AND_AUDIO": 3,
+        "NEWS_AND_MAGAZINES": 17,
+        "PARENTING": 6,
+        "PERSONALIZATION": 6,
+        "WEATHER": 6
+      }
+    },
+    {
+      "algo": "persistence",
+      "total_alerts": 196,
+      "top_alerts": [
+        {
+          "app_id": "com.compass.digital.direction.directionfinder.pro",
+          "title": "Digital Compass for Android",
+          "category": "MAPS_AND_NAVIGATION",
+          "score": 142,
+          "rank": 53
+        },
+        {
+          "app_id": "com.graham.ksat",
+          "title": "KSAT Plus",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 132,
+          "rank": 68
+        },
+        {
+          "app_id": "com.ibsys.app.pns_ant",
+          "title": "KSAT 12 News",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 121,
+          "rank": 73
+        },
+        {
+          "app_id": "com.cry.analyzer",
+          "title": "Cry Analyzer AI Baby Assistant",
+          "category": "PARENTING",
+          "score": 117.3,
+          "rank": 65
+        },
+        {
+          "app_id": "com.eedalkhadeer.app469606875290",
+          "title": "عيد الغدير - عيد الغدير الاغر",
+          "category": "EVENTS",
+          "score": 114,
+          "rank": 79
+        },
+        {
+          "app_id": "com.jrustonapps.myauroraforecast",
+          "title": "My Aurora Forecast & Alerts",
+          "category": "WEATHER",
+          "score": 111.7,
+          "rank": 50
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 109.03,
+          "rank": 91
+        },
+        {
+          "app_id": "free.number.puzzle.matchten",
+          "title": "Wood Number Match",
+          "category": "GAME_TRIVIA",
+          "score": 106,
+          "rank": 68
+        },
+        {
+          "app_id": "increaseheightworkout.heightincreaseexercise.tallerexercise",
+          "title": "Height Increase Workout",
+          "category": "HEALTH_AND_FITNESS",
+          "score": 105.01,
+          "rank": 62
+        },
+        {
+          "app_id": "com.arrowpath.android.gp",
+          "title": "Arrow Path Solve Puzzle",
+          "category": "GAME_CASUAL",
+          "score": 99.99,
+          "rank": 87
+        },
+        {
+          "app_id": "com.we.dollar.money.instantly.instant.cash.advance",
+          "title": "Borrow Cash Instantly WeDollar",
+          "category": "FINANCE",
+          "score": 99.09,
+          "rank": 99
+        },
+        {
+          "app_id": "com.zams.car.parking.game",
+          "title": "Prado Parking Game: Car Games",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 94.12,
+          "rank": 56
+        },
+        {
+          "app_id": "com.haircutsalon.fashion_stylist",
+          "title": "StarHair: AI Haircut Simulator",
+          "category": "BEAUTY",
+          "score": 93,
+          "rank": 42
+        },
+        {
+          "app_id": "com.tenetapps.artielab",
+          "title": "ARtie Lab: AR Drawing & Sketch",
+          "category": "ART_AND_DESIGN",
+          "score": 92.04,
+          "rank": 40
+        },
+        {
+          "app_id": "com.lagomproductsllc.lagomvpn",
+          "title": "LagomVPN: VPN Proxy",
+          "category": "TOOLS",
+          "score": 90.99,
+          "rank": 101
+        },
+        {
+          "app_id": "com.kingsfortune.happydinerstory",
+          "title": "Happy Diner Story™: Cooking",
+          "category": "GAME_SIMULATION",
+          "score": 90,
+          "rank": 65
+        },
+        {
+          "app_id": "com.epicpandagames.bartolito.game",
+          "title": "Bartolito Play & Learn",
+          "category": "GAME_EDUCATIONAL",
+          "score": 90,
+          "rank": 45
+        },
+        {
+          "app_id": "com.lbe.parallel.intl",
+          "title": "Parallel Space - app cloning",
+          "category": "PERSONALIZATION",
+          "score": 87.5,
+          "rank": 25
+        },
+        {
+          "app_id": "com.mahmoudzadah.glassifywidgets",
+          "title": "Glassify - Widgets & Themes",
+          "category": "PERSONALIZATION",
+          "score": 86,
+          "rank": 73
+        },
+        {
+          "app_id": "com.lastwar.survival.zombie.battle",
+          "title": "Last Survival: Zombie Battle",
+          "category": "GAME_SIMULATION",
+          "score": 84.4,
+          "rank": 38
+        }
+      ],
+      "histogram": {
+        "70-80": 16,
+        "40-50": 87,
+        "60-70": 21,
+        "50-60": 42,
+        "90-100": 8,
+        "80-90": 13,
+        "100-110": 3,
+        "140-150": 1,
+        "110-120": 3,
+        "130-140": 1,
+        "120-130": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 5,
+        "GAME_ADVENTURE": 3,
+        "GAME_PUZZLE": 5,
+        "GAME_STRATEGY": 3,
+        "GAME_SIMULATION": 5,
+        "GAME_CASUAL": 9,
+        "GAME_ROLE_PLAYING": 3,
+        "GAME_SPORTS": 2,
+        "GAME_RACING": 1,
+        "GAME_BOARD": 4,
+        "GAME_CARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 7,
+        "GAME_TRIVIA": 2,
+        "APPLICATION": 15,
+        "TOOLS": 10,
+        "PRODUCTIVITY": 3,
+        "COMMUNICATION": 4,
+        "SOCIAL": 5,
+        "PHOTOGRAPHY": 4,
+        "VIDEO_PLAYERS": 3,
+        "LIFESTYLE": 3,
+        "HEALTH_AND_FITNESS": 7,
+        "EDUCATION": 3,
+        "BUSINESS": 2,
+        "FINANCE": 5,
+        "ENTERTAINMENT": 7,
+        "BOOKS_AND_REFERENCE": 2,
+        "FOOD_AND_DRINK": 3,
+        "DATING": 1,
+        "MAPS_AND_NAVIGATION": 1,
+        "BEAUTY": 4,
+        "ART_AND_DESIGN": 4,
+        "EVENTS": 14,
+        "LIBRARIES_AND_DEMO": 4,
+        "MEDICAL": 2,
+        "MUSIC_AND_AUDIO": 3,
+        "NEWS_AND_MAGAZINES": 18,
+        "PARENTING": 6,
+        "PERSONALIZATION": 6,
+        "WEATHER": 6
+      }
+    },
+    {
+      "algo": "wma",
+      "total_alerts": 77,
+      "top_alerts": [
+        {
+          "app_id": "com.graham.ksat",
+          "title": "KSAT Plus",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 132.0,
+          "rank": 68
+        },
+        {
+          "app_id": "com.ibsys.app.pns_ant",
+          "title": "KSAT 12 News",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 121.0,
+          "rank": 73
+        },
+        {
+          "app_id": "com.cry.analyzer",
+          "title": "Cry Analyzer AI Baby Assistant",
+          "category": "PARENTING",
+          "score": 117.3,
+          "rank": 65
+        },
+        {
+          "app_id": "com.eedalkhadeer.app469606875290",
+          "title": "عيد الغدير - عيد الغدير الاغر",
+          "category": "EVENTS",
+          "score": 114.0,
+          "rank": 79
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 109.03,
+          "rank": 91
+        },
+        {
+          "app_id": "com.zams.car.parking.game",
+          "title": "Prado Parking Game: Car Games",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 94.12,
+          "rank": 56
+        },
+        {
+          "app_id": "com.kingsfortune.happydinerstory",
+          "title": "Happy Diner Story™: Cooking",
+          "category": "GAME_SIMULATION",
+          "score": 90.0,
+          "rank": 65
+        },
+        {
+          "app_id": "com.lagomproductsllc.lagomvpn",
+          "title": "LagomVPN: VPN Proxy",
+          "category": "TOOLS",
+          "score": 89.66,
+          "rank": 101
+        },
+        {
+          "app_id": "com.mahmoudzadah.glassifywidgets",
+          "title": "Glassify - Widgets & Themes",
+          "category": "PERSONALIZATION",
+          "score": 84.67,
+          "rank": 73
+        },
+        {
+          "app_id": "free.number.puzzle.matchten",
+          "title": "Wood Number Match",
+          "category": "GAME_TRIVIA",
+          "score": 83.5,
+          "rank": 68
+        },
+        {
+          "app_id": "com.alrespolapps.drawpad",
+          "title": "AmberPaint - Motion Brush",
+          "category": "ART_AND_DESIGN",
+          "score": 83.21,
+          "rank": 107
+        },
+        {
+          "app_id": "com.epicpandagames.bartolito.game",
+          "title": "Bartolito Play & Learn",
+          "category": "GAME_EDUCATIONAL",
+          "score": 82.5,
+          "rank": 45
+        },
+        {
+          "app_id": "com.peaks2plains.android.weather",
+          "title": "Peaks2Plains Weather",
+          "category": "WEATHER",
+          "score": 81.03,
+          "rank": 117
+        },
+        {
+          "app_id": "com.weathertone.weteforecast",
+          "title": "Weather Tone",
+          "category": "WEATHER",
+          "score": 78.33,
+          "rank": 114
+        },
+        {
+          "app_id": "hk.elftech.block",
+          "title": "Blockbuster - Games & Social",
+          "category": "GAME_PUZZLE",
+          "score": 78.29,
+          "rank": 106
+        },
+        {
+          "app_id": "com.jrustonapps.myauroraforecast",
+          "title": "My Aurora Forecast & Alerts",
+          "category": "WEATHER",
+          "score": 76.67,
+          "rank": 50
+        },
+        {
+          "app_id": "com.pixlr.express",
+          "title": "Pixlr AI Photo & Video Editor",
+          "category": "PHOTOGRAPHY",
+          "score": 76.0,
+          "rank": 102
+        },
+        {
+          "app_id": "com.RobuxGames.CodesforRoblox",
+          "title": "Robux Games Codes for Roblox",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 76.0,
+          "rank": 115
+        },
+        {
+          "app_id": "com.algame.app.logoquiz",
+          "title": "Logo Quiz:Guess Brand Game",
+          "category": "GAME_TRIVIA",
+          "score": 74.5,
+          "rank": 77
+        },
+        {
+          "app_id": "com.bluellc.apps.pdf.reader",
+          "title": "PDF Reader – Read & Manage",
+          "category": "TOOLS",
+          "score": 71.23,
+          "rank": 125
+        }
+      ],
+      "histogram": {
+        "40-50": 32,
+        "60-70": 9,
+        "70-80": 7,
+        "90-100": 2,
+        "100-110": 1,
+        "80-90": 6,
+        "50-60": 16,
+        "110-120": 2,
+        "130-140": 1,
+        "120-130": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 2,
+        "GAME_ADVENTURE": 2,
+        "GAME_PUZZLE": 2,
+        "GAME_STRATEGY": 2,
+        "GAME_SIMULATION": 2,
+        "GAME_CASUAL": 2,
+        "GAME_ROLE_PLAYING": 2,
+        "GAME_SPORTS": 2,
+        "GAME_BOARD": 1,
+        "GAME_EDUCATIONAL": 2,
+        "GAME_TRIVIA": 2,
+        "APPLICATION": 1,
+        "TOOLS": 2,
+        "PRODUCTIVITY": 1,
+        "SOCIAL": 3,
+        "PHOTOGRAPHY": 2,
+        "HEALTH_AND_FITNESS": 1,
+        "EDUCATION": 1,
+        "FINANCE": 3,
+        "ENTERTAINMENT": 3,
+        "DATING": 1,
+        "MAPS_AND_NAVIGATION": 1,
+        "BEAUTY": 1,
+        "ART_AND_DESIGN": 3,
+        "EVENTS": 8,
+        "LIBRARIES_AND_DEMO": 4,
+        "MUSIC_AND_AUDIO": 2,
+        "NEWS_AND_MAGAZINES": 10,
+        "PARENTING": 3,
+        "PERSONALIZATION": 3,
+        "WEATHER": 3
+      }
+    },
+    {
+      "algo": "slope",
+      "total_alerts": 49,
+      "top_alerts": [
+        {
+          "app_id": "com.compass.digital.direction.directionfinder.pro",
+          "title": "Digital Compass for Android",
+          "category": "MAPS_AND_NAVIGATION",
+          "score": 118.8,
+          "rank": 53
+        },
+        {
+          "app_id": "com.nbcuni.nbcots.nbclosangeles.android",
+          "title": "NBC LA: News, Weather",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 98.4,
+          "rank": 99
+        },
+        {
+          "app_id": "com.cbsinteractive.loveisland",
+          "title": "Love Island USA",
+          "category": "ENTERTAINMENT",
+          "score": 84.0,
+          "rank": 69
+        },
+        {
+          "app_id": "com.we.dollar.money.instantly.instant.cash.advance",
+          "title": "Borrow Cash Instantly WeDollar",
+          "category": "FINANCE",
+          "score": 81.69,
+          "rank": 99
+        },
+        {
+          "app_id": "com.zoo.doctor.dentist.game",
+          "title": "Happy Dentist Game",
+          "category": "GAME_EDUCATIONAL",
+          "score": 80.77,
+          "rank": 65
+        },
+        {
+          "app_id": "increaseheightworkout.heightincreaseexercise.tallerexercise",
+          "title": "Height Increase Workout",
+          "category": "HEALTH_AND_FITNESS",
+          "score": 78.01,
+          "rank": 62
+        },
+        {
+          "app_id": "com.advisoryapp.golive",
+          "title": "GoLive Ticketing",
+          "category": "EVENTS",
+          "score": 70.8,
+          "rank": 121
+        },
+        {
+          "app_id": "com.haircutsalon.fashion_stylist",
+          "title": "StarHair: AI Haircut Simulator",
+          "category": "BEAUTY",
+          "score": 69.6,
+          "rank": 42
+        },
+        {
+          "app_id": "com.sagosago.Superfonik.googleplay",
+          "title": "Superfonik: Kids Learn to Read",
+          "category": "GAME_EDUCATIONAL",
+          "score": 68.4,
+          "rank": 87
+        },
+        {
+          "app_id": "com.quilt.happy.paint.by.number.coloring.game",
+          "title": "Quilt Color By Number Book",
+          "category": "GAME_CASUAL",
+          "score": 66.0,
+          "rank": 53
+        },
+        {
+          "app_id": "com.tribtv.ktla2",
+          "title": "KTLA 5",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 63.6,
+          "rank": 118
+        },
+        {
+          "app_id": "com.sagosago.School.googleplay",
+          "title": "Sago Mini School (Kids 2-5)",
+          "category": "GAME_EDUCATIONAL",
+          "score": 56.43,
+          "rank": 64
+        },
+        {
+          "app_id": "free.key.vpn",
+          "title": "Key VPN–Secure VPN",
+          "category": "APPLICATION",
+          "score": 56.4,
+          "rank": 87
+        },
+        {
+          "app_id": "com.vietdev.english.practice.grammar.test",
+          "title": "English Grammar - AI Tutor",
+          "category": "EDUCATION",
+          "score": 56.4,
+          "rank": 80
+        },
+        {
+          "app_id": "com.hutch.wx",
+          "title": "Hutch's Weather",
+          "category": "WEATHER",
+          "score": 56.4,
+          "rank": 82
+        },
+        {
+          "app_id": "com.ship.transport.simulator",
+          "title": "Boat Transport Simulator",
+          "category": "GAME_SIMULATION",
+          "score": 55.2,
+          "rank": 126
+        },
+        {
+          "app_id": "com.arrowpath.android.gp",
+          "title": "Arrow Path Solve Puzzle",
+          "category": "GAME_CASUAL",
+          "score": 54.99,
+          "rank": 87
+        },
+        {
+          "app_id": "com.tutotoons.app.candylockshairsalon.free",
+          "title": "Candylocks Hair Salon",
+          "category": "GAME_EDUCATIONAL",
+          "score": 54.0,
+          "rank": 92
+        },
+        {
+          "app_id": "com.tenetapps.artielab",
+          "title": "ARtie Lab: AR Drawing & Sketch",
+          "category": "ART_AND_DESIGN",
+          "score": 52.64,
+          "rank": 40
+        },
+        {
+          "app_id": "com.instantly.bils.rent.pay.loan",
+          "title": "Borrow Money Instantly - Fundi",
+          "category": "FINANCE",
+          "score": 51.72,
+          "rank": 56
+        }
+      ],
+      "histogram": {
+        "40-50": 27,
+        "50-60": 11,
+        "60-70": 4,
+        "80-90": 3,
+        "70-80": 2,
+        "110-120": 1,
+        "90-100": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 2,
+        "GAME_PUZZLE": 1,
+        "GAME_SIMULATION": 1,
+        "GAME_CASUAL": 2,
+        "GAME_BOARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 5,
+        "APPLICATION": 3,
+        "TOOLS": 1,
+        "PRODUCTIVITY": 1,
+        "COMMUNICATION": 1,
+        "SOCIAL": 1,
+        "PHOTOGRAPHY": 1,
+        "VIDEO_PLAYERS": 2,
+        "LIFESTYLE": 2,
+        "HEALTH_AND_FITNESS": 4,
+        "EDUCATION": 1,
+        "FINANCE": 2,
+        "ENTERTAINMENT": 1,
+        "BOOKS_AND_REFERENCE": 1,
+        "MAPS_AND_NAVIGATION": 2,
+        "BEAUTY": 1,
+        "ART_AND_DESIGN": 1,
+        "EVENTS": 4,
+        "NEWS_AND_MAGAZINES": 4,
+        "PARENTING": 1,
+        "PERSONALIZATION": 1,
+        "WEATHER": 1
+      }
+    }
+  ]
+}

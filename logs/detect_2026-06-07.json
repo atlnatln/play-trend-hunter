@@ -1,0 +1,835 @@
+{
+  "date": "2026-06-07",
+  "threshold": 40.0,
+  "algorithms": [
+    {
+      "algo": "recent",
+      "total_alerts": 260,
+      "top_alerts": [
+        {
+          "app_id": "com.zero.winnser_app",
+          "title": "Winnser - Quiz Game",
+          "category": "GAME_TRIVIA",
+          "score": 188.33,
+          "rank": 12
+        },
+        {
+          "app_id": "com.PiguinSoft.CafeRacer",
+          "title": "Cafe Racer",
+          "category": "GAME_RACING",
+          "score": 135.01,
+          "rank": 59
+        },
+        {
+          "app_id": "com.psv.vlad_and_nikita.supermarket",
+          "title": "Vlad & Niki Supermarket game",
+          "category": "GAME_EDUCATIONAL",
+          "score": 134.01,
+          "rank": 50
+        },
+        {
+          "app_id": "com.shapes.shapesinc",
+          "title": "shapes.inc - AI with friends",
+          "category": "SOCIAL",
+          "score": 134,
+          "rank": 22
+        },
+        {
+          "app_id": "com.weathertone.weteforecast",
+          "title": "Weather Tone",
+          "category": "WEATHER",
+          "score": 124,
+          "rank": 71
+        },
+        {
+          "app_id": "com.hangoverstudios.photomagic.ai.photo.generator",
+          "title": "AI Video Generator: kiss & Hug",
+          "category": "ART_AND_DESIGN",
+          "score": 120,
+          "rank": 54
+        },
+        {
+          "app_id": "com.grass.cut.game",
+          "title": "Grass Master – Cutting Game",
+          "category": "GAME_PUZZLE",
+          "score": 118.05,
+          "rank": 19
+        },
+        {
+          "app_id": "com.toonshort.drama",
+          "title": "ToonShort: Short Dramas/Reels",
+          "category": "ENTERTAINMENT",
+          "score": 115.08,
+          "rank": 57
+        },
+        {
+          "app_id": "com.algame.app.logoquiz",
+          "title": "Logo Quiz:Guess Brand Game",
+          "category": "GAME_TRIVIA",
+          "score": 111,
+          "rank": 42
+        },
+        {
+          "app_id": "com.nexon.bluearchive",
+          "title": "Blue Archive",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 110.44,
+          "rank": 80
+        },
+        {
+          "app_id": "com.ssc.puzzle.sortJam",
+          "title": "Screw Jam Puzzle",
+          "category": "GAME_PUZZLE",
+          "score": 107,
+          "rank": 89
+        },
+        {
+          "app_id": "com.news.breakingnews.headlines.android",
+          "title": "Breaking News Launcher",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 107,
+          "rank": 67
+        },
+        {
+          "app_id": "com.nexify.live4k.parallax.wallpaper3d",
+          "title": "3D Live Wallpaper: 4D & 4K",
+          "category": "PERSONALIZATION",
+          "score": 105.73,
+          "rank": 72
+        },
+        {
+          "app_id": "com.file.large.anti",
+          "title": "AntiVirus Sweep & Security",
+          "category": "TOOLS",
+          "score": 103.33,
+          "rank": 41
+        },
+        {
+          "app_id": "com.jrustonapps.myauroraforecast",
+          "title": "My Aurora Forecast & Alerts",
+          "category": "WEATHER",
+          "score": 103.08,
+          "rank": 22
+        },
+        {
+          "app_id": "hardisonmill.com.thehomesteadfestivalgp",
+          "title": "Homestead Festival",
+          "category": "EVENTS",
+          "score": 103,
+          "rank": 70
+        },
+        {
+          "app_id": "com.lagomproductsllc.lagomvpn",
+          "title": "LagomVPN: VPN Proxy",
+          "category": "TOOLS",
+          "score": 102,
+          "rank": 88
+        },
+        {
+          "app_id": "com.sinyee.babybus.townhospital",
+          "title": "Baby Panda's Town: Hospital",
+          "category": "GAME_EDUCATIONAL",
+          "score": 100.6,
+          "rank": 4
+        },
+        {
+          "app_id": "com.mahmoudzadah.glassifywidgets",
+          "title": "Glassify - Widgets & Themes",
+          "category": "PERSONALIZATION",
+          "score": 96.07,
+          "rank": 64
+        },
+        {
+          "app_id": "com.snpx.courier",
+          "title": "Senpex Courier",
+          "category": "BUSINESS",
+          "score": 96,
+          "rank": 98
+        }
+      ],
+      "histogram": {
+        "70-80": 23,
+        "60-70": 31,
+        "50-60": 60,
+        "40-50": 107,
+        "110-120": 4,
+        "100-110": 8,
+        "90-100": 8,
+        "80-90": 13,
+        "130-140": 3,
+        "180-190": 1,
+        "120-130": 2
+      },
+      "category_counts": {
+        "GAME_ACTION": 5,
+        "GAME_ADVENTURE": 5,
+        "GAME_ARCADE": 4,
+        "GAME_PUZZLE": 6,
+        "GAME_STRATEGY": 9,
+        "GAME_SIMULATION": 7,
+        "GAME_CASUAL": 6,
+        "GAME_ROLE_PLAYING": 8,
+        "GAME_SPORTS": 4,
+        "GAME_RACING": 5,
+        "GAME_BOARD": 2,
+        "GAME_CARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 6,
+        "GAME_MUSIC": 1,
+        "GAME_TRIVIA": 2,
+        "APPLICATION": 8,
+        "TOOLS": 17,
+        "PRODUCTIVITY": 6,
+        "COMMUNICATION": 5,
+        "SOCIAL": 6,
+        "PHOTOGRAPHY": 8,
+        "VIDEO_PLAYERS": 4,
+        "LIFESTYLE": 6,
+        "HEALTH_AND_FITNESS": 6,
+        "EDUCATION": 9,
+        "BUSINESS": 2,
+        "FINANCE": 6,
+        "ENTERTAINMENT": 7,
+        "BOOKS_AND_REFERENCE": 1,
+        "TRAVEL_AND_LOCAL": 1,
+        "SHOPPING": 5,
+        "FOOD_AND_DRINK": 2,
+        "DATING": 2,
+        "MAPS_AND_NAVIGATION": 4,
+        "AUTO_AND_VEHICLES": 1,
+        "BEAUTY": 4,
+        "ART_AND_DESIGN": 6,
+        "EVENTS": 13,
+        "HOUSE_AND_HOME": 2,
+        "LIBRARIES_AND_DEMO": 13,
+        "MEDICAL": 1,
+        "MUSIC_AND_AUDIO": 6,
+        "NEWS_AND_MAGAZINES": 11,
+        "PARENTING": 8,
+        "PERSONALIZATION": 12,
+        "WEATHER": 6
+      }
+    },
+    {
+      "algo": "persistence",
+      "total_alerts": 308,
+      "top_alerts": [
+        {
+          "app_id": "com.zero.winnser_app",
+          "title": "Winnser - Quiz Game",
+          "category": "GAME_TRIVIA",
+          "score": 188.33,
+          "rank": 12
+        },
+        {
+          "app_id": "com.grass.cut.game",
+          "title": "Grass Master – Cutting Game",
+          "category": "GAME_PUZZLE",
+          "score": 148.05,
+          "rank": 19
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 143,
+          "rank": 56
+        },
+        {
+          "app_id": "free.number.puzzle.matchten",
+          "title": "Wood Number Match",
+          "category": "GAME_TRIVIA",
+          "score": 137,
+          "rank": 40
+        },
+        {
+          "app_id": "com.cry.analyzer",
+          "title": "Cry Analyzer AI Baby Assistant",
+          "category": "PARENTING",
+          "score": 136,
+          "rank": 46
+        },
+        {
+          "app_id": "com.PiguinSoft.CafeRacer",
+          "title": "Cafe Racer",
+          "category": "GAME_RACING",
+          "score": 135.01,
+          "rank": 59
+        },
+        {
+          "app_id": "com.psv.vlad_and_nikita.supermarket",
+          "title": "Vlad & Niki Supermarket game",
+          "category": "GAME_EDUCATIONAL",
+          "score": 134.01,
+          "rank": 50
+        },
+        {
+          "app_id": "com.shapes.shapesinc",
+          "title": "shapes.inc - AI with friends",
+          "category": "SOCIAL",
+          "score": 134,
+          "rank": 22
+        },
+        {
+          "app_id": "com.jrustonapps.myauroraforecast",
+          "title": "My Aurora Forecast & Alerts",
+          "category": "WEATHER",
+          "score": 133.08,
+          "rank": 22
+        },
+        {
+          "app_id": "com.graham.ksat",
+          "title": "KSAT Plus",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 130,
+          "rank": 70
+        },
+        {
+          "app_id": "com.weathertone.weteforecast",
+          "title": "Weather Tone",
+          "category": "WEATHER",
+          "score": 124,
+          "rank": 71
+        },
+        {
+          "app_id": "com.hangoverstudios.photomagic.ai.photo.generator",
+          "title": "AI Video Generator: kiss & Hug",
+          "category": "ART_AND_DESIGN",
+          "score": 120,
+          "rank": 54
+        },
+        {
+          "app_id": "com.ibsys.app.pns_ant",
+          "title": "KSAT 12 News",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 117,
+          "rank": 77
+        },
+        {
+          "app_id": "com.toonshort.drama",
+          "title": "ToonShort: Short Dramas/Reels",
+          "category": "ENTERTAINMENT",
+          "score": 115.08,
+          "rank": 57
+        },
+        {
+          "app_id": "com.algame.app.logoquiz",
+          "title": "Logo Quiz:Guess Brand Game",
+          "category": "GAME_TRIVIA",
+          "score": 111,
+          "rank": 42
+        },
+        {
+          "app_id": "com.nexon.bluearchive",
+          "title": "Blue Archive",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 110.44,
+          "rank": 80
+        },
+        {
+          "app_id": "com.lbe.parallel.intl",
+          "title": "Parallel Space - app cloning",
+          "category": "PERSONALIZATION",
+          "score": 109.6,
+          "rank": 8
+        },
+        {
+          "app_id": "com.ssc.puzzle.sortJam",
+          "title": "Screw Jam Puzzle",
+          "category": "GAME_PUZZLE",
+          "score": 107,
+          "rank": 89
+        },
+        {
+          "app_id": "com.news.breakingnews.headlines.android",
+          "title": "Breaking News Launcher",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 107,
+          "rank": 67
+        },
+        {
+          "app_id": "com.nexify.live4k.parallax.wallpaper3d",
+          "title": "3D Live Wallpaper: 4D & 4K",
+          "category": "PERSONALIZATION",
+          "score": 105.73,
+          "rank": 72
+        }
+      ],
+      "histogram": {
+        "70-80": 25,
+        "60-70": 35,
+        "50-60": 71,
+        "40-50": 121,
+        "140-150": 2,
+        "100-110": 10,
+        "90-100": 13,
+        "110-120": 4,
+        "80-90": 17,
+        "130-140": 7,
+        "180-190": 1,
+        "120-130": 2
+      },
+      "category_counts": {
+        "GAME_ACTION": 6,
+        "GAME_ADVENTURE": 5,
+        "GAME_ARCADE": 4,
+        "GAME_PUZZLE": 7,
+        "GAME_STRATEGY": 11,
+        "GAME_SIMULATION": 9,
+        "GAME_CASUAL": 12,
+        "GAME_ROLE_PLAYING": 10,
+        "GAME_SPORTS": 4,
+        "GAME_RACING": 5,
+        "GAME_BOARD": 5,
+        "GAME_CARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 8,
+        "GAME_MUSIC": 1,
+        "GAME_TRIVIA": 3,
+        "APPLICATION": 9,
+        "TOOLS": 21,
+        "PRODUCTIVITY": 8,
+        "COMMUNICATION": 5,
+        "SOCIAL": 6,
+        "PHOTOGRAPHY": 9,
+        "VIDEO_PLAYERS": 5,
+        "LIFESTYLE": 6,
+        "HEALTH_AND_FITNESS": 10,
+        "EDUCATION": 9,
+        "BUSINESS": 3,
+        "FINANCE": 8,
+        "ENTERTAINMENT": 7,
+        "BOOKS_AND_REFERENCE": 1,
+        "TRAVEL_AND_LOCAL": 1,
+        "SHOPPING": 5,
+        "FOOD_AND_DRINK": 2,
+        "DATING": 2,
+        "MAPS_AND_NAVIGATION": 6,
+        "AUTO_AND_VEHICLES": 1,
+        "BEAUTY": 4,
+        "ART_AND_DESIGN": 7,
+        "EVENTS": 14,
+        "HOUSE_AND_HOME": 2,
+        "LIBRARIES_AND_DEMO": 14,
+        "MEDICAL": 2,
+        "MUSIC_AND_AUDIO": 6,
+        "NEWS_AND_MAGAZINES": 13,
+        "PARENTING": 9,
+        "PERSONALIZATION": 14,
+        "WEATHER": 7
+      }
+    },
+    {
+      "algo": "wma",
+      "total_alerts": 188,
+      "top_alerts": [
+        {
+          "app_id": "com.zero.winnser_app",
+          "title": "Winnser - Quiz Game",
+          "category": "GAME_TRIVIA",
+          "score": 188.33,
+          "rank": 12
+        },
+        {
+          "app_id": "com.PiguinSoft.CafeRacer",
+          "title": "Cafe Racer",
+          "category": "GAME_RACING",
+          "score": 135.01,
+          "rank": 59
+        },
+        {
+          "app_id": "com.shapes.shapesinc",
+          "title": "shapes.inc - AI with friends",
+          "category": "SOCIAL",
+          "score": 134.0,
+          "rank": 22
+        },
+        {
+          "app_id": "com.hangoverstudios.photomagic.ai.photo.generator",
+          "title": "AI Video Generator: kiss & Hug",
+          "category": "ART_AND_DESIGN",
+          "score": 119.0,
+          "rank": 54
+        },
+        {
+          "app_id": "com.toonshort.drama",
+          "title": "ToonShort: Short Dramas/Reels",
+          "category": "ENTERTAINMENT",
+          "score": 115.08,
+          "rank": 57
+        },
+        {
+          "app_id": "com.psv.vlad_and_nikita.supermarket",
+          "title": "Vlad & Niki Supermarket game",
+          "category": "GAME_EDUCATIONAL",
+          "score": 115.01,
+          "rank": 50
+        },
+        {
+          "app_id": "com.grass.cut.game",
+          "title": "Grass Master – Cutting Game",
+          "category": "GAME_PUZZLE",
+          "score": 109.05,
+          "rank": 19
+        },
+        {
+          "app_id": "com.ssc.puzzle.sortJam",
+          "title": "Screw Jam Puzzle",
+          "category": "GAME_PUZZLE",
+          "score": 107.0,
+          "rank": 89
+        },
+        {
+          "app_id": "com.news.breakingnews.headlines.android",
+          "title": "Breaking News Launcher",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 107.0,
+          "rank": 67
+        },
+        {
+          "app_id": "com.nexon.bluearchive",
+          "title": "Blue Archive",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 104.94,
+          "rank": 80
+        },
+        {
+          "app_id": "com.file.large.anti",
+          "title": "AntiVirus Sweep & Security",
+          "category": "TOOLS",
+          "score": 103.33,
+          "rank": 41
+        },
+        {
+          "app_id": "com.sinyee.babybus.townhospital",
+          "title": "Baby Panda's Town: Hospital",
+          "category": "GAME_EDUCATIONAL",
+          "score": 100.6,
+          "rank": 4
+        },
+        {
+          "app_id": "com.snpx.courier",
+          "title": "Senpex Courier",
+          "category": "BUSINESS",
+          "score": 96.0,
+          "rank": 98
+        },
+        {
+          "app_id": "com.vnilapps.auroranow",
+          "title": "Aurora Now - Northern Lights",
+          "category": "WEATHER",
+          "score": 96.0,
+          "rank": 50
+        },
+        {
+          "app_id": "com.arrow.tangle",
+          "title": "Arrow Tangle",
+          "category": "GAME_PUZZLE",
+          "score": 94.41,
+          "rank": 106
+        },
+        {
+          "app_id": "com.housingfirstmn.artisanhometour",
+          "title": "Artisan Home Tour MN",
+          "category": "EVENTS",
+          "score": 91.0,
+          "rank": 105
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 89.0,
+          "rank": 56
+        },
+        {
+          "app_id": "com.hairhub.hairhub",
+          "title": "Hair Hub",
+          "category": "BEAUTY",
+          "score": 84.39,
+          "rank": 82
+        },
+        {
+          "app_id": "com.notasimplestudio.webnovelfull",
+          "title": "Novel Full - Offline Reading",
+          "category": "BOOKS_AND_REFERENCE",
+          "score": 84.0,
+          "rank": 116
+        },
+        {
+          "app_id": "com.turbo.junk.clean",
+          "title": "Turbo Cleaner - Junk Clean",
+          "category": "TOOLS",
+          "score": 83.62,
+          "rank": 84
+        }
+      ],
+      "histogram": {
+        "70-80": 12,
+        "60-70": 19,
+        "50-60": 43,
+        "40-50": 90,
+        "100-110": 6,
+        "90-100": 4,
+        "130-140": 2,
+        "80-90": 8,
+        "110-120": 3,
+        "180-190": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 4,
+        "GAME_ADVENTURE": 3,
+        "GAME_ARCADE": 4,
+        "GAME_PUZZLE": 6,
+        "GAME_STRATEGY": 6,
+        "GAME_SIMULATION": 2,
+        "GAME_CASUAL": 5,
+        "GAME_ROLE_PLAYING": 7,
+        "GAME_SPORTS": 4,
+        "GAME_RACING": 3,
+        "GAME_BOARD": 2,
+        "GAME_CARD": 1,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 3,
+        "GAME_MUSIC": 1,
+        "GAME_TRIVIA": 3,
+        "APPLICATION": 7,
+        "TOOLS": 13,
+        "PRODUCTIVITY": 5,
+        "COMMUNICATION": 2,
+        "SOCIAL": 3,
+        "PHOTOGRAPHY": 9,
+        "VIDEO_PLAYERS": 3,
+        "LIFESTYLE": 3,
+        "HEALTH_AND_FITNESS": 5,
+        "EDUCATION": 7,
+        "BUSINESS": 2,
+        "FINANCE": 4,
+        "ENTERTAINMENT": 4,
+        "BOOKS_AND_REFERENCE": 1,
+        "TRAVEL_AND_LOCAL": 1,
+        "SHOPPING": 4,
+        "FOOD_AND_DRINK": 1,
+        "DATING": 1,
+        "MAPS_AND_NAVIGATION": 1,
+        "AUTO_AND_VEHICLES": 1,
+        "BEAUTY": 2,
+        "ART_AND_DESIGN": 5,
+        "EVENTS": 5,
+        "HOUSE_AND_HOME": 1,
+        "LIBRARIES_AND_DEMO": 7,
+        "MUSIC_AND_AUDIO": 5,
+        "NEWS_AND_MAGAZINES": 8,
+        "PARENTING": 8,
+        "PERSONALIZATION": 10,
+        "WEATHER": 5
+      }
+    },
+    {
+      "algo": "slope",
+      "total_alerts": 152,
+      "top_alerts": [
+        {
+          "app_id": "com.graham.ksat",
+          "title": "KSAT Plus",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 198.0,
+          "rank": 70
+        },
+        {
+          "app_id": "com.ibsys.app.pns_ant",
+          "title": "KSAT 12 News",
+          "category": "NEWS_AND_MAGAZINES",
+          "score": 181.5,
+          "rank": 77
+        },
+        {
+          "app_id": "com.cry.analyzer",
+          "title": "Cry Analyzer AI Baby Assistant",
+          "category": "PARENTING",
+          "score": 175.5,
+          "rank": 46
+        },
+        {
+          "app_id": "com.eedalkhadeer.app469606875290",
+          "title": "عيد الغدير - عيد الغدير الاغر",
+          "category": "EVENTS",
+          "score": 171.0,
+          "rank": 101
+        },
+        {
+          "app_id": "com.whaleapp.mafia.go.dice.master",
+          "title": "Mafia GO - Dice Master",
+          "category": "GAME_BOARD",
+          "score": 162.0,
+          "rank": 56
+        },
+        {
+          "app_id": "com.zams.car.parking.game",
+          "title": "Prado Parking Game: Car Games",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 141.0,
+          "rank": 74
+        },
+        {
+          "app_id": "com.kingsfortune.happydinerstory",
+          "title": "Happy Diner Story™: Cooking",
+          "category": "GAME_SIMULATION",
+          "score": 135.0,
+          "rank": 109
+        },
+        {
+          "app_id": "com.compass.digital.direction.directionfinder.pro",
+          "title": "Digital Compass for Android",
+          "category": "MAPS_AND_NAVIGATION",
+          "score": 127.8,
+          "rank": 39
+        },
+        {
+          "app_id": "com.alrespolapps.drawpad",
+          "title": "AmberPaint - Motion Brush",
+          "category": "ART_AND_DESIGN",
+          "score": 124.92,
+          "rank": 102
+        },
+        {
+          "app_id": "com.peaks2plains.android.weather",
+          "title": "Peaks2Plains Weather",
+          "category": "WEATHER",
+          "score": 121.5,
+          "rank": 147
+        },
+        {
+          "app_id": "hk.elftech.block",
+          "title": "Blockbuster - Games & Social",
+          "category": "GAME_PUZZLE",
+          "score": 117.28,
+          "rank": 87
+        },
+        {
+          "app_id": "com.pixlr.express",
+          "title": "Pixlr AI Photo & Video Editor",
+          "category": "PHOTOGRAPHY",
+          "score": 114.0,
+          "rank": 76
+        },
+        {
+          "app_id": "com.bluellc.apps.pdf.reader",
+          "title": "PDF Reader – Read & Manage",
+          "category": "TOOLS",
+          "score": 106.53,
+          "rank": 196
+        },
+        {
+          "app_id": "com.spain.mundial2026",
+          "title": "World Cup 2026 USA",
+          "category": "GAME_SPORTS",
+          "score": 100.5,
+          "rank": 83
+        },
+        {
+          "app_id": "com.chat.joychat",
+          "title": "JoyChat–Live Video Call & Chat",
+          "category": "SOCIAL",
+          "score": 99.77,
+          "rank": 96
+        },
+        {
+          "app_id": "com.xxmarker.snake.runner.classic.official",
+          "title": "Snake Hero Pro",
+          "category": "GAME_ADVENTURE",
+          "score": 99.0,
+          "rank": 102
+        },
+        {
+          "app_id": "hardisonmill.com.thehomesteadfestivalgp",
+          "title": "Homestead Festival",
+          "category": "EVENTS",
+          "score": 96.0,
+          "rank": 70
+        },
+        {
+          "app_id": "free.number.puzzle.matchten",
+          "title": "Wood Number Match",
+          "category": "GAME_TRIVIA",
+          "score": 95.4,
+          "rank": 40
+        },
+        {
+          "app_id": "increaseheightworkout.heightincreaseexercise.tallerexercise",
+          "title": "Height Increase Workout",
+          "category": "HEALTH_AND_FITNESS",
+          "score": 94.77,
+          "rank": 48
+        },
+        {
+          "app_id": "com.arrowpath.android.gp",
+          "title": "Arrow Path Solve Puzzle",
+          "category": "GAME_CASUAL",
+          "score": 89.87,
+          "rank": 68
+        }
+      ],
+      "histogram": {
+        "70-80": 13,
+        "60-70": 15,
+        "40-50": 60,
+        "90-100": 5,
+        "50-60": 36,
+        "110-120": 2,
+        "130-140": 1,
+        "80-90": 9,
+        "140-150": 1,
+        "100-110": 2,
+        "160-170": 1,
+        "120-130": 3,
+        "170-180": 2,
+        "190-200": 1,
+        "180-190": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 3,
+        "GAME_ADVENTURE": 4,
+        "GAME_PUZZLE": 4,
+        "GAME_STRATEGY": 4,
+        "GAME_SIMULATION": 6,
+        "GAME_CASUAL": 4,
+        "GAME_ROLE_PLAYING": 5,
+        "GAME_SPORTS": 2,
+        "GAME_RACING": 2,
+        "GAME_BOARD": 4,
+        "GAME_CARD": 1,
+        "GAME_WORD": 2,
+        "GAME_EDUCATIONAL": 8,
+        "GAME_TRIVIA": 1,
+        "APPLICATION": 9,
+        "TOOLS": 5,
+        "PRODUCTIVITY": 1,
+        "COMMUNICATION": 1,
+        "SOCIAL": 3,
+        "PHOTOGRAPHY": 3,
+        "VIDEO_PLAYERS": 1,
+        "LIFESTYLE": 6,
+        "HEALTH_AND_FITNESS": 7,
+        "EDUCATION": 1,
+        "BUSINESS": 2,
+        "FINANCE": 5,
+        "ENTERTAINMENT": 7,
+        "BOOKS_AND_REFERENCE": 2,
+        "FOOD_AND_DRINK": 1,
+        "MAPS_AND_NAVIGATION": 1,
+        "BEAUTY": 2,
+        "ART_AND_DESIGN": 4,
+        "EVENTS": 8,
+        "HOUSE_AND_HOME": 1,
+        "LIBRARIES_AND_DEMO": 2,
+        "MEDICAL": 1,
+        "MUSIC_AND_AUDIO": 2,
+        "NEWS_AND_MAGAZINES": 11,
+        "PARENTING": 6,
+        "PERSONALIZATION": 6,
+        "WEATHER": 4
+      }
+    }
+  ]
+}
