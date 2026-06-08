@@ -8,9 +8,16 @@
 
 ## 📖 Okuma Sırası (Her Session)
 
+### Proje Seviyesi Çalışma (Scraper, Detector, Reporter)
 1. **.kimi/CONTEXT.md** — Durum, sıradaki görev, aktif sorunlar.
 2. **AGENTS.md** — Kurallar (bu dosya).
 3. **SKILL.md** — Teknik referans (görev gerektiriyorsa).
+
+### App Seviyesi Çalışma (apps/<isim>/ içinde)
+1. **apps/<isim>/.kimi/CONTEXT.md** — App durumu.
+2. **apps/<isim>/docs/questions.md** — Cevap bekleyen sorular var mı?
+3. **apps/<isim>/docs/design.md** — Onaylanmış tasarım (kod için tek kaynak).
+4. **apps/<isim>/.kimi/AGENTS.md** — App-spesifik kurallar.
 
 **Sadece detay gerekiyorsa:** CHANGELOG.md, session log'ları, kod tabanı.
 
@@ -75,9 +82,73 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 - **Scraper:** `MIN_DELAY`/`MAX_DELAY` asla kaldırılmaz. Proxy eklenebilir.
 - **Detector:** Threshold/formül değişikliğinde wiki'ye not et. Sadece veriye dayalı sinyal.
 - **Reporter:** `__doc__` string'i güncelle. Mevcut CLI output değiştirilemez.
-- **Android:** Yeni app = `cp -r android-template apps/<name>`. `namespace`, `applicationId`, `app_name` değiştir. Build hemen doğrula (`./gradlew assembleDebug`).
+- **Android:** Yeni app = `cp -r apps/_template apps/<name>`. `namespace`, `applicationId`, `app_name` değiştir. Build hemen doğrula (`./gradlew assembleDebug`). `_template` AIDLC-lite uyumludur (`.kimi/`, `docs/` hazır).
 - **Maestro:** Her app'te `launch.yaml` zorunlu. Build → `adb install -r` → `maestro test maestro/` pipeline her değişiklikte tekrarlanır.
 - **Signing:** Release için `keystore.jks` + `local.properties`. `.gitignore`'da var. Keystore mathlock-play'den kopyalanabilir.
+
+---
+
+## 🏭 App Factory (App Seviyesi Çalışma)
+
+Her app (`apps/<isim>/`) kendi `.kimi/` context'iyle bağımsız çalışır.
+
+### Hiyerarşi
+
+```
+play-trend-hunter/
+├── .kimi/              → Proje seviyesi (trend detection, scraper)
+└── apps/
+    ├── <app-a>/
+    │   ├── .kimi/      → App seviyesi (AGENTS.md, CONTEXT.md, logs)
+    │   ├── docs/       → AIDLC-lite (vision, tech-env, questions, design)
+    │   └── app/        → Android kodu
+    └── <app-b>/
+        └── ...
+```
+
+### Miras Kuralları
+
+- **App .kimi/AGENTS.md** → Proje AGENTS.md'yi bilir ama kendi kurallarını önceliklendirir
+- **App .kimi/CONTEXT.md** → Sadece app durumunu tutar (proje CONTEXT.md'den bağımsız)
+- **App docs/** → AIDLC-lite çalışma alanı (sorular, tasarım, kararlar)
+
+### Yeni App Oluşturma
+
+**Komut:**
+```bash
+cd /home/akn/local/projects/play-trend-hunter
+cp -r apps/_template apps/<isim>
+```
+
+**Sonra Kimi otomatik şunları yapar:**
+1. `apps/<isim>/_template`'den kopyalanan placeholder'ları (`<APP_NAME>`) gerçek app adıyla değiştirir
+2. `apps/<isim>/.kimi/AGENTS.md` — App adını yazar
+3. `apps/<isim>/.kimi/CONTEXT.md` — App adını yazar, durumu sıfırlar
+4. `apps/<isim>/docs/*.md` — Placeholder'ları app adıyla değiştirir
+5. `apps/<isim>/app/build.gradle.kts` — `namespace` ve `applicationId`'yi app'e göre ayarlar
+6. `apps/<isim>/app/src/main/res/values/strings.xml` — `app_name`'i ayarlar
+
+**AIDLC-lite akışı başlat:**
+```text
+apps/<isim>'de yeni app başlat. _template'ten fork edildi.
+Trend sinyali: [app adı] — [kategori] — rank [X] → [Y]
+AIDLC-lite akışına başla:
+1. docs/vision.md yaz
+2. docs/tech-env.md yaz
+3. Sorularını docs/questions.md'ye yaz, dur
+```
+
+### App Seviyesi Oturum Protokolü
+
+| Başlangıç | Bitiş |
+|-----------|-------|
+| 1. `apps/<isim>/.kimi/CONTEXT.md` oku | 1. `apps/<isim>/.kimi/CONTEXT.md` güncelle |
+| 2. `apps/<isim>/docs/questions.md` kontrol et | 2. `apps/<isim>/.kimi/logs/` session log yaz |
+| 3. `apps/<isim>/docs/design.md` oku (kod değişikliği varsa) | 3. `apps/<isim>/docs/design.md` güncelle |
+| 4. `apps/<isim>/.kimi/AGENTS.md` oku | 4. Build testi (`./gradlew assembleDebug`) |
+| 5. Kullanıcıdan talimat al | 5. Git status kontrol et |
+
+> AIDLC-lite detayları: `references/AIDLC-LITE.md`
 
 ---
 
