@@ -1,0 +1,6 @@
+# Maestro E2E test — Launch and basic visibility check
+appId: com.akn.digitalcompass
+---
+- launchApp
+- assertVisible: "Digital Compass"
+- assertVisible: "Hold your device flat for best accuracy"

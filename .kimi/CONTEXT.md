@@ -5,61 +5,79 @@
 
 ---
 
-## ⏭️ Bugünün Görevleri
+## ⏭️ Bugünün Görevleri (2026-06-08)
 
-1. **Gün 8 snapshot** — `run.py full` (Faz 0 devam)
-2. **Digital Compass emulator'de aç** — Aurora Store ile yükle, reverse engineering
-3. **Digital Compass MVP planı** — Feature set, UI wireframe, ASO title
-4. **Android template'den fork** — `apps/digital-compass/` oluştur, build doğrula
+1. ✅ **Gün 8 snapshot** — `run.py full` (Faz 0 devam)
+2. ⏭️ **Digital Compass emulator'de aç** — Aurora Store ile yükle, reverse engineering (emulator yok, sonraki session)
+3. ✅ **Digital Compass MVP planı** — Feature set, UI wireframe, ASO title (`apps/digital-compass/MVP.md`)
+4. ✅ **Android template'den fork** — `apps/digital-compass/` oluştur, build doğrula (`BUILD SUCCESSFUL`)
+
+---
+
+## ⏭️ Sonraki Session Görevleri
+
+1. **Signing + Release build** — keystore oluştur, `./gradlew assembleRelease`, APK boyut < 5MB
+2. **Play Console** — Yeni app kaydı, internal testing track
+3. **Icon/Feature Graphic** — `flux-asset-generation` skill'i ile asset üretimi
+4. **Emulator kurulumu** — Maestro test pipeline'ı için AVD oluştur
+5. **Gün 9 snapshot** — Faz 0 devam (threshold kalibrasyonu)
 
 ---
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 7 tamamlandı (2026-06-07).
-- Snapshots: **9 adet** (2026-05-31 → 06-07) — ~9.400 app/gün
-- **Recent Delta:** 260 alert | **Persistence:** 308 alert | **WMA:** 188 | **Slope:** 152
+**Faz 0 aktif.** Gün 8 tamamlandı (2026-06-08).
+- Snapshots: **10 adet** (2026-05-31 → 06-08) — ~9.400 app/gün
+- **Recent:** 398 alert | **Persistence:** 457 alert | **WMA:** 154 | **Slope:** 214
 - Threshold: **40.0** | Cache TTL: **20 saat**
-- Android altyapısı: Template ✅, Emulator ✅, Maestro ✅
-- İlk fast-follow app: **Digital Compass** seçildi ✅
+- Android altyapısı: Template ✅, Emulator ❌ (kurulu değil), Maestro ✅
+- İlk fast-follow app: **Digital Compass** — kod yazıldı, build başarılı ✅
 
-### 🏆 Gün 7 — Top 10 Sinyal (Tüm Algoritmalar)
-| # | App | Skor | Kategori | Algoritma |
-|---|-----|------|----------|-----------|
-| 1 | Winnser - Quiz Game | 188.33 | GAME_TRIVIA | Tümü |
-| 2 | Digital Compass | 142.0 | MAPS | Persistence |
-| 3 | YTV Player Pro | 137.0 | VIDEO_PLAYERS | Persistence |
-| 4 | Cafe Racer | 135.01 | GAME_RACING | Recent/WMA |
-| 5 | Vlad & Niki Supermarket | 134.01 | GAME_EDUCATIONAL | Recent/WMA |
-| 6 | shapes.inc | 134.0 | SOCIAL | Recent/WMA |
-| 7 | KSAT Plus | 132.0/198.0 | NEWS | Slope #1 |
-| 8 | Grass Master | 148.05/118.05 | GAME_PUZZLE | Persistence/Recent |
-| 9 | Cry Analyzer | 117.3/175.5 | PARENTING | Slope #3 |
-| 10 | Arrow Path | 99.99 | GAME_CASUAL | Recent |
+### 🏆 Gün 8 — Top 10 Sinyal (Recent Algo)
+| # | App | Skor | Kategori | Rank |
+|---|-----|------|----------|------|
+| 1 | Winnser - Quiz Game | 178.67 | GAME_TRIVIA | 15 |
+| 2 | Cafe Racer | 149.0 | GAME_RACING | 45 |
+| 3 | shapes.inc - AI with friends | 131.41 | SOCIAL | 25 |
+| 4 | Real Piano For Pianists | 126.0 | GAME_MUSIC | 49 |
+| 5 | ToonShort: Short Dramas/Reels | 119.43 | ENTERTAINMENT | 50 |
+| 6 | Breaking News Launcher | 119.0 | NEWS_AND_MAGAZINES | 55 |
+| 7 | Artisan Home Tour MN | 115.0 | EVENTS | 81 |
+| 8 | AntiVirus Sweep & Security | 112.0 | TOOLS | 31 |
+| 9 | Meescan | 111.0 | LIBRARIES_AND_DEMO | 83 |
+| 10 | Apple TV: Shows, Movies & More | 110.0 | APPLICATION | 77 |
 
-### 🎯 Fast-Follow Aday Değerlendirmesi
-**Seçilen: Digital Compass** (`com.compass.digital.direction.directionfinder.pro`)
-- **Neden:** Basit utility (tek ekran), mevcut app kalitesiz (3.76★, 182 rating), şikayetler net.
-- **1-2★ şikayetler:** (1) Reklam bombardımanı — "nothing but ads", (2) Yanlış yön — "pointed north said west", (3) Gereksiz izin — "access to photos suspicious", (4) Çalışmıyor.
-- **Better clone fırsatı:** Daha az reklam, doğru çalışan compass, gereksiz izin yok, temiz UI.
-- **MVP süresi tahmini:** 1-2 gün (tek Activity, SensorManager).
+### 🎯 Fast-Follow: Digital Compass
+**App ID:** `com.compass.digital.direction.directionfinder.pro`
 
-**Reddedilen adaylar:**
-- Winnser: Scam etiketi ("doesn't pay", "points disappeared"), quiz marketi doygun.
-- Cafe Racer: 10M+ install, 165K rating — çok büyük rekabet, fast-follow değil.
-- Grass Master: SayGames (büyük publisher), 4.86★ — zaten iyi app.
-- Cry Analyzer: AI modeli gerekli, subscription billing karmaşası — MVP süresi uzun.
-- Arrow Path: "Too easy, boring" — game design yeteneği gerekir.
+**Rank geçmişi:**
+| Tarih | Rank | Δ |
+|-------|------|---|
+| 06-04 | 195 | — |
+| 06-05 | 53 | +142 |
+| 06-07 | 39 | +14 |
+| **06-08** | **38** | **+1 (stabilize)** |
 
-### 📊 Algo Karşılaştırması (Gün 7)
-| Algo | Alerts | Güçlü Yön | Zayıf Yön |
-|------|--------|-----------|-----------|
-| **Recent** | 260 | Ani viral sıçramalar (Winnser, Cafe Racer) | Gürültülü, tek gün spike'ları yakalar |
-| **Persistence** | 308 | Trend sürekliliği, az kaçırma | En gürültülü, büyük marka yakalayabilir |
-| **WMA** | 188 | Recent'e göre daha temiz | Aynı app'leri tekrar eder |
-| **Slope** | 152 | En temiz, trend app'leri (KSAT, Cry Analyzer) | Ani sıçramaları kaçırır (Winnser yok!) |
+**Momentum durumu:** Yüksek rank'ta stabilize (38). Alert üretmiyor (küçük Δ) ama hala TOP 40'da.
 
-**Karar:** Tek algoritma yerine **Persistence + Slope birleşimi** en iyi fast-follow adaylarını veriyor. Threshold 40.0 kalıcı.
+**Build durumu:**
+- `apps/digital-compass/` oluşturuldu (template'ten fork)
+- `MainActivity.kt`: SensorManager + accelerometer + magnetometer
+- UI: Dark theme, tek ekran, derece + yön adı
+- `./gradlew assembleDebug` → **BUILD SUCCESSFUL in 22s**
+- APK: `app-debug.apk` (5.7MB)
+
+**MVP dokümantasyonu:** `apps/digital-compass/MVP.md`
+- Feature set, UI wireframe, ASO title/keywords, teknik kararlar
+
+**Karşılaştırma (vs Orijinal):**
+| Özellik | Orijinal | Bizimki |
+|---------|----------|---------|
+| Reklam | Her ekranda | Yok |
+| İzin | Fotoğraf/medya | Yok (sadece sensör) |
+| Doğruluk | Kullanıcı şikayeti var | Low-pass filter stabilizasyon |
+| Çıkış | Zor | Standart Android back |
+| UI | Karmaşık | Minimal tek ekran |
 
 ---
 
@@ -70,6 +88,8 @@
 | S2 | `installs`/`ratings` bazen boş geliyor | Düşük |
 | S7 | Büyük marka gürültüsü (Waze, Facebook Lite) | Düşük |
 | S10 | `top-alerts` çıktısı duplicate (her app 2 kez) | Düşük |
+| S11 | Emulator kurulu değil (AVD yok) | Orta — Maestro testi engelliyor |
+| S12 | `run.py full` stdout buffer'lanıyor (background task output 0) | Düşük — `-u` flag ile çözülebilir |
 
 Çözülen: ~~S1~~ datetime. ~~S3~~ CacheGuard. ~~S4~~ Hardcoded threshold. ~~S5~~ Review boş. ~~S6~~ Maestro/Emulator. ~~S8~~ IQ Masters kayboluyor. ~~S9~~ Cumulative delta gürültüsü.
 
@@ -84,5 +104,6 @@
 | VLM | `.kimi/skills/vlm-screenshot/SKILL.md` |
 | AI Asset (taşındı) | `uygulama-gelistir-play/.kimi/skills/flux-asset-generation/SKILL.md` |
 | Strateji/ADR'lar | `ROADMAP.md` |
+| Digital Compass MVP | `apps/digital-compass/MVP.md` |
 | Tarihçe | `.kimi/logs/` |
 | Detect logları | `logs/detect_YYYY-MM-DD.json` |

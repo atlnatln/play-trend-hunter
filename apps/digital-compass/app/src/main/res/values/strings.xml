@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Digital Compass</string>
+    <string name="compass_degrees">%d°</string>
+    <string name="compass_hint">Hold your device flat for best accuracy</string>
+    <string name="direction_n">N</string>
+    <string name="direction_ne">NE</string>
+    <string name="direction_e">E</string>
+    <string name="direction_se">SE</string>
+    <string name="direction_s">S</string>
+    <string name="direction_sw">SW</string>
+    <string name="direction_w">W</string>
+    <string name="direction_nw">NW</string>
+</resources>
