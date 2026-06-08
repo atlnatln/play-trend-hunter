@@ -49,6 +49,25 @@
 
 ---
 
+## 🔍 Keşif Kuralı (Exploration)
+
+Kullanıcı düşünce/danışma/exploration istediğinde ("ne dersin?", "şunu mu yapsak?", "düşüneyim") **belgeleri güncelleme.**
+
+**Kullanıcı pattern'i:**
+```text
+Hiçbir belgeyi güncelleme. [keşif konusu]
+```
+
+**Kimi davranışı:**
+- `design.md`, `questions.md`, `CONTEXT.md`'yi **salt okunur** olarak ele al.
+- Sohbette özgürce değerlendirme yap, seçenek sun, risk analizi yap.
+- Taahhüt etmeye hazır olduğunda kullanıcı "şunu yap" derse kısıtlamayı kaldır.
+
+**Yanlış:** "Pusula iğnesi mi yapsak?" sorusuna `design.md`'yi güncelleyerek cevap vermek.  
+**Doğru:** Sohbette tartış, karar verildiğinde `questions.md` → `design.md` akışına gir.
+
+---
+
 ## ✏️ Dokümantasyon Kuralı
 
 Her değişiklik sonrası **üç** kaydı güncelle:
@@ -79,6 +98,11 @@ Her değişiklik sonrası **üç** kaydı güncelle:
 
 ## 🔧 Kod Değişikliği Kuralları
 
+### Tüm Projeler İçin (Design-First)
+- **Asla doğrudan kod düzenleme (No Vibe Coding):** `design.md` onaylıysa ve değişiklik gerekiyorsa, önce `design.md`'yi güncelle, sonra kodu güncelle. `design.md`'yi atlayıp dosyaya doğrudan düzeltme yasaktır.
+- **Keşif aşamasında güncelleme yok:** "Hiçbir belgeyi güncelleme" prefix'i aktifse belgeler salt okunurdur.
+
+### Proje Spesifik
 - **Scraper:** `MIN_DELAY`/`MAX_DELAY` asla kaldırılmaz. Proxy eklenebilir.
 - **Detector:** Threshold/formül değişikliğinde wiki'ye not et. Sadece veriye dayalı sinyal.
 - **Reporter:** `__doc__` string'i güncelle. Mevcut CLI output değiştirilemez.

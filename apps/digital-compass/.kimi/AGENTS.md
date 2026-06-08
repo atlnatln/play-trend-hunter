@@ -44,7 +44,8 @@ docs/vision.md + docs/tech-env.md
 | Konu | Kural |
 |------|-------|
 | **Build** | Her değişiklik sonrası `./gradlew assembleDebug` zorunlu |
-| **Maestro** | Emulator'de çalıştır: `maestro test maestro/launch.yaml` |
+| **Emulator** | `emulator -avd Pixel_6_API_34 -no-window -no-audio -gpu swiftshader_indirect &` (PATH: `$ANDROID_HOME/emulator`) |
+| **Maestro** | Emulator başlayınca: `adb install -r app/build/outputs/apk/debug/app-debug.apk`, sonra `maestro test maestro/launch.yaml` |
 | **Signing** | Release için `keystore.jks` + `local.properties`. `.gitignore`'da |
 | **Min SDK** | 26 (Android 8.0) — sabit |
 | **Theme** | Material3 Dark NoActionBar — sabit |

@@ -18,10 +18,11 @@
 - [x] Android template fork'u
 - [x] SensorManager + compass kodu
 - [x] Dark theme UI
-- [x] `./gradlew assembleDebug` → BUILD SUCCESSFUL
+- [x] `./gradlew assembleDebug` → BUILD SUCCESSFUL (4s, 5.5MB APK)
+- [x] Maestro test PASSED (emulator: Pixel_6_API_34)
 - [x] `docs/vision.md` yazıldı
 - [x] `docs/tech-env.md` yazıldı
-- [x] `docs/design.md` yazıldı
+- [x] `docs/design.md` yazıldı ve back-propagation yapıldı
 
 ---
 
@@ -42,7 +43,6 @@
 
 | ID | Sorun | Öncelik |
 |----|-------|---------|
-| D1 | Emulator kurulu değil | Orta |
 | D2 | Release build yapılmadı | Yüksek |
 | D3 | Play Console kaydı yok | Yüksek |
 

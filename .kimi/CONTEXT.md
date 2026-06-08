@@ -88,7 +88,7 @@
 | S2 | `installs`/`ratings` bazen boş geliyor | Düşük |
 | S7 | Büyük marka gürültüsü (Waze, Facebook Lite) | Düşük |
 | S10 | `top-alerts` çıktısı duplicate (her app 2 kez) | Düşük |
-| S11 | Emulator kurulu değil (AVD yok) | Orta — Maestro testi engelliyor |
+| ~~S11~~ | ~~Emulator kurulu değil~~ | ~~Çözüldü — Pixel_6_API_34 çalışıyor, Maestro PASSED~~ |
 | S12 | `run.py full` stdout buffer'lanıyor (background task output 0) | Düşük — `-u` flag ile çözülebilir |
 
 Çözülen: ~~S1~~ datetime. ~~S3~~ CacheGuard. ~~S4~~ Hardcoded threshold. ~~S5~~ Review boş. ~~S6~~ Maestro/Emulator. ~~S8~~ IQ Masters kayboluyor. ~~S9~~ Cumulative delta gürültüsü.

@@ -99,14 +99,17 @@ app/src/main/
 
 ## 7. Test Planı
 
-- [ ] `./gradlew assembleDebug` BUILD SUCCESSFUL
+- [x] `./gradlew assembleDebug` BUILD SUCCESSFUL (4s, 5.5MB APK)
 - [ ] `./gradlew assembleRelease` BUILD SUCCESSFUL (signing sonrası)
-- [ ] Maestro: launch + "Hold your device flat" görünür
-- [ ] Cihazı döndürünce derece değişiyor
-- [ ] Yön adı doğru (N, NE, E...)
+- [x] Maestro: launch + "Hold your device flat" görünür
+- [ ] Cihazı döndürünce derece değişiyor (manuel test)
+- [ ] Yön adı doğru (N, NE, E...) (manuel test)
+
+> Not: Maestro test dosyası düzeltildi — `assertVisible: "Digital Compass"` kaldırıldı çünkü tema `NoActionBar` ve başlık ekranda görünmüyor.
 
 ## 8. Değişiklik Geçmişi
 
 | Tarih | Değişiklik | Kim |
 |-------|-----------|-----|
 | 2026-06-08 | v1.0.0 — İlk tasarım | Kimi |
+| 2026-06-08 | v1.0.1 — Build + Maestro test PASSED, back-propagation | Kimi |
