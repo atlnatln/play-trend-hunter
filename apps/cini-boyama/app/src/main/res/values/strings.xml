@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Çini Boyama</string>
+    <string name="pattern_iznik_tile">İznik Mandala</string>
+    <string name="pattern_iznik_vase">İznik Vazo</string>
+    <string name="pattern_geometric">Geometrik</string>
+    <string name="pattern_flower">Gül Deseni</string>
+    <string name="pattern_car_tile">Araba Çinisi</string>
+    <string name="pattern_dino_mandala">Dinozor Mandala</string>
+    <string name="pattern_rocket_stars">Roket ve Yıldızlar</string>
+    <string name="pattern_soccer_mandala">Futbol Topu</string>
+    <string name="pattern_butterfly_tile">Kelebek Çinisi</string>
+    <string name="pattern_unicorn_mandala">Unicorn Mandala</string>
+    <string name="pattern_princess_crown">Prenses Tacı</string>
+    <string name="pattern_heart_mandala">Kalp Mandala</string>
+    <string name="glaze_effect">Sır Efekti</string>
+    <string name="clear">Temizle</string>
+    <string name="progress_format">%1$d%% tamamlandı</string>
+</resources>

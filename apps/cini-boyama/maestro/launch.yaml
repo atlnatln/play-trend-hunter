@@ -1,0 +1,10 @@
+# Maestro E2E test — Çini Boyama launch smoke test
+appId: com.akn.ciniboyama
+---
+- launchApp
+- assertVisible: "Çini Boyama"
+- tapOn: "İznik Mandala"
+- assertVisible: "Sır Efekti"
+- assertVisible: "Temizle"
+- tapOn: "Sır Efekti"
+- tapOn: "Temizle"
