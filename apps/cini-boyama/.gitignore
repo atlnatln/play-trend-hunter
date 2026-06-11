@@ -16,3 +16,8 @@ captures
 .externalNativeBuild
 .cxx
 local.properties
+
+# Asset geliştirme araçları çıktıları
+tools/lineart_tests/
+app/src/main/res/drawable-nodpi/backup_before_fix/
+app/src/main/res/drawable-nodpi/*_512.png

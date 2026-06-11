@@ -9,7 +9,8 @@
 - Her desen için hem renkli preview hem siyah-beyaz line-art üretir.
 
 Gereksinimler:
-    python3 -m pip install Pillow numpy scipy
+    source /home/akn/local/uygulama-gelistir-play/.venv/bin/activate
+    # veya: python3 -m pip install Pillow numpy scipy opencv-python-headless
 
 Kullanım:
     cd apps/cini-boyama
@@ -22,6 +23,7 @@ import math
 from pathlib import Path
 
 
+import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 from scipy import ndimage
@@ -69,18 +71,77 @@ def to_gray(img: Image.Image) -> Image.Image:
     return img.convert("L")
 
 
-def preview_to_lineart(img: Image.Image, threshold: int = 40, dilation_size: int = 3, min_size: int = 12) -> Image.Image:
-    """Renkli preview görselinden FIND_EDGES + grey_dilation ile line-art üretir."""
-    gray = img.convert("L")
-    edges = gray.filter(ImageFilter.FIND_EDGES)
-    arr = np.array(edges)
-    dilated = ndimage.grey_dilation(arr, size=(dilation_size, dilation_size))
-    binary = dilated > threshold
-    labeled, num = ndimage.label(binary)
-    sizes = ndimage.sum(binary, labeled, range(1, num + 1))
-    mask = np.concatenate(([False], sizes >= min_size))
-    binary = mask[labeled]
-    out = (np.where(binary, 0, 255)).astype(np.uint8)
+def preview_to_lineart(
+    img: Image.Image,
+    canny_low: int = 50,
+    canny_high: int = 150,
+    dilation_size: int = 3,
+    dilation_iterations: int = 2,
+    min_component_size: int = 30,
+    blur_kernel: int = 5,
+    clahe_clip: float = 2.0,
+    use_legacy_edges: bool = False,
+) -> Image.Image:
+    """
+    Renkli preview görselinden line-art üretir.
+
+    Varsayılan olarak OpenCV Canny + dilation kullanır. Çok küçük detaylı
+    desenler (örn. geometric karo) için use_legacy_edges=True seçeneğiyle
+    PIL FIND_EDGES + scipy grey_dilation yöntemi de kullanılabilir.
+
+    Akış (Canny modu):
+      1. Gaussian blur ile yumuşatma (gürültü azaltma)
+      2. CLAHE ile kontrast artırma
+      3. Canny edge detection
+      4. Dilation ile hatları kalınlaştırma
+      5. Connected-component analizi ile küçük gürültüleri temizleme
+      6. Beyaz arka plan üzerine siyah hatlar
+    """
+    if use_legacy_edges:
+        gray = img.convert("L")
+        edges = gray.filter(ImageFilter.FIND_EDGES)
+        arr = np.array(edges)
+        dilated = ndimage.grey_dilation(arr, size=(dilation_size, dilation_size))
+        binary = dilated > canny_low  # eski 'threshold' yerine canny_low kullan
+        labeled, num = ndimage.label(binary)
+        sizes = ndimage.sum(binary, labeled, range(1, num + 1))
+        mask = np.concatenate(([False], sizes >= min_component_size))
+        binary = mask[labeled]
+        out = (np.where(binary, 0, 255)).astype(np.uint8)
+        return Image.fromarray(out, "L")
+
+    gray = np.array(img.convert("L"))
+
+    # 1. Yumuşatma
+    if blur_kernel > 1:
+        blurred = cv2.GaussianBlur(gray, (blur_kernel, blur_kernel), 0)
+    else:
+        blurred = gray
+
+    # 2. Kontrast artırma
+    if clahe_clip > 0:
+        clahe = cv2.createCLAHE(clipLimit=clahe_clip, tileGridSize=(8, 8))
+        enhanced = clahe.apply(blurred)
+    else:
+        enhanced = blurred
+
+    # 3. Canny kenar tespiti
+    edges = cv2.Canny(enhanced, canny_low, canny_high)
+
+    # 4. Hat kalınlaştırma
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (dilation_size, dilation_size))
+    thick = cv2.dilate(edges, kernel, iterations=dilation_iterations)
+
+    # 5. Küçük gürültüleri temizle
+    num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(thick, connectivity=8)
+    cleaned = np.zeros_like(thick)
+    for i in range(1, num_labels):
+        area = stats[i, cv2.CC_STAT_AREA]
+        if area >= min_component_size:
+            cleaned[labels == i] = 255
+
+    # 6. Beyaz arka plan, siyah hat
+    out = 255 - cleaned
     return Image.fromarray(out, "L")
 
 
@@ -498,9 +559,20 @@ def pattern_heart_mandala() -> Image.Image:
 # -----------------------------------------------------------------------------
 
 def process_existing() -> None:
-    previews = ["preview_iznik_tile", "preview_iznik_vase", "preview_geometric", "preview_flower"]
+    """
+    Önceden var olan 512x512 preview görsellerini 1024x1024'e upscale eder
+    ve her biri için optimize edilmiş line-art üretir.
+    """
+    previews = [
+        ("preview_iznik_tile", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}),
+        ("preview_iznik_vase", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}),
+        ("preview_flower", {"canny_low": 40, "canny_high": 120, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 25}),
+        # Geometrik desen çok küçük karolardan oluştuğu için Canny fazla detay üretiyor.
+        # Eski FIND_EDGES yöntemi bu desen için daha sade sonuç veriyor.
+        ("preview_geometric", {"use_legacy_edges": True, "canny_low": 60, "dilation_size": 3, "min_component_size": 20}),
+    ]
 
-    for name in previews:
+    for name, lineart_kwargs in previews:
         src = OUT_DIR / f"{name}.png"
         if src.exists():
             backup = OUT_DIR / f"{name}_512.png"
@@ -510,7 +582,7 @@ def process_existing() -> None:
             # Lineart'ı preview'dan yeniden üret
             line_name = name.replace("preview_", "lineart_")
             preview_img = Image.open(src)
-            preview_to_lineart(preview_img).save(OUT_DIR / f"{line_name}.png")
+            preview_to_lineart(preview_img, **lineart_kwargs).save(OUT_DIR / f"{line_name}.png")
             print(f"  Regenerated lineart: {line_name}.png")
 
 
@@ -534,10 +606,19 @@ def main() -> None:
         ("heart_mandala", pattern_heart_mandala),
     ]
 
+    # Programatik desenler düz renkli olduğu için daha kalın, temiz hatlar
+    procedural_lineart_kwargs = {
+        "canny_low": 50,
+        "canny_high": 150,
+        "dilation_size": 4,
+        "dilation_iterations": 2,
+        "min_component_size": 35,
+    }
+
     for name, gen in patterns:
         preview = gen()
         preview.save(OUT_DIR / f"preview_{name}.png")
-        preview_to_lineart(preview).save(OUT_DIR / f"lineart_{name}.png")
+        preview_to_lineart(preview, **procedural_lineart_kwargs).save(OUT_DIR / f"lineart_{name}.png")
         print(f"  Generated: preview_{name}.png, lineart_{name}.png")
 
     # Cleanup backups

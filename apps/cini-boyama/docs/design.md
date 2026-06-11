@@ -120,33 +120,19 @@ class ColoringView @JvmOverloads constructor(
 
 ### 3.4 Flood Fill
 
-Queue-based BFS. Eşik: dokunulan pikselin rengi `targetColor` ise ve beyaz/boş alandaysa (`targetColor` ≈ `Color.WHITE`), boya.
+Queue-based BFS. Hat üzerine dokunulduğunda en yakın boyanabilir komşu bölge bulunur; bu sayede kapanmamış ince hatlar veya anti-aliased kenarlar kullanıcı deneyimini bozmaz. Boyama sırasında hedef renge yakın tonlar toleransla kabul edilir.
 
 ```kotlin
-private fun floodFill(bitmap: Bitmap, x: Int, y: Int, fillColor: Int) {
-    val targetColor = bitmap.getPixel(x, y)
-    if (targetColor == fillColor) return
-    if (!isFillable(targetColor)) return
-
-    val w = bitmap.width
-    val h = bitmap.height
-    val queue = ArrayDeque<Pair<Int, Int>>()
-    queue.add(x to y)
-
-    while (queue.isNotEmpty()) {
-        val (cx, cy) = queue.removeFirst()
-        if (cx < 0 || cx >= w || cy < 0 || cy >= h) continue
-        if (bitmap.getPixel(cx, cy) != targetColor) continue
-        bitmap.setPixel(cx, cy, fillColor)
-        queue.add(cx + 1 to cy)
-        queue.add(cx - 1 to cy)
-        queue.add(cx to cy + 1)
-        queue.add(cx to cy - 1)
-    }
+private fun floodFill(bitmap: Bitmap, x: Int, y: Int, fillColor: Int): Int {
+    // 1. Dokunulan piksel hat ise en yakın boş bölgeyi bul
+    // 2. Toleranslı BFS ile komşu pikselleri boya
+    // 3. Hat piksellerinin üzerine çıkma
 }
 ```
 
-`isFillable(color)`: Renkli bölge değilse (siyah kontur veya zaten boyanmışsa) boyama.
+`isLineColor(color)`: Parlaklığı düşük (koyu gri/siyah) pikseller hat olarak kabul edilir.
+`isFillable(color)`: Hat olmayan her piksel boyanabilir kabul edilir (açık ve orta tonlar).
+`colorDistance(...)`: İki renk arasındaki Manhattan mesafesi; toleranslı boyama için kullanılır.
 
 ### 3.5 Sır (Glaze) Efekti
 

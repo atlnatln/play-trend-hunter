@@ -294,6 +294,16 @@ class ColoringView @JvmOverloads constructor(
         return count
     }
 
+    /**
+     * Bir pikselin arka plan (boyanmamış) olup olmadığını döndürür.
+     */
+    private fun isBackgroundColor(color: Int): Boolean {
+        val r = Color.red(color)
+        val g = Color.green(color)
+        val b = Color.blue(color)
+        return r + g + b > 720
+    }
+
     private fun countFilledPixels(bitmap: Bitmap): Int {
         var count = 0
         val w = bitmap.width
@@ -301,43 +311,121 @@ class ColoringView @JvmOverloads constructor(
         for (y in 0 until h) {
             for (x in 0 until w) {
                 val c = bitmap.getPixel(x, y)
-                if (!isFillable(c) && !isLineColor(c)) count++
+                // Ne hat ne de beyaz arka plan -> boyanmış sayılır
+                if (!isLineColor(c) && !isBackgroundColor(c)) count++
             }
         }
         return count
     }
 
+    /**
+     * Bir pikselin hat (kontur) olup olmadığını döndürür.
+     * Line-art'ta hatlar siyahtır; telefonda anti-aliasing nedeniyle
+     * koyu gri tonlar da hat olarak kabul edilir.
+     */
     private fun isLineColor(color: Int): Boolean {
         val r = Color.red(color)
         val g = Color.green(color)
         val b = Color.blue(color)
-        return r + g + b < 180
+        return r + g + b < 360
     }
 
+    /**
+     * Bir pikselin boyanabilir olup olmadığını döndürür.
+     * Hatların dışındaki açık ve orta tonlar boyanabilir kabul edilir;
+     * böylece kapanmayan ince hatlar veya anti-aliased kenarlarda
+     * küçük ton farkları boyamayı engellemez.
+     */
     private fun isFillable(color: Int): Boolean {
-        val r = Color.red(color)
-        val g = Color.green(color)
-        val b = Color.blue(color)
-        return r + g + b > 600
+        return !isLineColor(color)
     }
 
-    private fun floodFill(bitmap: Bitmap, x: Int, y: Int, fillColor: Int): Int {
-        val targetColor = bitmap.getPixel(x, y)
-        if (targetColor == fillColor) return 0
-        if (!isFillable(targetColor)) return 0
+    /**
+     * İki renk arasındaki Manhattan mesafesini döndürür.
+     */
+    private fun colorDistance(c1: Int, c2: Int): Int {
+        return abs(Color.red(c1) - Color.red(c2)) +
+                abs(Color.green(c1) - Color.green(c2)) +
+                abs(Color.blue(c1) - Color.blue(c2))
+    }
 
+    /**
+     * Dokunulan noktaya en yakın boyanabilir pikseli BFS ile bulur.
+     * Kullanıcı hattın hemen yanına veya üzerine dokunduğunda
+     * komşu bir boş bölgeyi boyamaya başlamak için kullanılır.
+     */
+    private fun findNearestFillableNeighbor(bitmap: Bitmap, x: Int, y: Int): Pair<Int, Int>? {
         val w = bitmap.width
         val h = bitmap.height
+        val visited = BooleanArray(w * h)
         val queue = ArrayDeque<Pair<Int, Int>>()
         queue.add(x to y)
+        visited[y * w + x] = true
+
+        while (queue.isNotEmpty()) {
+            val (cx, cy) = queue.removeFirst()
+            if (isFillable(bitmap.getPixel(cx, cy))) return cx to cy
+
+            for (dx in -1..1) {
+                for (dy in -1..1) {
+                    if (dx == 0 && dy == 0) continue
+                    val nx = cx + dx
+                    val ny = cy + dy
+                    val idx = ny * w + nx
+                    if (nx in 0 until w && ny in 0 until h && !visited[idx]) {
+                        visited[idx] = true
+                        queue.add(nx to ny)
+                    }
+                }
+            }
+        }
+        return null
+    }
+
+    /**
+     * Toleranslı flood-fill.
+     * - Hedef rengine yakın pikselleri boyar (anti-aliasing/parçalanmış hat toleransı).
+     - Hat piksellerinin üzerine çıkmaz.
+     - Dokunulan nokta hat üzerindeyse en yakın boyanabilir komşudan başlar.
+     */
+    private fun floodFill(bitmap: Bitmap, x: Int, y: Int, fillColor: Int): Int {
+        val w = bitmap.width
+        val h = bitmap.height
+        if (x !in 0 until w || y !in 0 until h) return 0
+
+        val touchedColor = bitmap.getPixel(x, y)
+        if (touchedColor == fillColor) return 0
+
+        // Dokunulan nokta hat üzerindeyse komşu bir boş bölge bul
+        var startX = x
+        var startY = y
+        if (isLineColor(touchedColor)) {
+            val neighbor = findNearestFillableNeighbor(bitmap, x, y) ?: return 0
+            startX = neighbor.first
+            startY = neighbor.second
+        }
+
+        val targetColor = bitmap.getPixel(startX, startY)
+        if (targetColor == fillColor) return 0
+
+        // Tolerans: hedef renkten çok uzaksa veya hat ise boyama
+        val tolerance = 140  // 0-765 arası; açık ton farklarını tolere eder
+
+        val queue = ArrayDeque<Pair<Int, Int>>()
+        queue.add(startX to startY)
         var changed = 0
 
         while (queue.isNotEmpty()) {
             val (cx, cy) = queue.removeFirst()
             if (cx < 0 || cx >= w || cy < 0 || cy >= h) continue
-            if (bitmap.getPixel(cx, cy) != targetColor) continue
+
+            val pixel = bitmap.getPixel(cx, cy)
+            if (isLineColor(pixel)) continue
+            if (colorDistance(pixel, targetColor) > tolerance) continue
+
             bitmap.setPixel(cx, cy, fillColor)
             changed++
+
             queue.add(cx + 1 to cy)
             queue.add(cx - 1 to cy)
             queue.add(cx to cy + 1)
