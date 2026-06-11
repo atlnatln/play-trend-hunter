@@ -21,12 +21,25 @@ from __future__ import annotations
 
 import math
 from pathlib import Path
+import argparse
 
 
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 from scipy import ndimage
+
+# Optional FLUX integration
+_FLUX_AVAILABLE = False
+try:
+    from flux_lineart_generator import (
+        generate_flux_lineart,
+        postprocess_to_lineart,
+        LINEART_PROMPTS,
+    )
+    _FLUX_AVAILABLE = True
+except ImportError:
+    pass
 
 # -----------------------------------------------------------------------------
 # Yapılandırma
@@ -555,24 +568,82 @@ def pattern_heart_mandala() -> Image.Image:
 
 
 # -----------------------------------------------------------------------------
+# FLUX entegrasyonu
+# -----------------------------------------------------------------------------
+
+def generate_flux_lineart_for_pattern(
+    pattern_key: str,
+    output_path: Path,
+    width: int = 1024,
+    height: int = 1024,
+    sample_steps: int = 20,
+    seed: int = 42,
+    preserve: bool = True,
+    keep_raw: bool = False,
+) -> Path:
+    """Generate line-art using FLUX.2-dev GGUF pipeline.
+
+    Args:
+        preserve: If True, use threshold-only post-process (no dilation).
+                  This keeps lines thin and delicate as in the raw FLUX output.
+        keep_raw: If True, keep the raw FLUX output alongside the line-art.
+    """
+    if not _FLUX_AVAILABLE:
+        raise RuntimeError("FLUX integration not available. Ensure flux_lineart_generator.py is present.")
+
+    raw_path = output_path.parent / f"_flux_raw_{pattern_key}.png"
+    generate_flux_lineart(
+        prompt=LINEART_PROMPTS[pattern_key],
+        output_path=raw_path,
+        width=width,
+        height=height,
+        sample_steps=sample_steps,
+        seed=seed,
+    )
+
+    if preserve:
+        # Preserve mode: only threshold, no dilation — keeps thin delicate lines
+        postprocess_to_lineart(
+            input_path=raw_path,
+            output_path=output_path,
+            threshold_value=200,
+            dilate_kernel=0,
+            dilate_iterations=0,
+        )
+    else:
+        # Robust mode: threshold + slight dilation — thicker lines for flood-fill safety
+        postprocess_to_lineart(
+            input_path=raw_path,
+            output_path=output_path,
+            threshold_value=180,
+            dilate_kernel=2,
+            dilate_iterations=1,
+        )
+
+    if not keep_raw:
+        raw_path.unlink(missing_ok=True)
+    return output_path
+
+
+# -----------------------------------------------------------------------------
 # Mevcut desenleri işle
 # -----------------------------------------------------------------------------
 
-def process_existing() -> None:
+def process_existing(use_flux: bool = False, preserve: bool = True, keep_raw: bool = False) -> None:
     """
     Önceden var olan 512x512 preview görsellerini 1024x1024'e upscale eder
     ve her biri için optimize edilmiş line-art üretir.
     """
     previews = [
-        ("preview_iznik_tile", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}),
-        ("preview_iznik_vase", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}),
-        ("preview_flower", {"canny_low": 40, "canny_high": 120, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 25}),
+        ("preview_iznik_tile", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}, "iznik_tile"),
+        ("preview_iznik_vase", {"canny_low": 50, "canny_high": 150, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 30}, "iznik_vase"),
+        ("preview_flower", {"canny_low": 40, "canny_high": 120, "dilation_size": 3, "dilation_iterations": 2, "min_component_size": 25}, "flower"),
         # Geometrik desen çok küçük karolardan oluştuğu için Canny fazla detay üretiyor.
         # Eski FIND_EDGES yöntemi bu desen için daha sade sonuç veriyor.
-        ("preview_geometric", {"use_legacy_edges": True, "canny_low": 60, "dilation_size": 3, "min_component_size": 20}),
+        ("preview_geometric", {"use_legacy_edges": True, "canny_low": 60, "dilation_size": 3, "min_component_size": 20}, None),
     ]
 
-    for name, lineart_kwargs in previews:
+    for name, lineart_kwargs, flux_key in previews:
         src = OUT_DIR / f"{name}.png"
         if src.exists():
             backup = OUT_DIR / f"{name}_512.png"
@@ -581,9 +652,22 @@ def process_existing() -> None:
             print(f"  Upscaled preview: {name}.png")
             # Lineart'ı preview'dan yeniden üret
             line_name = name.replace("preview_", "lineart_")
-            preview_img = Image.open(src)
-            preview_to_lineart(preview_img, **lineart_kwargs).save(OUT_DIR / f"{line_name}.png")
-            print(f"  Regenerated lineart: {line_name}.png")
+
+            if use_flux and flux_key and _FLUX_AVAILABLE:
+                print(f"  [FLUX] Generating lineart for: {line_name}")
+                generate_flux_lineart_for_pattern(
+                    flux_key,
+                    OUT_DIR / f"{line_name}.png",
+                    width=SIZE,
+                    height=SIZE,
+                    preserve=preserve,
+                    keep_raw=keep_raw,
+                )
+                print(f"  [FLUX] Lineart saved: {line_name}.png")
+            else:
+                preview_img = Image.open(src)
+                preview_to_lineart(preview_img, **lineart_kwargs).save(OUT_DIR / f"{line_name}.png")
+                print(f"  Regenerated lineart: {line_name}.png")
 
 
 # -----------------------------------------------------------------------------
@@ -591,9 +675,25 @@ def process_existing() -> None:
 # -----------------------------------------------------------------------------
 
 def main() -> None:
-    print(f"[generate_assets] Çıktı dizini: {OUT_DIR}")
+    parser = argparse.ArgumentParser(description="Çini Boyama asset generator")
+    parser.add_argument("--flux", action="store_true", help="Use FLUX.2-dev GGUF for line-art generation (slow but high quality)")
+    parser.add_argument("--flux-steps", type=int, default=20, help="FLUX sampling steps (default: 20)")
+    parser.add_argument("--flux-seed", type=int, default=42, help="FLUX seed (default: 42)")
+    parser.add_argument("--preserve", action="store_true", default=True, help="Preserve thin lines (threshold only, no dilation). Default: True")
+    parser.add_argument("--no-preserve", action="store_true", help="Use dilation for thicker lines (fallback mode)")
+    parser.add_argument("--keep-raw", action="store_true", help="Keep raw FLUX output alongside line-art")
+    args = parser.parse_args()
 
-    process_existing()
+    preserve_mode = not args.no_preserve if args.no_preserve else args.preserve
+
+    print(f"[generate_assets] Çıktı dizini: {OUT_DIR}")
+    if args.flux:
+        if not _FLUX_AVAILABLE:
+            print("[WARNING] FLUX not available. Falling back to OpenCV pipeline.")
+        else:
+            print(f"[generate_assets] FLUX mode: steps={args.flux_steps}, seed={args.flux_seed}, preserve={preserve_mode}")
+
+    process_existing(use_flux=args.flux, preserve=preserve_mode, keep_raw=args.keep_raw)
 
     patterns = [
         ("car_tile", pattern_car_tile),
