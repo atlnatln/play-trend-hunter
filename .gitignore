@@ -28,3 +28,8 @@ data/
 .DS_Store
 Thumbs.db
 assets/output/
+
+# AI asset regeneration backups / raw outputs
+apps/cini-boyama/app/src/main/res/drawable-nodpi/backup_before_ideogram4/
+apps/cini-boyama/tools/flux_outputs/flux_lineart_*.png
+apps/cini-boyama/tools/ideogram4_outputs/regenerate_log.txt
