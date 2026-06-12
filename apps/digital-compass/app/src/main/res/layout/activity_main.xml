@@ -1,53 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_900"
-    android:padding="24dp">
+    android:background="@color/purple_900">
 
-    <TextView
-        android:id="@+id/tv_degrees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0°"
-        android:textColor="@color/white"
-        android:textSize="96sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-thin"
-        app:layout_constraintBottom_toTopOf="@id/tv_direction"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="12dp">
 
-    <TextView
-        android:id="@+id/tv_direction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="N"
-        android:textColor="@color/teal_200"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/tv_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_degrees" />
+        <!-- Theme toggle + Help buttons -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
 
-    <TextView
-        android:id="@+id/tv_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/compass_hint"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:alpha="0.7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_direction" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:minWidth="40dp"
+                android:minHeight="40dp"
+                android:text="?"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/purple_700"
+                app:cornerRadius="20dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_theme"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:minWidth="56dp"
+                android:minHeight="40dp"
+                android:text="@string/theme_2d"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/purple_700" />
+        </FrameLayout>
+
+        <!-- Calibration Banner -->
+        <TextView
+            android:id="@+id/tv_calibrate_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@color/purple_700"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/calibrate_banner"
+            android:textColor="#FFFFC107"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <!-- Degrees display -->
+        <TextView
+            android:id="@+id/tv_degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="0°"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-thin" />
+
+        <!-- Cardinal direction -->
+        <TextView
+            android:id="@+id/tv_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@string/direction_n"
+            android:textColor="@color/teal_200"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- GPS Coordinates -->
+        <TextView
+            android:id="@+id/tv_coords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@string/coords_loading"
+            android:textColor="@color/teal_200"
+            android:textSize="13sp"
+            android:alpha="0.8" />
+
+        <!-- Sensor Info Panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/bg_info_panel"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="center_horizontal">
+
+            <!-- Row 1: μT | Altitude | True North Switch -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/tv_magnetic_field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="@string/magnetic_field_na"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_altitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/altitude_na"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/magnetic_north"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_true_north"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="0.65"
+                        android:scaleY="0.65" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/true_north"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Row 2: Sensor Status Dots -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_sensor_mag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/sensor_mag"
+                    android:textColor="#FFFFC107"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_sensor_acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/sensor_acc"
+                    android:textColor="#FFFFC107"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_sensor_gps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sensor_gps"
+                    android:textColor="#FFFFC107"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Row 3: Calibrate Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_calibrate"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:minHeight="32dp"
+                android:text="@string/calibrate"
+                android:textColor="@color/teal_200"
+                android:textSize="12sp"
+                app:rippleColor="@color/teal_200" />
+
+        </LinearLayout>
+
+        <!-- Custom Compass View -->
+        <com.akn.digitalcompass.CompassView
+            android:id="@+id/compass_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="6dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Level hint -->
+        <TextView
+            android:id="@+id/tv_level_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="@string/compass_hint"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:alpha="0.6" />
+
+    </LinearLayout>
+
+    <!-- Calibration Overlay -->
+    <FrameLayout
+        android:id="@+id/calibration_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DD1A0033"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calibrate_title"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/calibrate_subtitle"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:alpha="0.8" />
+
+            <!-- Figure 8 Animation Placeholder -->
+            <View
+                android:id="@+id/calibrate_animation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/calibrate_figure8" />
+
+            <!-- Accuracy Progress -->
+            <ProgressBar
+                android:id="@+id/calibrate_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="24dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/calibrate_progress" />
+
+            <TextView
+                android:id="@+id/tv_calibrate_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/accuracy_low"
+                android:textColor="#FFFFC107"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_calibrate_done"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/teal_200" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

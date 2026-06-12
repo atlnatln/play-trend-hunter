@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Digital Compass</string>
+
+    <!-- Compass Display -->
+    <string name="compass_degrees">%d°</string>
+    <string name="compass_hint">Hold your device flat for best accuracy</string>
+
+    <!-- GPS / Location -->
+    <string name="coords_loading">Locating…</string>
+    <string name="coords_format">%1$.5f°  %2$.5f°</string>
+    <string name="coords_unavailable">Location unavailable</string>
+
+    <!-- Sensors -->
+    <string name="magnetic_field">μT: %.1f</string>
+    <string name="magnetic_field_na">μT: --</string>
+    <string name="altitude">⛰ %dm</string>
+    <string name="altitude_na">⛰ --</string>
+    <string name="true_north">True N</string>
+    <string name="magnetic_north">Mag N</string>
+    <string name="sensor_mag">● Mag</string>
+    <string name="sensor_acc">● Acc</string>
+    <string name="sensor_gps">● GPS</string>
+
+    <!-- Calibration -->
+    <string name="calibrate">Calibrate</string>
+    <string name="calibrate_banner">⚠ Wave phone in figure-8 to calibrate</string>
+    <string name="calibrate_ok">✓ Sensors calibrated</string>
+    <string name="calibrate_title">Calibrate Compass</string>
+    <string name="calibrate_subtitle">Move your phone in a figure-8 pattern until all indicators turn green</string>
+    <string name="accuracy_low">Accuracy: Low</string>
+    <string name="accuracy_medium">Accuracy: Medium</string>
+    <string name="accuracy_high">Accuracy: High</string>
+    <string name="done">Done</string>
+
+    <!-- Directions -->
+    <string name="direction_n">N</string>
+    <string name="direction_ne">NE</string>
+    <string name="direction_e">E</string>
+    <string name="direction_se">SE</string>
+    <string name="direction_s">S</string>
+    <string name="direction_sw">SW</string>
+    <string name="direction_w">W</string>
+    <string name="direction_nw">NW</string>
+
+    <!-- Theme -->
+    <string name="theme_2d">2D</string>
+    <string name="theme_3d">3D</string>
+
+    <!-- Help -->
+    <string name="help_title">Info</string>
+    <string name="help_close">Close</string>
+    <string name="help_description">Descriptions of on-screen elements</string>
+    <string name="help_degrees_title">Heading</string>
+    <string name="help_degrees_desc">The direction your phone is pointing, in degrees (0° = North, 90° = East, 180° = South, 270° = West).</string>
+    <string name="help_direction_title">Cardinal Direction</string>
+    <string name="help_direction_desc">Abbreviated cardinal direction: N (North), E (East), S (South), W (West) and intercardinal directions.</string>
+    <string name="help_coords_title">GPS Coordinates</string>
+    <string name="help_coords_desc">Your device location in latitude and longitude.</string>
+    <string name="help_magnetic_field_title">μT — Magnetic Field</string>
+    <string name="help_magnetic_field_desc">The strength of the magnetic field around you, in microtesla (μT). High values may indicate metal/device interference.</string>
+    <string name="help_altitude_title">⛰ Altitude</string>
+    <string name="help_altitude_desc">Height above sea level measured by GPS, in meters.</string>
+    <string name="help_true_north_title">True N / Mag N</string>
+    <string name="help_true_north_desc">When &quot;True N&quot; is on, the compass shows geographic North (magnetic declination corrected for your GPS location). Off shows Magnetic North.</string>
+    <string name="help_sensors_title">Sensor Indicators</string>
+    <string name="help_sensors_desc">● Mag (magnetometer), ● Acc (accelerometer), ● GPS (location) status. Green = good, yellow = fair, red = weak/off.</string>
+    <string name="help_calibrate_title">Calibration</string>
+    <string name="help_calibrate_desc">If sensor accuracy is low, tap &quot;Calibrate&quot; and wave your phone in a figure-8 motion.</string>
+    <string name="help_theme_title">2D / 3D View</string>
+    <string name="help_theme_desc">Switch between flat (2D) and classic 3D compass face.</string>
+</resources>

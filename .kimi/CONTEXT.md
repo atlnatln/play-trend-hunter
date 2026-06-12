@@ -5,50 +5,48 @@
 
 ---
 
-## ⏭️ Bugünün Görevleri (2026-06-10)
+## ⏭️ Bugünün Görevleri (2026-06-12)
 
-1. ✅ **Gün 10 snapshot** — `run.py full` (Faz 0 devam)
-2. ✅ **Aday uygulama analizi** — Yeni sinyaller incelendi, detect logları parse edildi
-3. ✅ **Çini Boyama MVP** — `apps/cini-boyama/` fork, kod, build (`BUILD SUCCESSFUL`)
-4. ✅ **Çini Boyama 12 desen genişletmesi** — 1024×1024 asset'ler, erkek/kız çocuk temaları, Maestro/emulator test
-5. ⏭️ **Digital Compass emulator'de aç** — Aurora Store ile yükle, reverse engineering
-6. ⏭️ **Signing + Release build** — keystore oluştur, `./gradlew assembleRelease`
+1. ✅ **Gün 12 snapshot** — `run.py full` (Faz 0 devam)
+2. ⏭️ **Signing + Release build** — keystore oluştur, `./gradlew assembleRelease`, APK boyut < 5MB
+3. ⏭️ **Play Console** — Yeni app kaydı, internal testing track
+4. ⏭️ **Icon/Feature Graphic** — `flux-asset-generation` skill'i ile asset üretimi
+5. ⏭️ **Emulator kurulumu** — Maestro test pipeline'ı için AVD oluştur
+6. ⏭️ **Çini Boyama polish** — Geometrik desen aşırı yoğunluğu ve Roket arka-plan boyama sorununu çöz
 
 ---
 
 ## ⏭️ Sonraki Session Görevleri
 
-1. **Signing + Release build** — keystore oluştur, `./gradlew assembleRelease`, APK boyut < 5MB
-2. **Play Console** — Yeni app kaydı, internal testing track
-3. **Icon/Feature Graphic** — `flux-asset-generation` skill'i ile asset üretimi
-4. **Emulator kurulumu** — Maestro test pipeline'ı için AVD oluştur
-5. **Gün 11 snapshot** — Faz 0 devam (threshold kalibrasyonu)
-6. **Çini Boyama polish** — Geometrik desen aşırı yoğunluğu ve Roket arka-plan boyama sorununu çöz
+1. **Gün 13 snapshot** — Faz 0 devam (threshold kalibrasyonu)
+2. **Digital Compass emulator'de aç** — Aurora Store ile yükle, reverse engineering
+3. **Aday uygulama analizi** — Yeni sinyaller incelendi, detect logları parse edildi
 
 ---
 
 ## 🎯 Durum
 
-**Faz 0 aktif.** Gün 10 tamamlandı (2026-06-10).
-- Snapshots: **12 adet** (2026-05-31 → 06-10) — ~9.300 app/gün
-- **Recent:** 262 alert | **Persistence:** 316 alert | **WMA:** 81 | **Slope:** 334
+**Faz 0 aktif.** Gün 12 tamamlandı (2026-06-12).
+- Snapshots: **13 adet** (2026-05-31 → 06-12) — ~9.400 app/gün
+- **Recent:** 340 alert | **Persistence:** 389 alert | **WMA:** 183 | **Slope:** 223
+- Toplam alerts: **2.846** | Kategori sayısı: **47**
 - Threshold: **40.0** | Cache TTL: **20 saat**
 - Android altyapısı: Template ✅, Emulator ❌ (kurulu değil), Maestro ✅
 - İlk fast-follow app: **Digital Compass** — kod yazıldı, build başarılı ✅
 
-### 🏆 Gün 10 — Top 10 Sinyal (Recent Algo)
+### 🏆 Gün 12 — Top 10 Sinyal (Recent Algo)
 | # | App | Skor | Kategori | Rank |
 |---|-----|------|----------|------|
-| 1 | Winnser - Quiz Game | 188.33 | GAME_TRIVIA | 43 |
-| 2 | Winnser - Quiz Game | 178.67 | GAME_TRIVIA | 43 |
-| 3 | Cafe Racer | 149.0 | GAME_RACING | 50 |
-| 4 | Digital Compass for Android | 142.0 | MAPS_AND_NAVIGATION | 49 |
-| 5 | YTV Player Pro | 137.0 | VIDEO_PLAYERS | 49 |
-| 6 | Cafe Racer | 135.01 | GAME_RACING | 50 |
-| 7 | Vlad & Niki Supermarket game | 134.01 | GAME_EDUCATIONAL | 23 |
-| 8 | shapes.inc - AI with friends | 134.0 | SOCIAL | 101 |
-| 9 | KSAT Plus | 132.0 | NEWS_AND_MAGAZINES | 109 |
-| 10 | KSAT Plus | 132.0 | NEWS_AND_MAGAZINES | 109 |
+| 1 | Winnser - Quiz Game | 188.33 | GAME_TRIVIA | #60 |
+| 2 | Winnser - Quiz Game | 178.67 | GAME_TRIVIA | #60 |
+| 3 | Telemundo: Series y TV en vivo | 153.01 | ENTERTAINMENT | #47 |
+| 4 | Cafe Racer | 149.0 | GAME_RACING | #63 |
+| 5 | Frost & Flame: King of Avalon | 147.0 | GAME_STRATEGY | #52 |
+| 6 | Digital Compass for Android | 142.0 | MAPS_AND_NAVIGATION | #60 |
+| 7 | YTV Player Pro | 137.0 | VIDEO_PLAYERS | #42 |
+| 8 | Cafe Racer | 135.01 | GAME_RACING | #63 |
+| 9 | ComEd | 135.0 | BUSINESS | #49 |
+| 10 | Vlad & Niki Supermarket game | 134.01 | GAME_EDUCATIONAL | #24 |
 
 ### 🎯 Fast-Follow: Digital Compass
 **App ID:** `com.compass.digital.direction.directionfinder.pro`
@@ -60,9 +58,10 @@
 | 06-05 | 53 | +142 |
 | 06-07 | 39 | +14 |
 | 06-08 | 38 | +1 (stabilize) |
-| **06-10** | **49** | **-11 (soğuma)** |
+| 06-10 | 49 | -11 (soğuma) |
+| **06-12** | **60** | **-11 (soğuma devam)** |
 
-**Momentum durumu:** Rank #49'e düştü, alert üretmiyor. Soğuma sinyali. Fast-follow kararı: **Beklemede** — release build yapılabilir ama yeni sinyale kaynak aktarımı düşünülebilir.
+**Momentum durumu:** Rank #60'a düştü, hâlâ alert üretiyor (score 142.0) ama düşüş trendi devam ediyor. Fast-follow kararı: **Beklemede** — release build yapılabilir ama yeni sinyale kaynak aktarımı düşünülebilir.
 
 **Build durumu:**
 - `apps/digital-compass/` oluşturuldu (template'ten fork)

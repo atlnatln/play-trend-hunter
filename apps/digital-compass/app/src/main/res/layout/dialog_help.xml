@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/purple_900">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_description"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.7"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Item 1: Degrees -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_degrees_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_degrees_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 2: Direction -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_direction_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_direction_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 3: Coords -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_coords_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_coords_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 4: Magnetic Field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_magnetic_field_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_magnetic_field_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 5: Altitude -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_altitude_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_altitude_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 6: True North -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_true_north_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_true_north_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 7: Sensors -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_sensors_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_sensors_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 8: Calibration -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_calibrate_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/help_calibrate_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#22FFFFFF" android:layout_marginBottom="12dp"/>
+
+        <!-- Item 9: Theme -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_theme_title"
+            android:textColor="@color/teal_200"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/help_theme_desc"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:alpha="0.9" />
+
+    </LinearLayout>
+</ScrollView>

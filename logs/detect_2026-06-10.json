@@ -1,0 +1,810 @@
+{
+  "date": "2026-06-10",
+  "threshold": 40.0,
+  "algorithms": [
+    {
+      "algo": "recent",
+      "total_alerts": 262,
+      "top_alerts": [
+        {
+          "app_id": "com.kurogame.wutheringwaves.global",
+          "title": "Wuthering Waves × Cyberpunk",
+          "category": "GAME_ACTION",
+          "score": 121,
+          "rank": 26
+        },
+        {
+          "app_id": "co.communico.delawarelib",
+          "title": "Delaware County Library",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 110,
+          "rank": 75
+        },
+        {
+          "app_id": "com.zadeveloper.mobilesecretscodes.phonetricks.samsungcodetips",
+          "title": "Mobile Secret Codes, USSD, MMI",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 110,
+          "rank": 83
+        },
+        {
+          "app_id": "com.abel.y2k",
+          "title": "y2k: 2000s photo editor",
+          "category": "PHOTOGRAPHY",
+          "score": 108.14,
+          "rank": 63
+        },
+        {
+          "app_id": "nrsv.bible.app",
+          "title": "NRSV Bible app",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 108,
+          "rank": 89
+        },
+        {
+          "app_id": "com.sitaram.material3demo.material_3_demo",
+          "title": "Material 3",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 106,
+          "rank": 94
+        },
+        {
+          "app_id": "com.fipl.Lawsuit",
+          "title": "Lawsuit The Unique Case Finder",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 105,
+          "rank": 88
+        },
+        {
+          "app_id": "com.twinsdigital.v2",
+          "title": "Twin Health",
+          "category": "MEDICAL",
+          "score": 103,
+          "rank": 81
+        },
+        {
+          "app_id": "com.acx.mobile.bluetooth",
+          "title": "ACX Virtual Card",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 99,
+          "rank": 92
+        },
+        {
+          "app_id": "com.capiratech.mpplmobile",
+          "title": "MPPL Mobile",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 99,
+          "rank": 93
+        },
+        {
+          "app_id": "com.kalecard.kale",
+          "title": "Kale - Creator Rewards",
+          "category": "LIFESTYLE",
+          "score": 97.03,
+          "rank": 100
+        },
+        {
+          "app_id": "makeover.car.asmr",
+          "title": "Car Makeover: ASMR Games",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 96.07,
+          "rank": 84
+        },
+        {
+          "app_id": "co.communico.desplaines",
+          "title": "DPPL Mobile",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 93,
+          "rank": 77
+        },
+        {
+          "app_id": "mirror.link.carlink.carplay.autocast.mirrorlink.screenmirroring.phonelink.wirelessconnection",
+          "title": "Mirror Link : Cast to Car",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 93,
+          "rank": 86
+        },
+        {
+          "app_id": "women.bible.audio",
+          "title": "Women Bible Audio",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 93,
+          "rank": 87
+        },
+        {
+          "app_id": "com.hpdeskje3772guide.ijhfghk",
+          "title": "HP deskjet 3772 Wireless Guide",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 92,
+          "rank": 82
+        },
+        {
+          "app_id": "rbx.robuxapp.counters.calc.rbux",
+          "title": "RBX Counters Pro – Robuxapp",
+          "category": "TOOLS",
+          "score": 91.14,
+          "rank": 94
+        },
+        {
+          "app_id": "com.thezeusnetwork.www",
+          "title": "Zeus",
+          "category": "ENTERTAINMENT",
+          "score": 88,
+          "rank": 104
+        },
+        {
+          "app_id": "com.shdj.test",
+          "title": "StardustTV - Movies & Dramas",
+          "category": "APPLICATION",
+          "score": 86,
+          "rank": 103
+        },
+        {
+          "app_id": "me.khol.dynamicupdates",
+          "title": "Dynamic Updates",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 86,
+          "rank": 101
+        }
+      ],
+      "histogram": {
+        "120-130": 1,
+        "80-90": 18,
+        "60-70": 39,
+        "50-60": 60,
+        "40-50": 108,
+        "70-80": 20,
+        "90-100": 9,
+        "100-110": 5,
+        "110-120": 2
+      },
+      "category_counts": {
+        "GAME_ACTION": 6,
+        "GAME_ADVENTURE": 4,
+        "GAME_ARCADE": 1,
+        "GAME_PUZZLE": 3,
+        "GAME_STRATEGY": 6,
+        "GAME_SIMULATION": 5,
+        "GAME_CASUAL": 5,
+        "GAME_ROLE_PLAYING": 5,
+        "GAME_SPORTS": 1,
+        "GAME_RACING": 3,
+        "GAME_BOARD": 2,
+        "GAME_CARD": 5,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 4,
+        "GAME_MUSIC": 2,
+        "GAME_TRIVIA": 4,
+        "APPLICATION": 12,
+        "TOOLS": 21,
+        "PRODUCTIVITY": 5,
+        "COMMUNICATION": 3,
+        "SOCIAL": 3,
+        "PHOTOGRAPHY": 8,
+        "VIDEO_PLAYERS": 5,
+        "LIFESTYLE": 9,
+        "HEALTH_AND_FITNESS": 2,
+        "EDUCATION": 3,
+        "BUSINESS": 4,
+        "FINANCE": 4,
+        "ENTERTAINMENT": 9,
+        "BOOKS_AND_REFERENCE": 2,
+        "TRAVEL_AND_LOCAL": 1,
+        "SHOPPING": 3,
+        "DATING": 1,
+        "MAPS_AND_NAVIGATION": 3,
+        "AUTO_AND_VEHICLES": 4,
+        "BEAUTY": 11,
+        "ART_AND_DESIGN": 6,
+        "EVENTS": 15,
+        "HOUSE_AND_HOME": 1,
+        "LIBRARIES_AND_DEMO": 27,
+        "MEDICAL": 5,
+        "MUSIC_AND_AUDIO": 6,
+        "NEWS_AND_MAGAZINES": 11,
+        "PARENTING": 5,
+        "PERSONALIZATION": 9,
+        "WEATHER": 7
+      }
+    },
+    {
+      "algo": "persistence",
+      "total_alerts": 316,
+      "top_alerts": [
+        {
+          "app_id": "com.kurogame.wutheringwaves.global",
+          "title": "Wuthering Waves × Cyberpunk",
+          "category": "GAME_ACTION",
+          "score": 151,
+          "rank": 26
+        },
+        {
+          "app_id": "com.antivi.shield.loish",
+          "title": "Antivirus Shield & Cleaner",
+          "category": "TOOLS",
+          "score": 140,
+          "rank": 42
+        },
+        {
+          "app_id": "com.omer.ropeanddemolishhh",
+          "title": "Rope and Demolish",
+          "category": "GAME_SIMULATION",
+          "score": 122,
+          "rank": 43
+        },
+        {
+          "app_id": "com.steleot.jetpackcompose.playground",
+          "title": "Jetpack Compose Playground",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 122,
+          "rank": 73
+        },
+        {
+          "app_id": "com.resultsdirect.eventsential.branded.aicpa",
+          "title": "AICPA & CIMA Engage365",
+          "category": "EVENTS",
+          "score": 121,
+          "rank": 67
+        },
+        {
+          "app_id": "com.hutch.wx",
+          "title": "Hutch's Weather",
+          "category": "WEATHER",
+          "score": 118,
+          "rank": 81
+        },
+        {
+          "app_id": "com.kidsfreegames.fruitsdrawingbook.coloringgames",
+          "title": "Fruits Coloring- Food Coloring",
+          "category": "GAME_EDUCATIONAL",
+          "score": 116,
+          "rank": 59
+        },
+        {
+          "app_id": "co.communico.delawarelib",
+          "title": "Delaware County Library",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 110,
+          "rank": 75
+        },
+        {
+          "app_id": "com.zadeveloper.mobilesecretscodes.phonetricks.samsungcodetips",
+          "title": "Mobile Secret Codes, USSD, MMI",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 110,
+          "rank": 83
+        },
+        {
+          "app_id": "com.abel.y2k",
+          "title": "y2k: 2000s photo editor",
+          "category": "PHOTOGRAPHY",
+          "score": 108.14,
+          "rank": 63
+        },
+        {
+          "app_id": "nrsv.bible.app",
+          "title": "NRSV Bible app",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 108,
+          "rank": 89
+        },
+        {
+          "app_id": "bekur.call.themes",
+          "title": "Color Phone: Call Screen Theme",
+          "category": "PERSONALIZATION",
+          "score": 107,
+          "rank": 86
+        },
+        {
+          "app_id": "com.sitaram.material3demo.material_3_demo",
+          "title": "Material 3",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 106,
+          "rank": 94
+        },
+        {
+          "app_id": "com.fipl.Lawsuit",
+          "title": "Lawsuit The Unique Case Finder",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 105,
+          "rank": 88
+        },
+        {
+          "app_id": "com.gamesforkids.preschoolworksheets.alphabets",
+          "title": "ABC Tracing Preschool Games 2+",
+          "category": "GAME_EDUCATIONAL",
+          "score": 103,
+          "rank": 73
+        },
+        {
+          "app_id": "ar.tvplayer.tv",
+          "title": "TiviMate IPTV Player",
+          "category": "VIDEO_PLAYERS",
+          "score": 103,
+          "rank": 90
+        },
+        {
+          "app_id": "com.twinsdigital.v2",
+          "title": "Twin Health",
+          "category": "MEDICAL",
+          "score": 103,
+          "rank": 81
+        },
+        {
+          "app_id": "com.tstudio.emojibatteryicon",
+          "title": "Emoji Battery Icon Customize",
+          "category": "PERSONALIZATION",
+          "score": 100.24,
+          "rank": 9
+        },
+        {
+          "app_id": "ca.bintec.meescan",
+          "title": "Meescan",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 99,
+          "rank": 79
+        },
+        {
+          "app_id": "com.acx.mobile.bluetooth",
+          "title": "ACX Virtual Card",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 99,
+          "rank": 92
+        }
+      ],
+      "histogram": {
+        "150-160": 1,
+        "80-90": 25,
+        "60-70": 44,
+        "50-60": 69,
+        "40-50": 123,
+        "90-100": 14,
+        "70-80": 23,
+        "120-130": 3,
+        "110-120": 4,
+        "100-110": 9,
+        "140-150": 1
+      },
+      "category_counts": {
+        "GAME_ACTION": 7,
+        "GAME_ADVENTURE": 4,
+        "GAME_ARCADE": 2,
+        "GAME_PUZZLE": 4,
+        "GAME_STRATEGY": 6,
+        "GAME_SIMULATION": 7,
+        "GAME_CASUAL": 6,
+        "GAME_ROLE_PLAYING": 8,
+        "GAME_SPORTS": 1,
+        "GAME_RACING": 3,
+        "GAME_BOARD": 2,
+        "GAME_CARD": 6,
+        "GAME_WORD": 1,
+        "GAME_EDUCATIONAL": 8,
+        "GAME_MUSIC": 3,
+        "GAME_TRIVIA": 5,
+        "APPLICATION": 16,
+        "TOOLS": 27,
+        "PRODUCTIVITY": 5,
+        "COMMUNICATION": 3,
+        "SOCIAL": 3,
+        "PHOTOGRAPHY": 9,
+        "VIDEO_PLAYERS": 8,
+        "LIFESTYLE": 9,
+        "HEALTH_AND_FITNESS": 3,
+        "EDUCATION": 4,
+        "BUSINESS": 4,
+        "FINANCE": 4,
+        "ENTERTAINMENT": 9,
+        "BOOKS_AND_REFERENCE": 2,
+        "TRAVEL_AND_LOCAL": 1,
+        "SHOPPING": 3,
+        "DATING": 1,
+        "MAPS_AND_NAVIGATION": 5,
+        "AUTO_AND_VEHICLES": 5,
+        "BEAUTY": 12,
+        "ART_AND_DESIGN": 8,
+        "EVENTS": 17,
+        "HOUSE_AND_HOME": 1,
+        "LIBRARIES_AND_DEMO": 34,
+        "MEDICAL": 5,
+        "MUSIC_AND_AUDIO": 7,
+        "NEWS_AND_MAGAZINES": 11,
+        "PARENTING": 6,
+        "PERSONALIZATION": 13,
+        "WEATHER": 8
+      }
+    },
+    {
+      "algo": "wma",
+      "total_alerts": 81,
+      "top_alerts": [
+        {
+          "app_id": "com.acx.mobile.bluetooth",
+          "title": "ACX Virtual Card",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 99.0,
+          "rank": 92
+        },
+        {
+          "app_id": "mirror.link.carlink.carplay.autocast.mirrorlink.screenmirroring.phonelink.wirelessconnection",
+          "title": "Mirror Link : Cast to Car",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 93.0,
+          "rank": 86
+        },
+        {
+          "app_id": "women.bible.audio",
+          "title": "Women Bible Audio",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 93.0,
+          "rank": 87
+        },
+        {
+          "app_id": "com.abel.y2k",
+          "title": "y2k: 2000s photo editor",
+          "category": "PHOTOGRAPHY",
+          "score": 89.81,
+          "rank": 63
+        },
+        {
+          "app_id": "me.khol.dynamicupdates",
+          "title": "Dynamic Updates",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 86.0,
+          "rank": 101
+        },
+        {
+          "app_id": "app.spreadly.app",
+          "title": "Digital Business Card",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 86.0,
+          "rank": 104
+        },
+        {
+          "app_id": "com.hutch.wx",
+          "title": "Hutch's Weather",
+          "category": "WEATHER",
+          "score": 84.17,
+          "rank": 81
+        },
+        {
+          "app_id": "com.kurogame.wutheringwaves.global",
+          "title": "Wuthering Waves × Cyberpunk",
+          "category": "GAME_ACTION",
+          "score": 81.0,
+          "rank": 26
+        },
+        {
+          "app_id": "co.communico.delawarelib",
+          "title": "Delaware County Library",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 77.17,
+          "rank": 75
+        },
+        {
+          "app_id": "com.adfone.aditup",
+          "title": "Ad It Up—Save on Your Bills",
+          "category": "SHOPPING",
+          "score": 75.5,
+          "rank": 83
+        },
+        {
+          "app_id": "co.communico.desplaines",
+          "title": "DPPL Mobile",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 73.8,
+          "rank": 77
+        },
+        {
+          "app_id": "com.miniai.facematch",
+          "title": "Face Matching",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 72.0,
+          "rank": 111
+        },
+        {
+          "app_id": "com.capitalweather.android.weather",
+          "title": "Capital Weather",
+          "category": "WEATHER",
+          "score": 70.33,
+          "rank": 43
+        },
+        {
+          "app_id": "com.fipl.Lawsuit",
+          "title": "Lawsuit The Unique Case Finder",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 70.17,
+          "rank": 88
+        },
+        {
+          "app_id": "com.excentus.frn.android",
+          "title": "Fuel Rewards® program",
+          "category": "LIFESTYLE",
+          "score": 69.83,
+          "rank": 36
+        },
+        {
+          "app_id": "videodownloader.downloader.videoplayer",
+          "title": "Video Downloader - HD & Easy",
+          "category": "VIDEO_PLAYERS",
+          "score": 69.06,
+          "rank": 111
+        },
+        {
+          "app_id": "com.ktk.dramastory.reelshort.watcdramacer",
+          "title": "ClipSeries: Stream Drama & TV",
+          "category": "ENTERTAINMENT",
+          "score": 67.0,
+          "rank": 126
+        },
+        {
+          "app_id": "com.capiratech.mpplmobile",
+          "title": "MPPL Mobile",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 65.8,
+          "rank": 93
+        },
+        {
+          "app_id": "com.hpdeskje3772guide.ijhfghk",
+          "title": "HP deskjet 3772 Wireless Guide",
+          "category": "LIBRARIES_AND_DEMO",
+          "score": 65.17,
+          "rank": 82
+        },
+        {
+          "app_id": "com.acfe.tp.events",
+          "title": "ACFE Events",
+          "category": "EVENTS",
+          "score": 63.0,
+          "rank": 115
+        }
+      ],
+      "histogram": {
+        "80-90": 5,
+        "40-50": 33,
+        "60-70": 10,
+        "50-60": 24,
+        "70-80": 6,
+        "90-100": 3
+      },
+      "category_counts": {
+        "GAME_ACTION": 3,
+        "GAME_ARCADE": 1,
+        "GAME_SIMULATION": 1,
+        "GAME_CASUAL": 2,
+        "GAME_ROLE_PLAYING": 2,
+        "GAME_RACING": 1,
+        "GAME_CARD": 1,
+        "APPLICATION": 1,
+        "TOOLS": 9,
+        "PRODUCTIVITY": 1,
+        "PHOTOGRAPHY": 2,
+        "VIDEO_PLAYERS": 2,
+        "LIFESTYLE": 4,
+        "HEALTH_AND_FITNESS": 1,
+        "BUSINESS": 1,
+        "ENTERTAINMENT": 2,
+        "SHOPPING": 1,
+        "BEAUTY": 6,
+        "EVENTS": 7,
+        "LIBRARIES_AND_DEMO": 24,
+        "MEDICAL": 1,
+        "MUSIC_AND_AUDIO": 2,
+        "NEWS_AND_MAGAZINES": 2,
+        "PERSONALIZATION": 1,
+        "WEATHER": 3
+      }
+    },
+    {
+      "algo": "slope",
+      "total_alerts": 334,
+      "top_alerts": [
+        {
+          "app_id": "com.antivi.shield.loish",
+          "title": "Antivirus Shield & Cleaner",
+          "category": "TOOLS",
+          "score": 195.0,
+          "rank": 42
+        },
+        {
+          "app_id": "com.kidsfreegames.fruitsdrawingbook.coloringgames",
+          "title": "Fruits Coloring- Food Coloring",
+          "category": "GAME_EDUCATIONAL",
+          "score": 168.0,
+          "rank": 59
+        },
+        {
+          "app_id": "com.omer.ropeanddemolishhh",
+          "title": "Rope and Demolish",
+          "category": "GAME_SIMULATION",
+          "score": 165.0,
+          "rank": 43
+        },
+        {
+          "app_id": "bekur.call.themes",
+          "title": "Color Phone: Call Screen Theme",
+          "category": "PERSONALIZATION",
+          "score": 154.5,
+          "rank": 86
+        },
+        {
+          "app_id": "com.hairhub.hairhub",
+          "title": "Hair Hub",
+          "category": "BEAUTY",
+          "score": 152.29,
+          "rank": 15
+        },
+        {
+          "app_id": "com.zero.winnser_app",
+          "title": "Winnser - Quiz Game",
+          "category": "GAME_TRIVIA",
+          "score": 146.33,
+          "rank": 43
+        },
+        {
+          "app_id": "com.gamesforkids.preschoolworksheets.alphabets",
+          "title": "ABC Tracing Preschool Games 2+",
+          "category": "GAME_EDUCATIONAL",
+          "score": 139.5,
+          "rank": 73
+        },
+        {
+          "app_id": "com.PiguinSoft.CafeRacer",
+          "title": "Cafe Racer",
+          "category": "GAME_RACING",
+          "score": 138.31,
+          "rank": 50
+        },
+        {
+          "app_id": "com.vedu.music.Instruments.piano.forpianists",
+          "title": "Real Piano For Pianists",
+          "category": "GAME_MUSIC",
+          "score": 138.3,
+          "rank": 33
+        },
+        {
+          "app_id": "com.vibeshort.visualnovel.android",
+          "title": "VibeShort: AI Comic Dramas",
+          "category": "APPLICATION",
+          "score": 136.59,
+          "rank": 96
+        },
+        {
+          "app_id": "com.nexon.bluearchive",
+          "title": "Blue Archive",
+          "category": "GAME_ROLE_PLAYING",
+          "score": 134.4,
+          "rank": 40
+        },
+        {
+          "app_id": "com.tstudio.emojibatteryicon",
+          "title": "Emoji Battery Icon Customize",
+          "category": "PERSONALIZATION",
+          "score": 132.34,
+          "rank": 9
+        },
+        {
+          "app_id": "com.pdffiles.fileplus",
+          "title": "PDF File Plus",
+          "category": "APPLICATION",
+          "score": 127.5,
+          "rank": 21
+        },
+        {
+          "app_id": "com.hangoverstudios.photomagic.ai.photo.generator",
+          "title": "AI Video Generator: kiss & Hug",
+          "category": "ART_AND_DESIGN",
+          "score": 123.3,
+          "rank": 41
+        },
+        {
+          "app_id": "com.game.people.connector",
+          "title": "Connect Master - Match Puzzle",
+          "category": "GAME_PUZZLE",
+          "score": 120.32,
+          "rank": 66
+        },
+        {
+          "app_id": "com.psv.vlad_and_nikita.supermarket",
+          "title": "Vlad & Niki Supermarket game",
+          "category": "GAME_EDUCATIONAL",
+          "score": 117.93,
+          "rank": 23
+        },
+        {
+          "app_id": "com.file.large.anti",
+          "title": "AntiVirus Sweep & Security",
+          "category": "TOOLS",
+          "score": 115.74,
+          "rank": 25
+        },
+        {
+          "app_id": "com.arkgames.ggplay.rodna",
+          "title": "Rise of Dragons: War",
+          "category": "GAME_STRATEGY",
+          "score": 112.5,
+          "rank": 87
+        },
+        {
+          "app_id": "com.bsro.tp",
+          "title": "Tires Plus",
+          "category": "AUTO_AND_VEHICLES",
+          "score": 111.9,
+          "rank": 90
+        },
+        {
+          "app_id": "com.voicefive.mms",
+          "title": "My Mobile Secure VPN",
+          "category": "TOOLS",
+          "score": 111.62,
+          "rank": 71
+        }
+      ],
+      "histogram": {
+        "70-80": 35,
+        "60-70": 50,
+        "50-60": 76,
+        "40-50": 113,
+        "80-90": 18,
+        "120-130": 3,
+        "90-100": 17,
+        "110-120": 6,
+        "160-170": 2,
+        "130-140": 6,
+        "140-150": 1,
+        "100-110": 4,
+        "190-200": 1,
+        "150-160": 2
+      },
+      "category_counts": {
+        "GAME_ACTION": 9,
+        "GAME_ADVENTURE": 8,
+        "GAME_ARCADE": 2,
+        "GAME_PUZZLE": 8,
+        "GAME_STRATEGY": 10,
+        "GAME_SIMULATION": 9,
+        "GAME_CASUAL": 11,
+        "GAME_ROLE_PLAYING": 10,
+        "GAME_SPORTS": 3,
+        "GAME_RACING": 4,
+        "GAME_BOARD": 3,
+        "GAME_CARD": 4,
+        "GAME_WORD": 3,
+        "GAME_EDUCATIONAL": 10,
+        "GAME_MUSIC": 1,
+        "GAME_TRIVIA": 5,
+        "APPLICATION": 18,
+        "TOOLS": 31,
+        "PRODUCTIVITY": 7,
+        "COMMUNICATION": 6,
+        "SOCIAL": 5,
+        "PHOTOGRAPHY": 9,
+        "VIDEO_PLAYERS": 12,
+        "LIFESTYLE": 5,
+        "HEALTH_AND_FITNESS": 5,
+        "EDUCATION": 9,
+        "BUSINESS": 5,
+        "FINANCE": 6,
+        "ENTERTAINMENT": 8,
+        "BOOKS_AND_REFERENCE": 4,
+        "TRAVEL_AND_LOCAL": 2,
+        "SHOPPING": 3,
+        "FOOD_AND_DRINK": 3,
+        "DATING": 2,
+        "MAPS_AND_NAVIGATION": 9,
+        "AUTO_AND_VEHICLES": 3,
+        "BEAUTY": 2,
+        "ART_AND_DESIGN": 13,
+        "EVENTS": 12,
+        "HOUSE_AND_HOME": 2,
+        "LIBRARIES_AND_DEMO": 4,
+        "MEDICAL": 6,
+        "MUSIC_AND_AUDIO": 12,
+        "NEWS_AND_MAGAZINES": 6,
+        "PARENTING": 6,
+        "PERSONALIZATION": 15,
+        "WEATHER": 4
+      }
+    }
+  ]
+}

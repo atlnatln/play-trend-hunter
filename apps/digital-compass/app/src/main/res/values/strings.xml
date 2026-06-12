@@ -1,13 +1,71 @@
 <resources>
-    <string name="app_name">Digital Compass</string>
+    <string name="app_name">Dijital Pusula</string>
+
+    <!-- Compass Display -->
     <string name="compass_degrees">%d°</string>
-    <string name="compass_hint">Hold your device flat for best accuracy</string>
-    <string name="direction_n">N</string>
-    <string name="direction_ne">NE</string>
-    <string name="direction_e">E</string>
-    <string name="direction_se">SE</string>
-    <string name="direction_s">S</string>
-    <string name="direction_sw">SW</string>
-    <string name="direction_w">W</string>
-    <string name="direction_nw">NW</string>
+    <string name="compass_hint">Cihazınızı düz tutun (en iyi doğruluk için)</string>
+
+    <!-- GPS / Location -->
+    <string name="coords_loading">Konum alınıyor…</string>
+    <string name="coords_format">%1$.5f°  %2$.5f°</string>
+    <string name="coords_unavailable">Konum yok</string>
+
+    <!-- Sensors -->
+    <string name="magnetic_field">μT: %.1f</string>
+    <string name="magnetic_field_na">μT: --</string>
+    <string name="altitude">⛰ %dm</string>
+    <string name="altitude_na">⛰ --</string>
+    <string name="true_north">Gerçek K</string>
+    <string name="magnetic_north">Manyetik K</string>
+    <string name="sensor_mag">● Manyetik</string>
+    <string name="sensor_acc">● İvme</string>
+    <string name="sensor_gps">● GPS</string>
+
+    <!-- Calibration -->
+    <string name="calibrate">Kalibre Et</string>
+    <string name="calibrate_banner">⚠ Şekil-8 çizerek kalibre edin</string>
+    <string name="calibrate_ok">✓ Sensörler kalibre edildi</string>
+    <string name="calibrate_title">Pusulayı Kalibre Et</string>
+    <string name="calibrate_subtitle">Tüm göstergeler yeşil olana kadar telefonunuzu şekil-8 hareketiyle hareket ettirin</string>
+    <string name="accuracy_low">Doğruluk: Düşük</string>
+    <string name="accuracy_medium">Doğruluk: Orta</string>
+    <string name="accuracy_high">Doğruluk: Yüksek</string>
+    <string name="done">Tamam</string>
+
+    <!-- Directions -->
+    <string name="direction_n">K</string>
+    <string name="direction_ne">KD</string>
+    <string name="direction_e">D</string>
+    <string name="direction_se">GD</string>
+    <string name="direction_s">G</string>
+    <string name="direction_sw">GB</string>
+    <string name="direction_w">B</string>
+    <string name="direction_nw">KB</string>
+
+    <!-- Theme -->
+    <string name="theme_2d">2D</string>
+    <string name="theme_3d">3D</string>
+
+    <!-- Help -->
+    <string name="help_title">Bilgi</string>
+    <string name="help_close">Kapat</string>
+    <string name="help_description">Ekrandaki öğelerin açıklamaları</string>
+    <string name="help_degrees_title">Yön Açısı</string>
+    <string name="help_degrees_desc">Telefonunuzun baktığı yön, derece cinsinden (0° = Kuzey, 90° = Doğu, 180° = Güney, 270° = Batı).</string>
+    <string name="help_direction_title">Ana Yön</string>
+    <string name="help_direction_desc">Kısaltılmış ana yön: K (Kuzey), D (Doğu), G (Güney), B (Batı) ve ara yönler.</string>
+    <string name="help_coords_title">GPS Koordinatları</string>
+    <string name="help_coords_desc">Cihazınızın anlık enlem ve boylam koordinatları.</string>
+    <string name="help_magnetic_field_title">μT — Manyetik Alan</string>
+    <string name="help_magnetic_field_desc">Çevrenizdeki manyetik alan şiddeti, mikrotesla (μT) cinsinden. Yüksek değerler metal/cihaz interferansı gösterebilir.</string>
+    <string name="help_altitude_title">⛰ Rakım</string>
+    <string name="help_altitude_desc">GPS ile ölçülen deniz seviyesinden yükseklik, metre cinsinden.</string>
+    <string name="help_true_north_title">Gerçek K / Manyetik K</string>
+    <string name="help_true_north_desc">&quot;Gerçek K&quot; açıkken pusula jeografik Kuzeyi gösterir (GPS konumunuza göre manyetik sapma düzeltilir). Kapalıyken manyetik Kuzeyi gösterir.</string>
+    <string name="help_sensors_title">Sensör Göstergeleri</string>
+    <string name="help_sensors_desc">● Manyetik (manyetometre), ● İvme (ivmeölçer), ● GPS (konum) durumları. Yeşil = iyi, sarı = orta, kırmızı = zayıf/kapalı.</string>
+    <string name="help_calibrate_title">Kalibrasyon</string>
+    <string name="help_calibrate_desc">Sensör doğruluğu düşükse &quot;Kalibre Et&quot; düğmesine basın ve telefonunuzu havada şekil-8 çizin.</string>
+    <string name="help_theme_title">2D / 3D Görünüm</string>
+    <string name="help_theme_desc">Pusula yüzeyini düz (2D) veya klasik 3D görünüm arasında değiştirin.</string>
 </resources>
